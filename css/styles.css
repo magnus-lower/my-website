@@ -1,52 +1,112 @@
-body {
-    font-family: Arial, sans-serif;
+/* Make sure the html and body take up the full height of the viewport */
+html, body {
+    height: 100%;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
+/* Use flexbox on the body to place footer at the bottom */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main content will take up available space between header and footer */
+main {
+    flex: 1;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Basic styling for header */
 header {
     background-color: #333;
     color: white;
     padding: 10px 0;
 }
 
+/* Navigation styling */
 nav ul {
     list-style: none;
     padding: 0;
     display: flex;
     justify-content: center;
+    margin: 0;
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 10px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
+    padding: 8px 15px;
 }
 
-main {
-    padding: 20px;
-    max-width: 1200px;
-    margin: auto;
+nav ul li a:hover {
+    background-color: #555;
+    border-radius: 4px;
 }
 
+/* Footer styling */
 footer {
     background-color: #333;
     color: white;
     text-align: center;
     padding: 10px 0;
-    position: absolute;
     width: 100%;
     bottom: 0;
 }
 
+/* Styling for sections within the main content */
 .intro, .cv, .projects {
     text-align: center;
 }
 
 h1 {
     font-size: 2em;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 1.2em;
+    }
+
+    p {
+        font-size: 0.85em;
+    }
+
+    nav ul li {
+        margin: 3px 0;
+    }
 }
