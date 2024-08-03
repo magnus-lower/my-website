@@ -110,3 +110,27 @@ p {
         margin: 3px 0;
     }
 }
+
+.project-item {
+    margin-bottom: 20px;
+}
+
+.project-item h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.project-item p {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.project-item a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.project-item a:hover {
+    text-decoration: underline;
+}
