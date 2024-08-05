@@ -60,7 +60,7 @@ footer {
 }
 
 /* Styling for sections within the main content */
-.intro, .cv, .projects {
+.intro, .projects {
     text-align: center;
 }
 
@@ -74,43 +74,7 @@ p {
     margin-bottom: 20px;
 }
 
-/* Responsive styling for smaller screens */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-    }
-
-    nav ul li {
-        margin: 5px 0;
-    }
-
-    h1 {
-        font-size: 1.5em;
-    }
-
-    p {
-        font-size: 0.9em;
-    }
-}
-
-@media (max-width: 480px) {
-    nav ul {
-        text-align: center;
-    }
-
-    h1 {
-        font-size: 1.2em;
-    }
-
-    p {
-        font-size: 0.85em;
-    }
-
-    nav ul li {
-        margin: 3px 0;
-    }
-}
-
+/* Styling for individual project items */
 .project-item {
     margin-bottom: 20px;
 }
@@ -133,4 +97,60 @@ p {
 
 .project-item a:hover {
     text-decoration: underline;
+}
+
+/* Progress bar styling */
+#progress-container {
+    width: 100%;
+    background-color: #f3f3f3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5px;
+    z-index: 1000;
+    display: none; /* Start hidden */
+}
+
+#progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: #3498db;
+    transition: width 0.2s ease;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .project-item h2 {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 1.2em;
+    }
+
+    p {
+        font-size: 0.85em;
+    }
+
+    .project-item h2 {
+        font-size: 1em;
+    }
 }
