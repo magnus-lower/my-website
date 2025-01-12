@@ -15,13 +15,16 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="about.html">About Me & Contact</a></li>
+            <li>
+                <div class="dark-mode-toggle">
+                    <label class="switch">
+                        <input type="checkbox" id="dark-mode-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </li>
         </ul>
     </nav>
-    <!-- Dark Mode Toggle -->
-    <label class="switch">
-        <input type="checkbox" id="dark-mode-toggle">
-        <span class="slider round"></span>
-    </label>
 </header>
 
 <main>
@@ -33,16 +36,21 @@
         </div>
     </section>
 
+    <!-- Progress Bar -->
+    <div id="progress-container" class="progress-container">
+        <div id="progress-bar" class="progress-bar"></div>
+        <p id="progress-text">Loading...</p>
+    </div>
+
     <!-- Projects Section -->
     <section class="projects fade-in" id="projects-section">
         <h2>Project Showcase</h2>
-        <p>Click on each box to open a project.</p>
 
         <div class="projects-container">
             <!-- Java Project -->
             <div class="project-wrapper">
                 <h3 class="project-lang">☕ Java</h3>
-                <div class="project-item" onclick="window.open('https://demo-store-grj3.onrender.com', '_blank');" role="button">
+                <div class="project-item project-link" data-url="https://demo-store-grj3.onrender.com">
                     <h2>Shopping Website</h2>
                     <p>This is a Java project that I have developed and deployed using Render. It is still under development.</p>
                 </div>
@@ -51,7 +59,7 @@
             <!-- Python Project -->
             <div class="project-wrapper">
                 <h3 class="project-lang">🐍 Python</h3>
-                <div class="project-item" onclick="window.open('https://weather-dashboard-4slx.onrender.com', '_blank');" role="button">
+                <div class="project-item project-link" data-url="https://weather-dashboard-4slx.onrender.com">
                     <h2>Weather Website</h2>
                     <p>This is a Python project that I have developed and deployed using Render. It is still under development.</p>
                 </div>

@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     console.log('Website loaded successfully');
 
-    // ========== Typing Effect for Hero, about, and project Sections ==========
+    // ========== Typing Effect for Hero, About, and Projects ==========
     function typeEffect(element, text, speed) {
         let i = 0;
         function type() {
@@ -11,30 +11,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 setTimeout(type, speed);
             }
         }
-        type();
+        if (element) {
+            element.innerHTML = ""; // Clear existing text
+            type();
+        }
     }
 
-    const heroTitle = document.getElementById('typing-effect');
-    if (heroTitle) {
-        heroTitle.innerHTML = "";
-        typeEffect(heroTitle, "Welcome to My Portfolio", 100);
-    }
-
-    const aboutTitle = document.getElementById('typing-about');
-    if (aboutTitle) {
-        aboutTitle.innerHTML = "";
-        typeEffect(aboutTitle, "About Me", 100);
-    }
-
-    const projectsTitle = document.getElementById('typing-projects');
-    if (projectsTitle) {
-        projectsTitle.innerHTML = "";
-        typeEffect(projectsTitle, "My Projects", 100);
-    }
+    typeEffect(document.getElementById('typing-effect'), "Welcome to My Portfolio", 100);
+    typeEffect(document.getElementById('typing-about'), "About Me", 100);
+    typeEffect(document.getElementById('typing-projects'), "My Projects", 100);
 
     // ========== Scroll-to-Top Button ==========
+    const scrollButton = document.getElementById('scroll-top');
     window.addEventListener('scroll', function () {
-        let scrollButton = document.getElementById('scroll-top');
         if (window.scrollY > 300) {
             scrollButton.style.display = "block";
         } else {
@@ -42,12 +31,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    document.getElementById('scroll-top').addEventListener('click', function () {
+    scrollButton.addEventListener('click', function () {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // ========== Dark Mode Toggle ==========
+    // ========== Scroll-to-Top Button ==========
     const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+    const sunIcon = document.getElementById('mode-icon');
+    const moonIcon = document.getElementById('mode-icon-dark');
+
     if (darkModeToggle) {
         darkModeToggle.addEventListener('change', function () {
             document.body.classList.toggle('dark-mode');
@@ -61,6 +54,47 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // ========== Accurate Project Loading Progress Bar ==========
+    const projectLinks = document.querySelectorAll('.project-link');
+    const progressContainer = document.getElementById('progress-container');
+    const progressBar = document.getElementById('progress-bar');
+    const progressText = document.getElementById('progress-text');
+
+    projectLinks.forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent default navigation
+            const targetUrl = this.getAttribute('data-url');
+
+            // Show progress bar
+            progressContainer.style.display = 'block';
+            progressBar.style.width = '0%';
+            progressText.innerText = 'Connecting...';
+
+            let progress = 0;
+            const interval = setInterval(() => {
+                if (progress < 90) {
+                    progress += 10;
+                    progressBar.style.width = progress + '%';
+                    progressText.innerText = `Loading: ${progress}%`;
+                }
+            }, 300);
+
+            // Simulating actual load time
+            fetch(targetUrl, { mode: 'no-cors' })
+                .then(() => {
+                    clearInterval(interval);
+                    progressBar.style.width = '100%';
+                    progressText.innerText = "Loaded! Redirecting...";
+                    setTimeout(() => window.location.href = targetUrl, 800);
+                })
+                .catch(() => {
+                    clearInterval(interval);
+                    progressText.innerText = "Failed to load. Redirecting...";
+                    setTimeout(() => window.location.href = targetUrl, 2000);
+                });
+        });
+    });
+
     // ========== Smooth Scroll Animations ==========
     const fadeElements = document.querySelectorAll('.fade-in');
     function checkFadeIn() {
@@ -72,32 +106,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     window.addEventListener('scroll', checkFadeIn);
     checkFadeIn(); // Run on page load
-
-    // ========== Project Links Progress Bar Animation ==========
-    const projectLinks = document.querySelectorAll('.project-link');
-    projectLinks.forEach(link => {
-        link.addEventListener('click', function (event) {
-            event.preventDefault(); // Prevent default link behavior
-            const targetUrl = this.href; // Get the URL to navigate to
-
-            // Show progress bar
-            const progressContainer = document.getElementById('progress-container');
-            const progressBar = document.getElementById('progress-bar');
-            progressContainer.style.display = 'block';
-
-            // Animate the progress bar
-            let width = 0;
-            const interval = setInterval(function () {
-                if (width >= 100) {
-                    clearInterval(interval);
-                    window.location.href = targetUrl; // Redirect to the URL
-                } else {
-                    width += 5; // Adjust the speed by changing this value
-                    progressBar.style.width = width + '%';
-                }
-            }, 100); // Adjust the speed of the interval here (100ms for smoother progress)
-        });
-    });
 
     // ========== Contact Form Submission Confirmation ==========
     const contactForm = document.getElementById('contact-form');
