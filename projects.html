@@ -3,45 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - My Website</title>
+    <title>Projects - Magnus Løwer</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+
 <header>
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="projects.html">Projects</a></li>
-            <li><a href="about.html">About Me</a></li>
+            <li><a href="about.html">About Me & Contact</a></li>
         </ul>
     </nav>
+    <!-- Dark Mode Toggle -->
+    <label class="switch">
+        <input type="checkbox" id="dark-mode-toggle">
+        <span class="slider round"></span>
+    </label>
 </header>
+
 <main>
-    <!-- Progress Bar -->
-    <div id="progress-container">
-        <div id="progress-bar"></div>
-    </div>
-
-    <section class="projects" id="projects-section">
-        <h1>My Projects</h1>
-        <p>Here are some of my projects:</p>
-
-        <!-- Add your project link here -->
-        <div class="project-item">
-            <h2>Java Project (Shopping Website)</h2>
-            <p>This is a Java project that I have developed and deployed using Render. It is still under development.</p>
-            <a href="https://demo-store-grj3.onrender.com" class="project-link">View the project here</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <h1 id="typing-projects"></h1> <!-- Typing effect for Projects -->
+            <p>Explore the projects I have built using various programming languages and frameworks.</p>
         </div>
-        <div class="project-item">
-            <h2>Python Project (Weather Website)</h2>
-            <p>This is a Python project that I have developed and deployed using Render. It is still under development.</p>
-            <a href="https://weather-dashboard-4slx.onrender.com" class="project-link">View the project here</a>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects fade-in" id="projects-section">
+        <h2>Project Showcase</h2>
+        <p>Click on each box to open a project.</p>
+
+        <div class="projects-container">
+            <!-- Java Project -->
+            <div class="project-wrapper">
+                <h3 class="project-lang">☕ Java</h3>
+                <div class="project-item" onclick="window.open('https://demo-store-grj3.onrender.com', '_blank');" role="button">
+                    <h2>Shopping Website</h2>
+                    <p>This is a Java project that I have developed and deployed using Render. It is still under development.</p>
+                </div>
+            </div>
+
+            <!-- Python Project -->
+            <div class="project-wrapper">
+                <h3 class="project-lang">🐍 Python</h3>
+                <div class="project-item" onclick="window.open('https://weather-dashboard-4slx.onrender.com', '_blank');" role="button">
+                    <h2>Weather Website</h2>
+                    <p>This is a Python project that I have developed and deployed using Render. It is still under development.</p>
+                </div>
+            </div>
         </div>
     </section>
 </main>
+
+<!-- Scroll to Top Button -->
+<button id="scroll-top">⬆️</button>
+
 <footer>
     <p>&copy; 2024 Magnus Løwer</p>
 </footer>
+
 <script src="js/script.js"></script>
 </body>
 </html>

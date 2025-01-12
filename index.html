@@ -3,28 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - My Website</title>
+    <title>Home - Magnus Løwer</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+
 <header>
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="projects.html">Projects</a></li>
-            <li><a href="about.html">About Me</a></li>
+            <li><a href="about.html">About Me & Contact</a></li>
         </ul>
     </nav>
+    <!-- Dark Mode Toggle -->
+    <label class="switch">
+        <input type="checkbox" id="dark-mode-toggle">
+        <span class="slider round"></span>
+    </label>
 </header>
+
 <main>
-    <section class="intro">
-        <h1>Welcome to my website!</h1>
-        <p>This is a personal website where I showcase my projects and skills in technology and development.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <h1 id="typing-effect"></h1>  <!-- Typing effect will display here -->
+            <p>Discover my projects, experience, and passion for technology.</p>
+            <a href="projects.html" class="cta-button">View My Projects</a>
+        </div>
+    </section>
+
+    <!-- About Preview Section -->
+    <section class="about-preview fade-in">
+        <h2>About Me</h2>
+        <p>Hello! I'm Magnus Løwer, a Computer Engineering student at NTNU Gjøvik with a passion for software development, cloud infrastructure, and cybersecurity.</p>
+        <a href="about.html" class="cta-button secondary">Learn More</a>
     </section>
 </main>
+
+<!-- Scroll to Top Button -->
+<button id="scroll-top">⬆️</button>
+
 <footer>
     <p>&copy; 2024 Magnus Løwer</p>
 </footer>
+
 <script src="js/script.js"></script>
 </body>
 </html>
