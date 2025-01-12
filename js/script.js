@@ -54,44 +54,41 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // ========== Accurate Project Loading Progress Bar ==========
-    const projectLinks = document.querySelectorAll('.project-link');
-    const progressContainer = document.getElementById('progress-container');
-    const progressBar = document.getElementById('progress-bar');
-    const progressText = document.getElementById('progress-text');
+// ========== Progress Bar for Projects ==========
+    const projectLinks = document.querySelectorAll(".project-link");
+    const progressContainer = document.getElementById("progress-container");
+    const progressBar = document.getElementById("progress-bar");
+    const progressText = document.getElementById("progress-text");
 
     projectLinks.forEach(link => {
-        link.addEventListener('click', function (event) {
+        link.addEventListener("click", function (event) {
             event.preventDefault(); // Prevent default navigation
-            const targetUrl = this.getAttribute('data-url');
+            const targetUrl = this.getAttribute("data-url");
 
-            // Show progress bar
-            progressContainer.style.display = 'block';
-            progressBar.style.width = '0%';
-            progressText.innerText = 'Connecting...';
+            // Reset progress bar
+            progressBar.style.width = "0%";
+            progressText.innerText = "Loading... 0%";
+            progressContainer.style.display = "flex";
 
             let progress = 0;
-            const interval = setInterval(() => {
-                if (progress < 90) {
-                    progress += 10;
-                    progressBar.style.width = progress + '%';
-                    progressText.innerText = `Loading: ${progress}%`;
-                }
-            }, 300);
+            const updateProgress = () => {
+                if (progress < 100) {
+                    progress += Math.floor(Math.random() * 15) + 5; // Random increments for smoother animation
+                    if (progress > 100) progress = 100; // Cap at 100%
+                    progressBar.style.width = `${progress}%`;
+                    progressText.innerText = `Loading... ${progress}%`;
 
-            // Simulating actual load time
-            fetch(targetUrl, { mode: 'no-cors' })
-                .then(() => {
-                    clearInterval(interval);
-                    progressBar.style.width = '100%';
-                    progressText.innerText = "Loaded! Redirecting...";
-                    setTimeout(() => window.location.href = targetUrl, 800);
-                })
-                .catch(() => {
-                    clearInterval(interval);
-                    progressText.innerText = "Failed to load. Redirecting...";
-                    setTimeout(() => window.location.href = targetUrl, 2000);
-                });
+                    setTimeout(updateProgress, Math.random() * 250); // Random delay for realism
+                } else {
+                    progressText.innerText = "Done! Redirecting...";
+                    setTimeout(() => {
+                        window.open(targetUrl, "_blank"); // Open in a new tab
+                        progressContainer.style.display = "none"; // Hide progress bar
+                    }, 800);
+                }
+            };
+
+            updateProgress(); // Start the progress bar animation
         });
     });
 
