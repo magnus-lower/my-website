@@ -51,6 +51,14 @@ nav ul {
     gap: 20px;
 }
 
+.nav-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+}
+
 /* ========== Buttons ========== */
 .cta-button {
     background: var(--primary-color);
@@ -128,17 +136,44 @@ footer {
     width: 100%;
 }
 
+/* Centering the footer content */
+.footer-content p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Separator Line */
+.separator {
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+/* Social Media Icons */
+.footer-content a {
+    color: white;
+    font-size: 1.5em;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-content a:hover {
+    color: var(--primary-color);
+}
+
+/* ========== Sections () ========== */
 /* Welcome Section */
 .intro {
     padding: 40px 20px;
 }
 
-/* ========== Sections () ========== */
 /* About Section */
 .about, .education, .mission, .contact, .cv-download {
     text-align: center;
     padding: 40px 20px;
 }
+
+
 
 /* Skills Section */
 .skills-container {
@@ -152,7 +187,7 @@ footer {
 .skill {
     background: var(--primary-color);
     color: white;
-    padding: 10px 15px;
+    padding: 8px 15px;
     border-radius: 5px;
     font-size: 1em;
     font-weight: bold;
@@ -289,6 +324,49 @@ footer {
 .hero-content p {
     font-size: 1.2em;
     margin-bottom: 20px;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 0;
+    list-style: none;
+}
+
+.contact-links a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.contact-links a:hover {
+    text-decoration: underline;
+}
+
+/* Form */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.confirmation-message {
+    color: green;
+    font-size: 1.1em;
+    display: none;
 }
 
 /* ========== Scroll-to-top button ========== */

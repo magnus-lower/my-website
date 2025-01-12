@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me & Contact - Magnus Løwer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/dark-mode.css">
@@ -13,10 +14,10 @@
 
 <header>
     <nav>
-        <ul>
+        <ul class="nav-list">
             <li><a href="index.html">Home</a></li>
             <li><a href="projects.html">Projects</a></li>
-            <li><a href="about.html">About Me & Contact</a></li>
+            <li><a href="about.html" class="active">About Me & Contact</a></li>
             <li>
                 <div class="dark-mode-toggle">
                     <label class="switch">
@@ -34,68 +35,76 @@
     <section class="hero">
         <div class="hero-content fade-in">
             <h1 id="typing-about"></h1>
-            <p>Get to know me, my background, and how you can connect with me.</p>
+            <p>Get to know me, my background, and how you can connect with me!</p>
         </div>
     </section>
 
     <!-- About Me Section -->
     <section class="about fade-in">
         <h2>Who Am I?</h2>
-        <div class="profile-picture">
-            <img src="assets/profile_picture.jpg" alt="Magnus Løwer" loading="lazy">
+        <div class="about-container">
+            <div class="profile-picture">
+                <img src="assets/profile_picture.jpg" alt="Magnus Løwer" loading="lazy">
+            </div>
+            <div class="about-text">
+                <p>Hi! My name is <strong>Magnus Løwer</strong>, and I am a <strong>Computer Engineering student at NTNU Gjøvik</strong>.</p>
+                <p>I have a strong passion for <strong>software development, cloud infrastructure, and cybersecurity</strong>.
+                    My main focus is on writing <strong>efficient, secure, and scalable code</strong> using modern technologies.</p>
+            </div>
         </div>
-        <p>Hello! My name is Magnus Løwer, and I am a Computer Engineering student at NTNU Gjøvik.</p>
-        <p>I have a strong passion for software development, cloud infrastructure, and cybersecurity.
-            My main focus is on writing efficient, secure, and scalable code using modern technologies.</p>
     </section>
 
     <!-- Education Section -->
     <section class="education fade-in">
         <h2>Education</h2>
-        <p><strong>NTNU Gjøvik</strong> - Bachelor in Computer Engineering</p>
-        <p>Relevant coursework: Infrastructure as Code (IaC), Ethical Hacking, Software Security, Cloud Computing</p>
+        <div class="education-container">
+            <p><strong>NTNU Gjøvik</strong> - Bachelor in Computer Engineering</p>
+            <p>Relevant coursework: Infrastructure as Code (IaC), Ethical Hacking, Software Security, Cloud Computing.</p>
+        </div>
     </section>
 
     <!-- Skills & Technologies Section -->
     <section class="skills fade-in">
         <h2>Skills & Technologies</h2>
         <div class="skills-container">
-            <div class="skill">Java</div>
-            <div class="skill">Python</div>
-            <div class="skill">C++</div>
-            <div class="skill">Terraform</div>
-            <div class="skill">Azure</div>
-            <div class="skill">GitHub Actions</div>
-            <div class="skill">CI/CD</div>
-            <div class="skill">Ethical Hacking</div>
+            <span class="skill">Java</span>
+            <span class="skill">Python</span>
+            <span class="skill">C++</span>
+            <span class="skill">Terraform</span>
+            <span class="skill">Azure</span>
+            <span class="skill">GitHub Actions</span>
+            <span class="skill">CI/CD</span>
+            <span class="skill">Ethical Hacking</span>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact fade-in">
         <h2>Contact Me</h2>
-        <p>Feel free to reach out to me on:</p>
-        <ul>
-            <li><a href="https://github.com/magnus-lower" target="_blank">GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/magnus-lower" target="_blank">LinkedIn</a></li>
-        </ul>
+        <p>Feel free to reach out to me!</p>
 
         <!-- Contact Form -->
         <form action="https://formspree.io/f/mnqkjwdd" method="POST" id="contact-form">
-            <label for="name">Your Name:</label>
-            <input type="text" id="name" name="name" required>
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
 
-            <label for="email">Your Email:</label>
-            <input type="email" id="email" name="_replyto" required>
+            <div class="form-group">
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="_replyto" required>
+            </div>
 
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
 
-            <button type="submit">Send</button>
+            <button type="submit" class="cta-button">Send</button>
         </form>
 
         <!-- Confirmation Message -->
-        <p id="confirmation" style="display: none; color: green;">Your message has been sent!</p>
+        <p id="confirmation" class="confirmation-message">Your message has been sent!</p>
     </section>
 </main>
 
@@ -103,7 +112,16 @@
 <button id="scroll-top">⬆️</button>
 
 <footer>
-    <p>&copy; 2025 Magnus Løwer</p>
+    <div class="footer-content">
+        <p>&copy; 2025 Magnus Løwer <span class="separator">|</span>
+            <a href="https://github.com/magnus-lower" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/magnus-lower" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </p>
+    </div>
 </footer>
 
 <script src="js/script.js" defer></script>
