@@ -1,0 +1,405 @@
+/* ========== Navbar ========== */
+header {
+    background-color: var(--nav-bg);
+    color: var(--nav-text);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    color: var(--nav-text);
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+nav ul li a.active {
+    font-weight: bold;
+    text-decoration: underline;
+    background-color: rgba(255, 255, 255, 0.2); /* Slight highlight */
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* ========== Buttons ========== */
+.cta-button {
+    background: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+    background: #1e70bf;
+    transform: scale(1.05);
+}
+
+/* ========== Forms ========== */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+form button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.3s;
+    border-radius: 5px;
+}
+
+form button:hover {
+    background-color: #1e70bf;
+}
+
+/* Form Confirmation Message */
+#confirmation {
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: green;
+    display: none;
+}
+
+/* ========== Footer ========== */
+footer {
+    background-color: var(--footer-bg);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 1em;
+    width: 100%;
+}
+
+/* Welcome Section */
+.intro {
+    padding: 40px 20px;
+}
+
+/* ========== Sections () ========== */
+/* About Section */
+.about, .education, .mission, .contact, .cv-download {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* Skills Section */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+}
+
+.skill {
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+/* CV Download */
+.cv-download .download-cv {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.cv-download .download-cv:hover {
+    background: #1e70bf;
+}
+
+/* Projects Section */
+.projects {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.projects-container {
+    display: flex;
+    flex-direction: column;  /* Ensures vertical stacking */
+    align-items: center;  /* Centers the content */
+    gap: 40px;  /* Spacing between projects */
+    padding: 20px;
+    max-width: 800px;  /* Prevents projects from stretching too wide */
+    margin: auto;  /* Centers horizontally */
+}
+
+.project-item:hover {
+    transform: scale(1.05);
+}
+
+.project-item h2 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.project-item p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Ensures text fills available space */
+}
+
+/* Make the whole card clickable */
+.project-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.project-item a:hover {
+    color: #1e70bf;
+    text-decoration: underline;
+}
+
+/* Clickable Project Cards */
+.project-item {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+    cursor: pointer;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.project-item:hover {
+    transform: scale(1.05);
+    background-color: #e8f4ff; /* Light blue hover effect */
+}
+
+/* Programming Language Headers */
+.project-lang {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Wrapper to group language headers with project boxes */
+.project-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Profile Picture */
+.profile-picture {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-picture img {
+    width: 150px; /* Adjust size */
+    height: 150px;
+    border-radius: 50%; /* Makes it round */
+    object-fit: cover;
+    border: 3px solid #3498db; /* Optional border */
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(to right, #3498db, #6dd5fa);
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+.hero-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* ========== Scroll-to-top button ========== */
+#scroll-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--primary-color);
+    color: white;
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 1.3em;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#scroll-top:hover {
+    background-color: #1e70bf;
+}
+
+/* ========== Fade-in effect ========== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -55%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* ========== Progress bar ========== */
+/* Progress Bar Overlay (Blurred Background) */
+#progress-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark semi-transparent background */
+    backdrop-filter: blur(5px); /* Smooth blur effect */
+    z-index: 10000; /* Ensures overlay stays behind the progress bar */
+}
+
+/* Progress Bar Container */
+#progress-container {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 80px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #333;
+    z-index: 10002; /* Ensures it stays on top */
+    padding: 15px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Progress Bar Wrapper */
+#progress-bar-wrapper {
+    width: 100%;
+    height: 20px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 10px;
+}
+
+/* Progress Bar Fill */
+#progress-bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(to right, #3498db, #6dd5fa);
+    border-radius: 10px;
+    transition: width 0.4s ease-in-out;
+}
+
+/* Progress Text (Positioned on Top) */
+#progress-text {
+    position: absolute;
+    width: 100%;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    z-index: 10003; /* Ensures text is above the progress bar */
+    line-height: 20px;
+    font-size: 1.1em;
+}
