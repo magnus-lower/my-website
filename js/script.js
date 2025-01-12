@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initProjectProgressBar();
     initSmoothScroll();
     initContactForm();
+    highlightActiveNavLink();
 
     console.log('All features initialized successfully.');
 });
@@ -50,18 +51,32 @@ function initDarkMode() {
     const darkModeToggle = document.getElementById('dark-mode-toggle');
     if (!darkModeToggle) return;
 
-    const applyDarkMode = (enable) => {
-        document.body.classList.toggle('dark-mode', enable);
-        localStorage.setItem('darkMode', enable);
-    };
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
 
+    // Apply dark mode if enabled (apply to both `body` and `html`)
+    if (isDarkMode) {
+        document.documentElement.classList.add('dark-mode'); // Apply to <html>
+        document.body.classList.add('dark-mode'); // Apply to <body>
+        darkModeToggle.checked = true;
+    }
+
+    // Toggle dark mode and update localStorage
     darkModeToggle.addEventListener('change', () => {
-        applyDarkMode(darkModeToggle.checked);
+        const enabled = darkModeToggle.checked;
+
+        document.documentElement.classList.toggle('dark-mode', enabled);
+        document.body.classList.toggle('dark-mode', enabled);
+
+        localStorage.setItem('darkMode', enabled.toString());
     });
 
-    // Load dark mode preference
-    applyDarkMode(localStorage.getItem('darkMode') === 'true');
-    darkModeToggle.checked = document.body.classList.contains('dark-mode');
+    // Ensure dark mode is persistent on scroll and across all pages
+    window.addEventListener('scroll', () => {
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark-mode');
+            document.body.classList.add('dark-mode');
+        }
+    });
 }
 
 /* ========== Progress Bar for Projects ========== */
@@ -150,5 +165,26 @@ function initContactForm() {
         })
             .then(response => response.ok ? console.log('Form submitted successfully') : console.error('Form submission error'))
             .catch(error => console.error('Error:', error));
+    });
+}
+
+/* ========== Highlights active link ========== */
+function highlightActiveNavLink() {
+    let links = document.querySelectorAll("nav ul li a");
+    let currentPath = window.location.pathname;
+
+    if (currentPath === '/' || currentPath === '/index.html') {
+        currentPath = 'index.html';
+    }
+
+    links.forEach(link => {
+        let linkPath = link.getAttribute("href");
+        if (linkPath.startsWith("http")) return;
+
+        if (currentPath.includes(linkPath)) {
+            link.classList.add("active");
+        } else {
+            link.classList.remove("active");
+        }
     });
 }

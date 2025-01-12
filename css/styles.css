@@ -74,6 +74,14 @@ nav ul li a:hover {
     color: white;
 }
 
+nav ul li a.active {
+    font-weight: bold;
+    text-decoration: underline;
+    background-color: rgba(255, 255, 255, 0.2); /* Slight highlight */
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
 /* Main Content */
 main {
     flex: 1;
@@ -598,6 +606,14 @@ input:checked + .slider {
 input:checked + .slider:before {
     transform: translateX(24px);
     content: "🌙";
+}
+
+.dark-mode, .dark-mode html {
+    --bg-color: #121212;
+    --text-color: white;
+    --nav-bg: #222;
+    --card-bg: #1e1e1e;
+    --footer-bg: #222;
 }
 
 /* Dark Mode Adjustments */
