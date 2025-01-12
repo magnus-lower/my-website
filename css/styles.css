@@ -99,64 +99,6 @@ p {
     margin-bottom: 20px;
 }
 
-/* Projects Section */
-.projects {
-    gap: 20px;
-    text-align: center;
-    padding: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    align-items: stretch;
-    max-width: 1000px; /* Keeps the section centered */
-    margin: auto; /* Centers the section */
-}
-
-.project-item {
-    background: var(--card-bg);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease-in-out;
-    background: var(--card-bg);
-    width: 350px; /* Ensures consistent width */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between; /* Ensures text stays aligned */
-    min-height: 200px; /* Prevents uneven height */
-}
-
-.project-item:hover {
-    transform: scale(1.05);
-}
-
-.project-item h2 {
-    font-size: 1.4em;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.project-item p {
-    font-size: 1.1em;
-    margin-bottom: 15px;
-    text-align: center;
-    flex-grow: 1; /* Ensures text fills available space */
-}
-
-.project-item a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.project-item a:hover {
-    color: #1e70bf;
-    text-decoration: underline;
-}
-
 form label {
     font-size: 1.2em;
     font-weight: bold;
@@ -183,21 +125,6 @@ form button {
 
 form button:hover {
     background-color: #1e70bf;
-}
-
-/* Scroll to Top Button */
-#scroll-top {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: var(--primary-color);
-    color: white;
-    padding: 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #scroll-top:hover {
@@ -338,25 +265,12 @@ form button:hover {
 
 .projects-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    flex-direction: column;  /* Ensures vertical stacking */
+    align-items: center;  /* Centers the content */
+    gap: 40px;  /* Spacing between projects */
     padding: 20px;
-}
-
-/* Clickable Project Cards */
-.project-item {
-    background: var(--card-bg);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease-in-out;
-    cursor: pointer; /* Makes the whole card clickable */
-    width: 350px; /* Ensures consistent width */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    max-width: 800px;  /* Prevents projects from stretching too wide */
+    margin: auto;  /* Centers horizontally */
 }
 
 .project-item:hover {
@@ -458,20 +372,6 @@ form button:hover {
 .hero-content p {
     font-size: 1.2em;
     margin-bottom: 20px;
-}
-
-.cta-button {
-    background: white;
-    color: #3498db;
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.cta-button:hover {
-    background: #e8f4ff;
-    color: #1e70bf;
 }
 
 /* About & Blog Preview */
@@ -579,11 +479,6 @@ form button:hover {
     font-weight: bold;
 }
 
-.cta-button:hover {
-    transform: scale(1.05);
-    transition: 0.3s;
-}
-
 /* Navigation Bar */
 nav ul {
     list-style: none;
@@ -591,15 +486,6 @@ nav ul {
     justify-content: center;
     align-items: center;
     gap: 20px;
-}
-
-/* Dark Mode Adjustments */
-.dark-mode #mode-icon {
-    opacity: 0; /* Hide sun icon */
-}
-
-.dark-mode #mode-icon-dark {
-    opacity: 1; /* Show moon icon */
 }
 
 /* Dark Mode Toggle Container */
