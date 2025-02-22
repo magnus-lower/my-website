@@ -14,10 +14,15 @@
 
 <header>
     <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="about.html">About Me & Contact</a></li>
+        <ul class="nav-list">
+            <li><a href="index.html" data-en="Home" data-no="Hjem"></a></li>
+            <li><a href="projects.html" data-en="Projects" data-no="Prosjekter"></a></li>
+            <li><a href="about.html" data-en="About Me & Contact" data-no="Om meg og Kontakt"></a></li>
+            <li>
+                <div class="language-switch">
+                    <img src="assets/uk-flag.png" id="language-toggle" alt="Switch Language" title="Switch to Norwegian">
+                </div>
+            </li>
             <li>
                 <div class="dark-mode-toggle">
                     <label class="switch">
@@ -34,17 +39,20 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content fade-in">
-            <h1 id="typing-effect"></h1>  <!-- Typing effect will display here -->
-            <p>Discover my projects, experience, and passion for technology!</p>
-            <a href="projects.html" class="cta-button">View My Projects</a>
+            <h1 id="typing-effect" data-en="Welcome to My Portfolio" data-no="Velkommen til min portefølje"></h1>
+            <p data-en="Discover my projects, experience, and passion for technology!"
+               data-no="Utforsk mine prosjekter, erfaring og lidenskap for teknologi!"></p>
+            <a href="projects.html" class="cta-button" data-en="View My Projects" data-no="Se Mine Prosjekter"></a>
         </div>
     </section>
 
     <!-- About Preview Section -->
     <section class="about-preview fade-in">
-        <h2 id="typing-about"></h2>
-        <p>Hello! I'm Magnus Løwer, a Computer Engineering student at NTNU Gjøvik with a passion for software development, cloud infrastructure, and cybersecurity.</p>
-        <a href="about.html" class="cta-button secondary">Learn More</a>
+        <h2 id="typing-about" data-en="About Me" data-no="Om meg"></h2>
+        <p data-en="Hello! I'm Magnus Løwer, a Computer Engineering student at NTNU Gjøvik with a passion for software development, cloud infrastructure, and cybersecurity."
+           data-no="Hei! Jeg er Magnus Løwer, en student i datateknikk ved NTNU Gjøvik med lidenskap for programvareutvikling, skytjenester og cybersikkerhet.">
+        </p>
+        <a href="about.html" class="cta-button secondary" data-en="Learn More" data-no="Les Mer"></a>
     </section>
 </main>
 
@@ -53,13 +61,9 @@
 
 <footer>
     <div class="footer-content">
-        <p>&copy; 2025 Magnus Løwer <span class="separator">|</span>
-            <a href="https://github.com/magnus-lower" target="_blank" aria-label="GitHub">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/magnus-lower" target="_blank" aria-label="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
+        <p>&copy; 2025 Magnus Løwer |
+            <a href="https://github.com/magnus-lower" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/magnus-lower" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
         </p>
     </div>
 </footer>

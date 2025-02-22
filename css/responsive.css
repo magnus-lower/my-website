@@ -41,3 +41,18 @@
         font-size: 1em;
     }
 }
+
+@media (max-width: 768px) {
+    .nav-list {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    .language-switch img {
+        width: 30px;
+        height: 20px;
+    }
+    nav ul li a {
+        padding: 8px 15px;
+    }
+}

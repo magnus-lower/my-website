@@ -15,9 +15,14 @@
 <header>
     <nav>
         <ul class="nav-list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="about.html" class="active">About Me & Contact</a></li>
+            <li><a href="index.html" data-en="Home" data-no="Hjem"></a></li>
+            <li><a href="projects.html" data-en="Projects" data-no="Prosjekter"></a></li>
+            <li><a href="about.html" class="active" data-en="About Me & Contact" data-no="Om meg og Kontakt"></a></li>
+            <li>
+                <div class="language-switch">
+                    <img src="assets/uk-flag.png" id="language-toggle" alt="Switch Language" title="Switch to Norwegian">
+                </div>
+            </li>
             <li>
                 <div class="dark-mode-toggle">
                     <label class="switch">
@@ -34,8 +39,9 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content fade-in">
-            <h1 id="typing-about"></h1>
-            <p>Get to know me, my background, and how you can connect with me!</p>
+            <h1 id="typing-about" data-en="About Me" data-no="Om meg"></h1>
+            <p data-en="Get to know me, my background, and how you can connect with me!"
+               data-no="Bli kjent med meg, min bakgrunn, og hvordan du kan kontakte meg!"></p>
         </div>
     </section>
 

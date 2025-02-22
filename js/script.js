@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     console.log('Website loaded successfully');
 
+    initLanguageSwitcher();
     initTypingEffects();
     initScrollToTop();
     initDarkMode();
@@ -9,28 +10,93 @@ document.addEventListener('DOMContentLoaded', function () {
     initContactForm();
     highlightActiveNavLink();
 
+    const savedLanguage = localStorage.getItem('language') || 'en';
+    updateLanguage(savedLanguage, true);
+
     console.log('All features initialized successfully.');
 });
 
-/* ========== Typing Effect for Hero, About, and Projects ========== */
-function initTypingEffects() {
-    const typeEffect = (element, text, speed) => {
-        if (!element) return;
-        let i = 0;
-        element.innerHTML = "";
-        function type() {
-            if (i < text.length) {
-                element.innerHTML += text.charAt(i++);
-                setTimeout(type, speed);
-            }
-        }
-        type();
-    };
+/* ========== Language Switcher ========== */
+function initLanguageSwitcher() {
+    const languageToggle = document.getElementById('language-toggle');
+    if (!languageToggle) return;
 
-    typeEffect(document.getElementById('typing-effect'), "Welcome to My Portfolio", 100);
-    typeEffect(document.getElementById('typing-about'), "About Me", 100);
-    typeEffect(document.getElementById('typing-projects'), "My Projects", 100);
+    languageToggle.addEventListener('click', () => {
+        let currentLanguage = localStorage.getItem('language') || 'en';
+        currentLanguage = currentLanguage === 'en' ? 'no' : 'en';
+        localStorage.setItem('language', currentLanguage);
+        updateLanguage(currentLanguage, false);
+    });
 }
+
+let typingInterval;
+
+function typeEffect(element, text, speed) {
+    if (!element) return;
+
+    clearInterval(typingInterval); // Stopp tidligere typing-effekt
+    element.textContent = ""; // Nullstill innholdet
+
+    let i = 0;
+    typingInterval = setInterval(() => {
+        if (i < text.length) {
+            element.textContent += text.charAt(i++);
+        } else {
+            clearInterval(typingInterval); // Stopp animasjonen når ferdig
+        }
+    }, speed);
+}
+
+function updateLanguage(language, firstLoad) {
+    const languageToggle = document.getElementById('language-toggle');
+    if (!languageToggle) return; // Unngå feil hvis elementet ikke finnes
+
+    document.querySelectorAll("[data-en]").forEach(el => {
+        if (el.id !== "typing-effect" && el.id !== "typing-projects") {
+            el.textContent = language === 'no' ? el.getAttribute("data-no") : el.getAttribute("data-en");
+        }
+    });
+
+    document.documentElement.lang = language === 'no' ? "no" : "en";
+
+    languageToggle.src = language === 'no' ? "assets/norwegian-flag.png" : "assets/uk-flag.png";
+    languageToggle.title = language === 'no' ? "Bytt til engelsk" : "Switch to Norwegian";
+
+    if (firstLoad) {
+        initTypingEffects(language);
+    } else {
+        restartTypingEffects(language);
+    }
+}
+
+function initTypingEffects(language) {
+    const typingEffect = document.getElementById('typing-effect');
+    const typingProjects = document.getElementById('typing-projects');
+
+    if (typingEffect) {
+        const text = language === 'no' ? typingEffect.getAttribute("data-no") : typingEffect.getAttribute("data-en");
+        typeEffect(typingEffect, text, 100);
+    }
+
+    if (typingProjects) {
+        const text = language === 'no' ? typingProjects.getAttribute("data-no") : typingProjects.getAttribute("data-en");
+        typeEffect(typingProjects, text, 100);
+    }
+}
+
+function restartTypingEffects(language) {
+    const typingEffect = document.getElementById('typing-effect');
+    const typingProjects = document.getElementById('typing-projects');
+
+    if (typingEffect) typingEffect.textContent = "";
+    if (typingProjects) typingProjects.textContent = "";
+
+    setTimeout(() => {
+        initTypingEffects(language);
+    }, 200);
+}
+
+
 
 /* ========== Scroll-to-Top Button ========== */
 function initScrollToTop() {
