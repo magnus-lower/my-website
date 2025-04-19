@@ -1,34 +1,73 @@
-// js/modules/typing.js
-let typingInterval;
+let typingIntervals = [];
 
 function typeEffect(el, text, speed=100) {
-    clearInterval(typingInterval);
+    if (!el || !text) return;
+
+    // Clear any existing interval for this element
+    clearTypingForElement(el);
+
     el.textContent = '';
     let i = 0;
-    typingInterval = setInterval(() => {
-        el.textContent += text[i++] || '';
-        if (i > text.length) clearInterval(typingInterval);
+    const interval = setInterval(() => {
+        if (i <= text.length) {
+            el.textContent = text.substring(0, i);
+            i++;
+        } else {
+            clearInterval(interval);
+        }
     }, speed);
+
+    typingIntervals.push({ el, interval });
+}
+
+function clearTypingForElement(el) {
+    typingIntervals = typingIntervals.filter(item => {
+        if (item.el === el) {
+            clearInterval(item.interval);
+            return false;
+        }
+        return true;
+    });
+}
+
+function clearAllTyping() {
+    typingIntervals.forEach(item => clearInterval(item.interval));
+    typingIntervals = [];
 }
 
 export function initTypingEffects() {
-    const lang = localStorage.getItem('language') || 'en';
-    ['typing-effect','typing-projects','typing-about']
-        .forEach(id => {
-            const el = document.getElementById(id);
-            if (!el) return;
-            const text = lang === 'no'
-                ? el.getAttribute('data-no')
-                : el.getAttribute('data-en');
-            typeEffect(el, text);
-        });
+    // Small delay to ensure DOM is ready
+    setTimeout(() => {
+        const lang = localStorage.getItem('language') || 'en';
+
+        // Try each element individually to avoid one failure stopping others
+        const typingEffect = document.getElementById('typing-effect');
+        if (typingEffect) {
+            const text = lang === 'no' ? typingEffect.getAttribute('data-no') : typingEffect.getAttribute('data-en');
+            typeEffect(typingEffect, text);
+        }
+
+        const typingProjects = document.getElementById('typing-projects');
+        if (typingProjects) {
+            const text = lang === 'no' ? typingProjects.getAttribute('data-no') : typingProjects.getAttribute('data-en');
+            typeEffect(typingProjects, text);
+        }
+
+        const typingAbout = document.getElementById('typing-about');
+        if (typingAbout) {
+            const text = lang === 'no' ? typingAbout.getAttribute('data-no') : typingAbout.getAttribute('data-en');
+            typeEffect(typingAbout, text);
+        }
+    }, 1);
 }
 
 export function restartTypingEffects() {
-    ['typing-effect','typing-projects','typing-about']
-        .forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.textContent = '';
-        });
+    clearAllTyping();
+
+    ['typing-effect', 'typing-projects', 'typing-about'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = '';
+    });
+
     setTimeout(initTypingEffects, 200);
 }
