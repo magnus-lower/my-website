@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Magnus Løwer's portfolio showcasing software development projects in Java, Python, and more.">
     <title>Projects - Magnus Løwer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
@@ -14,10 +15,15 @@
 
 <header>
     <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="about.html">About Me & Contact</a></li>
+        <ul class="nav-list">
+            <li><a href="index.html" data-en="Home" data-no="Hjem"></a></li>
+            <li><a href="projects.html" class="active" data-en="Projects" data-no="Prosjekter"></a></li>
+            <li><a href="about.html" data-en="About Me & Contact" data-no="Om meg og Kontakt"></a></li>
+            <li>
+                <div class="language-switch">
+                    <img src="assets/uk-flag.png" id="language-toggle" alt="Switch Language" title="Switch to Norwegian">
+                </div>
+            </li>
             <li>
                 <div class="dark-mode-toggle">
                     <label class="switch">
@@ -34,44 +40,48 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content fade-in">
-            <h1 id="typing-projects"></h1> <!-- Typing effect for Projects -->
-            <p>Explore the projects I have built using various programming languages and frameworks!</p>
+            <h1 id="typing-projects" data-en="My Projects" data-no="Mine Prosjekter"></h1>
+            <p data-en="Explore the projects I have built using various programming languages and frameworks!"
+               data-no="Utforsk prosjektene jeg har bygget med forskjellige programmeringsspråk og rammeverk!"></p>
         </div>
     </section>
 
     <!-- Progress Bar -->
-    <div id="progress-container" class="progress-container">
-        <div id="progress-bar" class="progress-bar"></div>
-        <p id="progress-text">Loading...</p>
+    <div id="progress-overlay"></div>
+    <div id="progress-container">
+        <div id="progress-text">Loading...</div>
+        <div id="progress-bar-wrapper">
+            <div id="progress-bar"></div>
+        </div>
     </div>
 
     <!-- Projects Section -->
     <section class="projects fade-in" id="projects-section">
-        <h2>Project Showcase</h2>
+        <h2 data-en="Project Showcase" data-no="Prosjektutstilling"></h2>
 
         <div class="projects-container">
-            <!-- Java Project -->
+            <!-- Java Projects -->
             <div class="project-wrapper">
                 <h3 class="project-lang">☕ Java</h3>
                 <div class="project-item project-link" data-url="https://demo-store-grj3.onrender.com">
-                    <h2>Shopping Website</h2>
+                    <h2>E-Commerce Platform</h2>
                     <p>
                         A <strong>full-stack e-commerce platform</strong> built using <strong>Java (Spring Boot), PostgreSQL, and Thymeleaf</strong>.
                         Features <strong>user authentication, product catalog, and shopping cart</strong>.
-                        Hosted on <strong>Render</strong>.
+                        Deployed with <strong>CI/CD pipeline on Render</strong>.
                     </p>
                 </div>
             </div>
 
-            <!-- Python Project -->
+            <!-- Python Projects -->
             <div class="project-wrapper">
                 <h3 class="project-lang">🐍 Python</h3>
                 <div class="project-item project-link" data-url="https://weather-dashboard-4slx.onrender.com">
-                    <h2>Weather Website</h2>
+                    <h2>Weather Dashboard</h2>
                     <p>
                         A real-time <strong>weather dashboard</strong> built with <strong>Python (Flask), OpenWeather API, and Bootstrap</strong>.
                         Fetches <strong>live weather data</strong>, and provides <strong>hourly and weekly forecasts</strong>.
-                        Hosted on <strong>Render</strong>.
+                        Features <strong>location-based weather alerts</strong>.
                     </p>
                 </div>
             </div>
