@@ -72,6 +72,7 @@ function updateLanguage(language, firstLoad) {
 function initTypingEffects(language) {
     const typingEffect = document.getElementById('typing-effect');
     const typingProjects = document.getElementById('typing-projects');
+    const typingAbout = document.getElementById('typing-about');
 
     if (typingEffect) {
         const text = language === 'no' ? typingEffect.getAttribute("data-no") : typingEffect.getAttribute("data-en");
@@ -81,6 +82,11 @@ function initTypingEffects(language) {
     if (typingProjects) {
         const text = language === 'no' ? typingProjects.getAttribute("data-no") : typingProjects.getAttribute("data-en");
         typeEffect(typingProjects, text, 100);
+    }
+
+    if (typingAbout) {
+        const text = language === 'no' ? typingAbout.getAttribute("data-no") : typingAbout.getAttribute("data-en");
+        typeEffect(typingAbout, text, 100);
     }
 }
 
