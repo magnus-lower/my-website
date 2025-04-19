@@ -79,6 +79,17 @@ nav ul {
     transform: scale(1.05);
 }
 
+.cta-button.secondary {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.cta-button.secondary:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
 /* ========== Forms ========== */
 form {
     display: flex;
@@ -216,6 +227,10 @@ footer {
 .projects {
     text-align: center;
     padding: 40px 20px;
+}
+
+.project-wrapper {
+    margin-bottom: 40px;
 }
 
 .projects-container {

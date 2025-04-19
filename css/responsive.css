@@ -56,3 +56,9 @@
         padding: 8px 15px;
     }
 }
+
+@media (max-width: 480px) {
+    .form-group, #contact-form {
+        max-width: 100%;
+    }
+}

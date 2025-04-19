@@ -156,8 +156,9 @@ function initProjectProgressBar() {
     const progressContainer = document.getElementById("progress-container");
     const progressBar = document.getElementById("progress-bar");
     const progressText = document.getElementById("progress-text");
+    const progressOverlay = document.getElementById("progress-overlay");
 
-    if (!progressContainer || !progressBar || !progressText) return;
+    if (!progressContainer || !progressBar || !progressText || !progressOverlay) return;
 
     document.body.addEventListener("click", function (event) {
         const link = event.target.closest(".project-link");
@@ -171,6 +172,7 @@ function initProjectProgressBar() {
         progressBar.style.width = "0%";
         progressText.innerText = "Loading... 0%";
         progressContainer.style.display = "flex";
+        progressOverlay.style.display = "block";
 
         let progress = 0;
 
@@ -188,6 +190,7 @@ function initProjectProgressBar() {
                 setTimeout(() => {
                     window.open(targetUrl, "_blank");
                     progressContainer.style.display = "none";
+                    progressOverlay.style.display = "none";
                 }, 800);
             }
         }
@@ -245,7 +248,7 @@ function highlightActiveNavLink() {
     let links = document.querySelectorAll("nav ul li a");
     let currentPath = window.location.pathname;
 
-    if (currentPath === '/' || currentPath === '/index.html') {
+    if (currentPath === '/' || currentPath === '/index.html' || currentPath.endsWith('index.html')) {
         currentPath = 'index.html';
     }
 
