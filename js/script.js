@@ -93,16 +93,16 @@ function initTypingEffects(language) {
 function restartTypingEffects(language) {
     const typingEffect = document.getElementById('typing-effect');
     const typingProjects = document.getElementById('typing-projects');
+    const typingAbout = document.getElementById('typing-about');
 
     if (typingEffect) typingEffect.textContent = "";
     if (typingProjects) typingProjects.textContent = "";
+    if (typingAbout) typingAbout.textContent = "";
 
     setTimeout(() => {
         initTypingEffects(language);
     }, 200);
 }
-
-
 
 /* ========== Scroll-to-Top Button ========== */
 function initScrollToTop() {
@@ -219,26 +219,28 @@ function initSmoothScroll() {
 /* ========== Contact Form Submission Confirmation ========== */
 function initContactForm() {
     const contactForm = document.getElementById('contact-form');
-    if (!contactForm) return;
+    const confirmationMessage = document.getElementById('confirmation');
+    if (!contactForm || !confirmationMessage) return;
 
     contactForm.addEventListener('submit', function (event) {
         event.preventDefault();
-        const confirmationMessage = document.getElementById('confirmation');
-        if (!confirmationMessage) return;
 
+        // Show confirmation message
         confirmationMessage.style.display = 'block';
 
-        setTimeout(() => {
-            contactForm.reset();
-            confirmationMessage.style.display = 'none';
-        }, 3000);
-
+        // Submit the form data
         fetch(contactForm.action, {
             method: 'POST',
             body: new FormData(contactForm),
             headers: { 'Accept': 'application/json' }
         })
-            .then(response => response.ok ? console.log('Form submitted successfully') : console.error('Form submission error'))
+            .then(() => {
+                // Reset form after successful submission
+                setTimeout(() => {
+                    contactForm.reset();
+                    confirmationMessage.style.display = 'none';
+                }, 3000);
+            })
             .catch(error => console.error('Error:', error));
     });
 }

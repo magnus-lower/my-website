@@ -55,6 +55,13 @@
     nav ul li a {
         padding: 8px 15px;
     }
+    .nav-list li:not(:last-child) {
+        border-right: none;
+        padding-right: 0;
+    }
+    .dark-mode-toggle {
+        margin-top: 10px;
+    }
 }
 
 @media (max-width: 480px) {
