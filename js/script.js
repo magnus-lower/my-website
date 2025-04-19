@@ -206,19 +206,16 @@ function initProjectProgressBar() {
 
 /* ========== Smooth Scroll Animations ========== */
 function initSmoothScroll() {
-    const fadeElements = document.querySelectorAll('.fade-in');
-    if (!fadeElements.length) return;
-
-    function checkFadeIn() {
-        fadeElements.forEach(el => {
-            if (el.getBoundingClientRect().top < window.innerHeight - 50) {
-                el.classList.add('visible');
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                obs.unobserve(e.target);
             }
         });
-    }
+    }, { threshold: 0.1 });
 
-    window.addEventListener('scroll', checkFadeIn);
-    checkFadeIn(); // Run on page load
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 }
 
 /* ========== Contact Form Submission Confirmation ========== */
