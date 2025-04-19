@@ -10,6 +10,11 @@ document.addEventListener('DOMContentLoaded', function () {
     initContactForm();
     highlightActiveNavLink();
 
+    const hamburger = document.querySelector('.hamburger');
+    hamburger?.addEventListener('click', () => {
+        document.querySelector('nav').classList.toggle('open');
+    });
+
     const savedLanguage = localStorage.getItem('language') || 'en';
     updateLanguage(savedLanguage, true);
 

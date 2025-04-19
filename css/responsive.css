@@ -20,6 +20,19 @@
         flex-direction: column;
         align-items: center;
     }
+    /* hide the menu by default on mobile */
+    nav .nav-list {
+        display: none;
+    }
+
+    /* when <nav> has .open, show it */
+    nav.open .nav-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background: var(--nav-bg);
+        padding: 10px;
+    }
 }
 
 @media (max-width: 600px) {

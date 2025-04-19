@@ -62,6 +62,37 @@ nav ul {
     padding: 0 10px;
 }
 
+/* Hamburger button (mobile) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 20px;
+}
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--nav-text);
+    transition: transform 0.3s;
+}
+
+/* Toggle showing nav on mobile */
+@media (max-width: 768px) {
+    .hamburger { display: flex; }
+    nav ul { display: none; }
+    nav.open ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background: var(--nav-bg);
+        padding: 10px;
+    }
+}
+
+
 /* ========== Buttons ========== */
 .cta-button {
     background: var(--primary-color);
@@ -526,4 +557,3 @@ footer {
 .nav-list li:last-child {
     padding-left: 15px;
 }
-
