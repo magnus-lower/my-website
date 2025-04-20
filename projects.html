@@ -20,31 +20,38 @@
 <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
 
-<header>
-    <nav>
-        <button class="hamburger" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
-        </button>
-        <ul class="nav-list">
-            <li><a href="index.html" data-en="Home" data-no="Hjem"></a></li>
-            <li><a href="projects.html" class="active" data-en="Projects" data-no="Prosjekter"></a></li>
-            <li><a href="about.html" data-en="About Me & Contact" data-no="Om meg og Kontakt"></a></li>
-            <li>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">ML</a>
+            </div>
+
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="index.html" data-en="Home" data-no="Hjem"></a></li>
+                    <li><a href="projects.html" data-en="Projects" data-no="Prosjekter"></a></li>
+                    <li><a href="about.html" data-en="About Me & Contact" data-no="Om meg og Kontakt"></a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
                 <div class="language-switch">
                     <img src="assets/uk-flag.png" id="language-toggle" alt="Switch Language" title="Switch to Norwegian" aria-label="Toggle language">
                 </div>
-            </li>
-            <li>
+
                 <div class="dark-mode-toggle">
                     <label class="switch">
                         <input type="checkbox" id="dark-mode-toggle">
                         <span class="slider round"></span>
                     </label>
                 </div>
-            </li>
-        </ul>
-    </nav>
-</header>
+            </div>
+        </div>
+    </header>
 
     <main id="main-content">
     <!-- Hero Section -->

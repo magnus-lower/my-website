@@ -1,14 +1,48 @@
 /* ========== Navbar ========== */
-header {
+.main-header {
     background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
     color: var(--nav-text);
-    padding: 15px 0;
+    padding: 0;
     position: sticky;
     top: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(10px);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 15px 20px;
+}
+
+/* Header Actions */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Logo */
+.logo a {
+    font-size: 1.8em;
+    font-weight: 700;
+    text-decoration: none;
+    background: linear-gradient(45deg, #3498db, #6dd5fa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.logo a:hover {
+    transform: scale(1.05);
 }
 
 /* Skip‑to‑content link (hidden until focused) */
@@ -24,6 +58,65 @@ header {
 }
 .skip-link:focus {
     top: 0;
+}
+
+nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list li a {
+    color: var(--nav-text);
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 1.1em;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.nav-list li a:hover {
+    color: #ffffff;
+}
+
+.nav-list li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.nav-list li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.nav-list li a.active {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.nav-list li a.active::after {
+    width: 100%;
+    left: 0;
+    background-color: var(--primary-color);
+    height: 3px;
 }
 
 nav ul {
@@ -85,42 +178,93 @@ nav ul {
     background: none;
     border: none;
     cursor: pointer;
-    margin-left: 20px;
+    padding: 8px;
+    z-index: 1001;
 }
+
 .hamburger span {
     width: 25px;
     height: 3px;
     background: var(--nav-text);
-    transition: transform 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
 }
 
 /* Toggle showing nav on mobile */
 @media (max-width: 768px) {
-    .hamburger { display: flex; }
-    nav ul { display: none; }
-    nav.open ul {
+    .hamburger {
         display: flex;
+        order: 1;
+    }
+
+    .logo {
+        order: 2;
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    .header-actions {
+        order: 3;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        transition: left 0.3s ease;
+        padding-top: 70px;
+    }
+
+    nav.open {
+        left: 0;
+    }
+
+    .nav-list {
         flex-direction: column;
-        gap: 10px;
-        background: var(--nav-bg);
-        padding: 10px;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .nav-list li {
+        width: 100%;
+    }
+
+    .nav-list li a {
+        display: block;
+        padding: 15px 0;
+        width: 100%;
+    }
+
+    /* Hamburger animation when menu is open */
+    nav.open + .hamburger span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    nav.open + .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+
+    nav.open + .hamburger span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
 }
 
 /* Language Switcher */
 .language-switch img {
-    width: 35px;
-    height: 25px;
+    width: 32px;
+    height: 22px;
     cursor: pointer;
-    margin-left: 15px;
-    border: 2px solid white;
+    border: 2px solid rgba(255, 255, 255, 0.7);
     border-radius: 4px;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .language-switch img:hover {
-    transform: scale(1.2);
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
 }
 
 .nav-list li:not(:last-child) {
