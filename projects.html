@@ -39,15 +39,30 @@
             </nav>
 
             <div class="header-actions">
-                <div class="language-switch">
-                    <img src="assets/uk-flag.png" id="language-toggle" alt="Switch Language" title="Switch to Norwegian" aria-label="Toggle language">
-                </div>
-
-                <div class="dark-mode-toggle">
-                    <label class="switch">
-                        <input type="checkbox" id="dark-mode-toggle">
-                        <span class="slider round"></span>
-                    </label>
+                <div class="settings-panel">
+                    <button class="settings-toggle" aria-label="Toggle settings">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                    <div class="settings-dropdown" id="settings-dropdown">
+                        <div class="settings-item">
+                            <div class="settings-item-label">
+                                <i class="fas fa-globe"></i> Language
+                            </div>
+                            <div class="language-toggle" id="language-toggle">
+                                <img src="assets/uk-flag.png" class="flag-icon" id="en-flag" alt="English">
+                                <img src="assets/norwegian-flag.png" class="flag-icon" id="no-flag" alt="Norwegian" style="opacity: 0.5;">
+                            </div>
+                        </div>
+                        <div class="settings-item">
+                            <div class="settings-item-label">
+                                <i class="fas fa-moon"></i> Dark Mode
+                            </div>
+                            <label class="theme-toggle">
+                                <input type="checkbox" id="dark-mode-toggle">
+                                <span class="theme-slider"></span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

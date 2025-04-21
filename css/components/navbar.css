@@ -1,7 +1,6 @@
 /* ========== Navbar ========== */
 .main-header {
     background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
-    color: var(--nav-text);
     padding: 0;
     position: sticky;
     top: 0;
@@ -20,11 +19,86 @@
     padding: 15px 20px;
 }
 
-/* Header Actions */
+/* Updated Header Actions */
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
+}
+
+/* Settings Panel */
+.settings-panel {
+    position: relative;
+}
+
+.settings-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(30deg);
+}
+
+.settings-dropdown {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: rgba(40, 40, 40, 0.95);
+    border-radius: 8px;
+    width: 220px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 1001;
+    backdrop-filter: blur(5px);
+    transform-origin: top right;
+    animation: settingsAppear 0.2s ease-out forwards;
+}
+
+@keyframes settingsAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.settings-dropdown.visible {
+    display: block;
+}
+
+.settings-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.settings-item:last-child {
+    border-bottom: none;
+}
+
+.settings-item-label {
+    color: white;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 /* Logo */
@@ -250,6 +324,27 @@ nav ul {
     nav.open + .hamburger span:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
+}
+
+/* Language Toggle */
+.language-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.flag-icon {
+    width: 24px;
+    height: 18px;
+    border-radius: 3px;
+    object-fit: cover;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+    transition: transform 0.2s;
+}
+
+.language-toggle:hover .flag-icon {
+    transform: scale(1.1);
 }
 
 /* Language Switcher */

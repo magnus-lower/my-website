@@ -4,6 +4,11 @@
         text-align: center;
     }
 
+    .settings-dropdown {
+        right: -10px;
+        width: 200px;
+    }
+
     main {
         padding: 10px;
     }
