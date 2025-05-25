@@ -3,6 +3,12 @@ export function initSmoothScroll() {
         entries.forEach(e => {
             if (e.isIntersecting) {
                 e.target.classList.add('visible');
+
+                // Apply dark mode to newly visible elements if dark mode is active
+                if (document.documentElement.classList.contains('dark-mode')) {
+                    e.target.classList.add('dark-mode');
+                }
+
                 obs.unobserve(e.target);
             }
         });

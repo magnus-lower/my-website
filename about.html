@@ -164,6 +164,13 @@
         </p>
     </div>
 </footer>
+    <script>
+        // Apply dark mode immediately on page load
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark-mode');
+            document.body.classList.add('dark-mode');
+        }
+    </script>
     <script type="module" src="js/main.js" defer></script>
 </body>
 </html>
