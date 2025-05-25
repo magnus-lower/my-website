@@ -3,7 +3,7 @@ import { initHamburger }     from './modules/hamburger.js';
 import { initScrollToTop }     from './modules/scrollTop.js';
 import {initProjectProgressBar} from './modules/progressBar.js';
 import { initSmoothScroll }  from './modules/smoothScroll.js';
-import { initLanguageSwitcher }      from './modules/language.js';
+import { initLanguageSwitcher, updateLanguage }      from './modules/language.js';
 import { initTypingEffects }        from './modules/typing.js';
 import { initContactForm } from "./modules/contactForm.js";
 import { highlightActiveNavLink } from './modules/navHighlight.js';
@@ -69,8 +69,8 @@ export function initSettingsPanel() {
                 noFlag.style.opacity = '1';
             }
 
-            // Update language on page - You can reuse your existing language update function here
-            updateLanguage(newLang);
+            // Update language on page using the imported function
+            updateLanguage(newLang, false);
         });
     }
 }

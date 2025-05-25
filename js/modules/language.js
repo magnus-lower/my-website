@@ -1,35 +1,35 @@
 // js/modules/language.js
 import { initTypingEffects, restartTypingEffects } from './typing.js';
 
-function updateLanguage(lang, firstLoad) {
+export function updateLanguage(lang, firstLoad = false) {
     document.querySelectorAll('[data-en]').forEach(el => {
         // skip the typing placeholders
-        if (el.id.startsWith('typing-')) return;
+        if (el.id && el.id.startsWith('typing-')) return;
+
         el.textContent = lang === 'no'
             ? el.getAttribute('data-no')
             : el.getAttribute('data-en');
     });
+
     document.documentElement.lang = lang;
-    const toggle = document.getElementById('language-toggle');
-    toggle.src   = lang === 'no' ? 'assets/norwegian-flag.png' : 'assets/uk-flag.png';
-    toggle.title = lang === 'no' ? 'Bytt til engelsk' : 'Switch to Norwegian';
+
+    // Update flag opacities
+    const enFlag = document.getElementById('en-flag');
+    const noFlag = document.getElementById('no-flag');
+
+    if (enFlag && noFlag) {
+        enFlag.style.opacity = lang === 'en' ? '1' : '0.5';
+        noFlag.style.opacity = lang === 'no' ? '1' : '0.5';
+    }
 
     if (firstLoad) initTypingEffects();
-    else          restartTypingEffects();
+    else restartTypingEffects();
 }
 
 export function initLanguageSwitcher() {
-    const toggle = document.getElementById('language-toggle');
-    if (!toggle) return;
-
-    // 1) Read saved language, apply on load
+    // Read saved language, apply on load
     let lang = localStorage.getItem('language') || 'en';
     updateLanguage(lang, true);
 
-    // 2) Wire up the click to swap and re‑apply
-    toggle.addEventListener('click', () => {
-        lang = (lang === 'en' ? 'no' : 'en');
-        localStorage.setItem('language', lang);
-        updateLanguage(lang, false);
-    });
+    // No need to add event listeners here as they're handled in initSettingsPanel
 }
