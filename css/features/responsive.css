@@ -4,6 +4,37 @@
         text-align: center;
     }
 
+    .hero {
+        width: 90vw;
+        margin-left: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        box-sizing: border-box;
+    }
+
+    /* Fix for projects container alignment */
+    main {
+        padding: 10px 0; /* Remove horizontal padding */
+        width: 90%;
+    }
+
+    .projects-container {
+        width: 90%;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .project-wrapper {
+        width: 100%;
+        padding: 0;
+        margin: 0 auto 20px;
+    }
+
+    .project-item {
+        width: 100%;
+        max-width: 100%;
+    }
+
     .settings-dropdown {
         right: -10px;
         width: 200px;
