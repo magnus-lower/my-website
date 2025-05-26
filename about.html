@@ -80,72 +80,58 @@
 
     <!-- About Me Section -->
     <section class="about fade-in">
-        <h2>Who Am I?</h2>
+        <h2 data-en="Who Am I?" data-no="Hvem er jeg?"></h2>
         <div class="about-container">
             <div class="profile-picture">
                 <img src="assets/profile_picture.jpg" alt="Magnus Løwer" loading="lazy">
             </div>
             <div class="about-text">
-                <p>Hi! My name is <strong>Magnus Løwer</strong>, and I am a <strong>Computer Engineering student at NTNU Gjøvik</strong>.</p>
-                <p>I have a strong passion for <strong>software development, cloud infrastructure, and cybersecurity</strong>.
-                    My main focus is on writing <strong>efficient, secure, and scalable code</strong> using modern technologies.</p>
+                <p data-en="Hi! My name is Magnus Løwer, and I'm currently a Computer Engineering student at NTNU in Gjøvik."
+                   data-no="Hei! Jeg heter Magnus Løwer, og jeg er for tiden dataingeniørstudent ved NTNU i Gjøvik."></p>
+
+                <p data-en="I am very interested in everything related to IT, and that is luckily a field that never stops evolving!"
+                   data-no="Jeg er veldig interessert i alt relatert til IT, og det er heldigvis et felt som aldri slutter å utvikle seg!"></p>
+
+                <p data-en="My first experience with IT was in high school, where I began learning about HTML, CSS, and JavaScript. That experience has led med to explore the bachelors in Computer Engineering."
+                   data-no="Min første erfaring med IT var på videregående, hvor jeg begynte å lære om HTML, CSS og JavaScript. Den erfaringen har ført til at jeg har utforsket bachelorene i datateknikk."></p>
+
+                <p data-en="I've mainly gained hands-on experience through working on projects in my free time, as well as through two summer internships at the Norwegian Digitalisation Agency (Digdir), where I had experience with Java and agile development."
+                   data-no="Jeg har hovedsakelig fått praktisk erfaring gjennom å jobbe med prosjekter på fritiden, så vel som gjennom to sommerpraksis hos Digitaliseringsbyrået (Digdir), hvor jeg hadde erfaring med Java og smidig utvikling."></p>
             </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section class="education fade-in">
-        <h2>Education</h2>
-        <div class="education-container">
-            <p><strong>NTNU Gjøvik</strong> - Bachelor in Computer Engineering</p>
-            <p>Relevant coursework: Infrastructure as Code (IaC), Ethical Hacking, Software Security, Cloud Computing.</p>
-        </div>
-    </section>
-
-    <!-- Skills & Technologies Section -->
-    <section class="skills fade-in">
-        <h2>Skills & Technologies</h2>
-        <div class="skills-container">
-            <span class="skill">Java</span>
-            <span class="skill">Python</span>
-            <span class="skill">C++</span>
-            <span class="skill">Terraform</span>
-            <span class="skill">Azure</span>
-            <span class="skill">GitHub Actions</span>
-            <span class="skill">CI/CD</span>
-            <span class="skill">Ethical Hacking</span>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact fade-in">
-        <h2>Contact Me</h2>
-        <p>Feel free to reach out to me!</p>
+        <section class="contact fade-in">
+            <h2 data-en="Contact Me" data-no="Kontakt meg"></h2>
+            <p data-en="Feel free to reach out to me!" data-no="Ta gjerne kontakt med meg!"></p>
 
         <!-- Contact Form -->
         <form action="https://formspree.io/f/mjkgzjjp" method="POST" id="contact-form">
             <div class="form-group">
-                <label for="name">Your Name:</label>
+                <label for="name" data-en="Your Name:" data-no="Ditt navn:"></label>
                 <input type="text" id="name" name="name" required>
             </div>
 
             <div class="form-group">
-                <label for="email">Your Email:</label>
+                <label for="email" data-en="Your Email:" data-no="Din e-post:"></label>
                 <input type="email" id="email" name="_replyto" required>
             </div>
 
             <div class="form-group">
-                <label for="message">Message:</label>
+                <label for="message" data-en="Message:" data-no="Melding:"></label>
                 <textarea id="message" name="message" rows="4" required></textarea>
             </div>
 
-            <button type="submit" class="cta-button">Send</button>
+            <button type="submit" class="cta-button" data-en="Send" data-no="Send"></button>
         </form>
 
         <!-- Confirmation Message -->
-        <p id="confirmation" class="confirmation-message">Your message has been sent!</p>
+            <p id="confirmation" class="confirmation-message" data-en="Your message has been sent!" data-no="Meldingen din er sendt!"></p>
+        </section>
     </section>
-</main>
+    </main>
 
 <!-- Scroll to Top Button -->
 <button id="scroll-top" aria-label="Scroll to top">
