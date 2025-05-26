@@ -378,3 +378,45 @@ nav ul {
 .nav-list li:last-child {
     padding-left: 15px;
 }
+
+/* Modified Resume Button - Less Flashy Design */
+.resume-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: transparent;
+    color: var(--primary-color) !important;
+    padding: 8px 15px;
+    border-radius: 4px;
+    margin-left: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid var(--primary-color);
+}
+
+.resume-btn:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+    transform: translateY(-2px);
+}
+
+.resume-btn:active {
+    transform: translateY(0);
+}
+
+/* Resume Button - Updated with document icon */
+.resume-btn i {
+    font-size: 1em;
+    margin-right: 5px;
+}
+
+.resume-btn span {
+    font-size: 0.95em;
+}
+
+/* Style for mobile */
+@media (max-width: 768px) {
+    .resume-btn {
+        margin: 10px auto 0;
+    }
+}

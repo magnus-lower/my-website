@@ -11,6 +11,18 @@ export function updateLanguage(lang, firstLoad = false) {
             : el.getAttribute('data-en');
     });
 
+    const resumeText = document.querySelector('.resume-text');
+    if (resumeText) {
+        resumeText.textContent = lang === 'no' ? 'CV' : 'Resume';
+    }
+
+    const resumeLink = document.getElementById('resume-link');
+    if (resumeLink) {
+        resumeLink.href = lang === 'no'
+            ? 'assets/CV/norwegian_cv.pdf'
+            : 'assets/CV/english_cv.pdf';
+    }
+
     document.documentElement.lang = lang;
 
     // Update flag opacities
