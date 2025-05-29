@@ -101,22 +101,24 @@
     gap: 10px;
 }
 
-/* Logo */
+/* Logo styling to match Resume button */
 .logo a {
-    font-size: 1.8em;
-    font-weight: 700;
-    text-decoration: none;
-    background: linear-gradient(45deg, #3498db, #6dd5fa);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    padding: 5px 10px;
+    background-color: transparent;
+    color: white;
+    padding: 6px 15px;
     border-radius: 5px;
-    transition: transform 0.3s;
+    font-weight: 600;
+    font-size: 1.2em;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-color);
 }
 
 .logo a:hover {
-    transform: scale(1.05);
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* Skip‑to‑content link (hidden until focused) */
