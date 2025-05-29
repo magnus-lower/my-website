@@ -1,6 +1,5 @@
 import { initDarkMode }      from './modules/darkmode.js';
 import { initHamburger }     from './modules/hamburger.js';
-import { initScrollToTop }     from './modules/scrollTop.js';
 import {initProjectProgressBar} from './modules/progressBar.js';
 import { initSmoothScroll }  from './modules/smoothScroll.js';
 import { initLanguageSwitcher, updateLanguage }      from './modules/language.js';
@@ -66,7 +65,6 @@ function fixResumePath() {
 document.addEventListener('DOMContentLoaded', () => {
     initDarkMode();
     initHamburger();
-    initScrollToTop();
     initProjectProgressBar();
     initSmoothScroll();
     initLanguageSwitcher();
