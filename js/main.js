@@ -1,6 +1,6 @@
 import { initDarkMode }      from './modules/darkmode.js';
 import { initHamburger }     from './modules/hamburger.js';
-import {initProjectProgressBar} from './modules/progressBar.js';
+import { initProjectProgressBar, initGlobalProjectLinks } from './modules/progressBar.js';
 import { initSmoothScroll }  from './modules/smoothScroll.js';
 import { initLanguageSwitcher, updateLanguage }      from './modules/language.js';
 import { initTypingEffects }        from './modules/typing.js';
@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initDarkMode();
     initHamburger();
     initProjectProgressBar();
+    initGlobalProjectLinks();
     initSmoothScroll();
     initLanguageSwitcher();
     initTypingEffects();
