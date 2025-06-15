@@ -11,6 +11,14 @@ export function updateLanguage(lang, firstLoad = false) {
             : el.getAttribute('data-en');
     });
 
+    // Update theme mode text explicitly (to handle the dynamic dark/light mode label)
+    const themeModeText = document.getElementById('theme-mode-text');
+    if (themeModeText) {
+        themeModeText.textContent = lang === 'no'
+            ? themeModeText.getAttribute('data-no')
+            : themeModeText.getAttribute('data-en');
+    }
+
     const resumeText = document.querySelector('.resume-text');
     if (resumeText) {
         resumeText.textContent = lang === 'no' ? 'CV' : 'Resume';

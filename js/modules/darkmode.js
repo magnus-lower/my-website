@@ -3,36 +3,34 @@ export function initDarkMode() {
     const darkModeToggle = document.getElementById('dark-mode-toggle');
     if (!darkModeToggle) return;
 
-    // Find the label element
-    const darkModeLabel = document.querySelector('.settings-item-label:has(i.fas.fa-moon)');
-    if (darkModeLabel) {
-        const labelText = darkModeLabel.lastChild;
-        const labelIcon = darkModeLabel.querySelector('i');
+    // Find the theme mode text element
+    const themeModeText = document.getElementById('theme-mode-text');
 
-        // Function to update the label text and icon based on dark mode state
-        const updateDarkModeLabel = (isDark) => {
-            if (labelText) {
-                // Display "Dark Mode" when in dark mode, and "Light Mode" when in light mode
-                labelText.textContent = isDark ? " Dark Mode" : " Light Mode";
-            }
+    // Function to update the label text based on both dark mode state and language
+    const updateDarkModeLabel = (isDark) => {
+        if (themeModeText) {
+            const lang = localStorage.getItem('language') || 'en';
+
+            // Update the data attributes to reflect the mode you would SWITCH TO (not the current mode)
+            themeModeText.setAttribute('data-en', isDark ? 'Dark Mode' : 'Light Mode');
+            themeModeText.setAttribute('data-no', isDark ? 'Mørk modus' : 'Lys modus');
+
+            // Apply the correct text based on current language
+            themeModeText.textContent = lang === 'no'
+                ? themeModeText.getAttribute('data-no')
+                : themeModeText.getAttribute('data-en');
+
+            // Update icon - keep the icon logic as is
+            const labelIcon = themeModeText.previousElementSibling;
             if (labelIcon) {
-                // Keep the icon the same - sun in dark mode, moon in light mode
-                labelIcon.className = isDark ? "fas fa-sun" : "fas fa-moon";
+                labelIcon.className = isDark ? "fas fa-moon" : "fas fa-sun";
             }
-        };
+        }
+    };
 
-        // Apply initial label
-        const isDarkMode = localStorage.getItem('darkMode') === 'true';
-        updateDarkModeLabel(isDarkMode);
-
-        // Update the label when the toggle changes
-        darkModeToggle.addEventListener('change', () => {
-            updateDarkModeLabel(darkModeToggle.checked);
-        });
-    }
-
-    // Rest of your existing dark mode code
+    // Apply initial state
     const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    updateDarkModeLabel(isDarkMode);
 
     if (isDarkMode) {
         document.documentElement.classList.add('dark-mode');
@@ -46,6 +44,7 @@ export function initDarkMode() {
 
     darkModeToggle.addEventListener('change', () => {
         const enabled = darkModeToggle.checked;
+        updateDarkModeLabel(enabled);
         document.documentElement.classList.toggle('dark-mode', enabled);
         document.body.classList.toggle('dark-mode', enabled);
         document.querySelectorAll('section, .project-item, .hero, .projects-container')
