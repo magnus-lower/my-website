@@ -53,10 +53,9 @@ export function updateLanguage(lang, firstLoad = false) {
 }
 
 export function initLanguageSwitcher() {
-    // Read saved language, apply on load
     let lang = localStorage.getItem('language');
-    if (lang) {
-        lang = 'no';
+    if (!lang) {
+        lang = 'no'; // Bare bruk norsk hvis det ikke finnes noe fra før
         localStorage.setItem('language', lang);
     }
     updateLanguage(lang, true);
