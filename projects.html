@@ -54,7 +54,7 @@
                     <div class="settings-dropdown" id="settings-dropdown">
                         <div class="settings-item">
                             <div class="settings-item-label">
-                                <i class="fas fa-globe"></i> Language
+                                <i class="fas fa-globe"></i> <span data-en="Language" data-no="Språk">Language</span>
                             </div>
                             <div class="language-toggle" id="language-toggle">
                                 <img src="assets/uk-flag.png" class="flag-icon" id="en-flag" alt="English">
@@ -63,7 +63,7 @@
                         </div>
                         <div class="settings-item">
                             <div class="settings-item-label">
-                                <i class="fas fa-moon"></i> Dark Mode
+                                <i class="fas fa-moon"></i> <span id="theme-mode-text" data-en="Dark Mode" data-no="Mørk modus">Dark Mode</span>
                             </div>
                             <label class="theme-toggle">
                                 <input type="checkbox" id="dark-mode-toggle">
@@ -148,6 +148,16 @@
         </p>
     </div>
 </footer>
+    <script>
+        // Only set default language if it hasn't been set already
+        if (!localStorage.getItem('language')) {
+            localStorage.setItem('language', 'no');
+        }
+
+        // Apply language immediately to prevent flashing English content
+        const language = localStorage.getItem('language');
+        document.documentElement.lang = language;
+    </script>
     <script>
       // Apply dark mode immediately on page load
       if (localStorage.getItem('darkMode') === 'true') {
