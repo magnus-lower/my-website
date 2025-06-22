@@ -48,7 +48,7 @@ export function updateLanguage(lang, firstLoad = false) {
 
 export function initLanguageSwitcher() {
     // Read saved language, apply on load
-    let lang = localStorage.getItem('language') || 'en';
+    let lang = localStorage.getItem('language') || 'no';
     updateLanguage(lang, true);
 
     // No need to add event listeners here as they're handled in initSettingsPanel
