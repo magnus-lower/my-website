@@ -47,9 +47,14 @@ export function updateLanguage(lang, firstLoad = false) {
 }
 
 export function initLanguageSwitcher() {
-    // Read saved language, apply on load
+    // Always default to Norwegian, regardless of what's in localStorage
     let lang = localStorage.getItem('language') || 'no';
-    updateLanguage(lang, true);
 
-    // No need to add event listeners here as they're handled in initSettingsPanel
+    // Force Norwegian as default
+    if (lang !== 'no' && lang !== 'en') {
+        lang = 'no';
+        localStorage.setItem('language', 'no');
+    }
+
+    updateLanguage(lang, true);
 }
