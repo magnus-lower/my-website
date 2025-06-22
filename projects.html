@@ -97,7 +97,7 @@
 
     <!-- Projects Section -->
     <section class="projects fade-in" id="projects-section">
-        <h2 data-en="Project Showcase" data-no="Egne prosjekter"></h2>
+        <h2 data-en="Personal Projects" data-no="Personlige prosjekter"></h2>
 
         <div class="projects-container">
             <!-- Java Projects -->
@@ -121,9 +121,9 @@
                     <h2 data-en="Weather Dashboard" data-no="Værdashbord"></h2>
                     <p
                         data-en="A real-time weather dashboard built with Python (Flask), OpenWeather API, and Bootstrap.
-                        Shows live data, hourly and weekly forecasts, and location-based alerts. Deployed on Render."
-                        data-no="Et værdashbord i sanntid bygget med Python (Flask), OpenWeather API og Bootstrap.
-                        Viser live data, time- og ukesprognoser og stedsbaserte varsler. Distribuert på Render.">
+                        Shows live data, and location-based weather data. Deployed on Render."
+                        data-no="Et værdashbord som er bygget med Python (Flask), OpenWeather API og Bootstrap.
+                        Viser live data, og stedsbasert værdata. Distribuert på Render.">
                     </p>
                 </div>
             </div>
@@ -148,16 +148,6 @@
         </p>
     </div>
 </footer>
-    <script>
-        // Only set default language if it hasn't been set already
-        if (!localStorage.getItem('language')) {
-            localStorage.setItem('language', 'no');
-        }
-
-        // Apply language immediately to prevent flashing English content
-        const language = localStorage.getItem('language');
-        document.documentElement.lang = language;
-    </script>
     <script>
       // Apply dark mode immediately on page load
       if (localStorage.getItem('darkMode') === 'true') {

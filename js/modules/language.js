@@ -3,13 +3,19 @@ import { initTypingEffects, restartTypingEffects } from './typing.js';
 
 export function updateLanguage(lang, firstLoad = false) {
     document.querySelectorAll('[data-en]').forEach(el => {
-        // skip the typing placeholders
         if (el.id && el.id.startsWith('typing-')) return;
 
         el.textContent = lang === 'no'
             ? el.getAttribute('data-no')
             : el.getAttribute('data-en');
     });
+
+    const typingEffect = document.getElementById('typing-effect');
+    if (typingEffect) {
+        typingEffect.textContent = lang === 'no'
+            ? typingEffect.getAttribute('data-no')
+            : typingEffect.getAttribute('data-en');
+    }
 
     // Update theme mode text explicitly (to handle the dynamic dark/light mode label)
     const themeModeText = document.getElementById('theme-mode-text');
@@ -48,8 +54,10 @@ export function updateLanguage(lang, firstLoad = false) {
 
 export function initLanguageSwitcher() {
     // Read saved language, apply on load
-    let lang = localStorage.getItem('language') || 'no';
+    let lang = localStorage.getItem('language');
+    if (lang) {
+        lang = 'no';
+        localStorage.setItem('language', lang);
+    }
     updateLanguage(lang, true);
-
-    // No need to add event listeners here as they're handled in initSettingsPanel
 }

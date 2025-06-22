@@ -112,16 +112,6 @@
     </div>
 </footer>
     <script>
-        // Only set default language if it hasn't been set already
-        if (!localStorage.getItem('language')) {
-            localStorage.setItem('language', 'no');
-        }
-
-        // Apply language immediately to prevent flashing English content
-        const language = localStorage.getItem('language');
-        document.documentElement.lang = language;
-    </script>
-    <script>
         // Apply dark mode immediately on page load
         if (localStorage.getItem('darkMode') === 'true') {
             document.documentElement.classList.add('dark-mode');
