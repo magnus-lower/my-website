@@ -61,7 +61,6 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     display: none;
     z-index: 1001;
-    backdrop-filter: blur(5px);
     transform-origin: top right;
     animation: settingsAppear 0.2s ease-out forwards;
 }
@@ -250,19 +249,40 @@ nav ul {
 .hamburger {
     display: none;
     flex-direction: column;
-    gap: 5px;
+    gap: 4px;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 8px;
-    z-index: 1001;
+    padding: 10px;
+    z-index: 1002;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.hamburger:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .hamburger span {
-    width: 25px;
-    height: 3px;
+    width: 22px;
+    height: 2px;
     background: var(--nav-text);
-    transition: transform 0.3s, opacity 0.3s;
+    transition: all 0.3s ease;
+    border-radius: 1px;
+    transform-origin: center;
+}
+
+/* Hamburger animation */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
 }
 
 /* Toggle showing nav on mobile */
@@ -296,9 +316,11 @@ nav ul {
         left: -100%;
         width: 70%;
         height: 100vh;
-        background: rgba(0, 0, 0, 0.95);
+        background: rgba(0, 0, 0, 0.96);
         transition: left 0.3s ease;
-        padding-top: 70px;
+        padding-top: 80px;
+        z-index: 1001;
+        box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
     }
 
     nav.open {
@@ -307,8 +329,8 @@ nav ul {
 
     .nav-list {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
+        align-items: stretch;
+        gap: 8px;
         padding: 0 20px;
     }
 
@@ -318,22 +340,31 @@ nav ul {
 
     .nav-list li a {
         display: block;
-        padding: 15px 0;
+        padding: 16px 18px;
         width: 100%;
+        font-size: 1.1em;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        color: rgba(255, 255, 255, 0.9);
+        border-left: 3px solid transparent;
     }
 
-    /* Hamburger animation when menu is open */
-    nav.open + .hamburger span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
+    .nav-list li a:hover {
+        background-color: rgba(52, 152, 219, 0.15);
+        border-left: 3px solid var(--primary-color);
+        transform: translateX(4px);
+        color: white;
     }
 
-    nav.open + .hamburger span:nth-child(2) {
-        opacity: 0;
+    .nav-list li a.active {
+        background-color: rgba(52, 152, 219, 0.2);
+        border-left: 3px solid var(--primary-color);
+        color: white;
+        font-weight: 600;
     }
 
-    nav.open + .hamburger span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
+    /* Remove the old hamburger animation styles */
 }
 
 /* Language Toggle */
