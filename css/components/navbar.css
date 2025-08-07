@@ -300,11 +300,14 @@ nav ul li a.active {
         left: -100%;
         width: 70%;
         height: 100vh;
+        height: 100dvh; /* Dynamic viewport height for mobile */
         background: rgba(0, 0, 0, 0.96);
         transition: left 0.3s ease;
         padding-top: 80px;
+        padding-bottom: 20px; /* Add bottom padding */
         z-index: 1001;
         box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
+        overflow-y: auto; /* Allow scrolling if content is too tall */
     }
 
     nav.open {
