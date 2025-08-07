@@ -22,6 +22,9 @@ export function initContactForm() {
                     confirmationMessage.style.display = 'none';
                 }, 3000);
             })
-            .catch(error => console.error('Error:', error));
+            .catch(() => {
+                // Handle error silently in production
+                confirmationMessage.textContent = 'An error occurred. Please try again.';
+            });
     });
 }
