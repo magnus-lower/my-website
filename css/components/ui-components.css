@@ -8,11 +8,18 @@
     text-decoration: none;
     border-radius: 5px;
     transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .cta-button:hover {
     background: #1e70bf;
     transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.cta-button:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
 .cta-button.secondary {
@@ -51,6 +58,13 @@ form input, form textarea {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+form input:focus, form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
 }
 
 form button {
@@ -60,12 +74,19 @@ form button {
     padding: 12px 20px;
     font-size: 1.1em;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
     border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 form button:hover {
     background-color: #1e70bf;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+}
+
+form button:active {
+    transform: translateY(0);
 }
 
 /* Form Confirmation Message */
@@ -106,6 +127,13 @@ form button:hover {
     border-radius: 5px;
     font-size: 1em;
     font-weight: bold;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: default;
+}
+
+.skill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* CV Download */
@@ -132,6 +160,9 @@ form button:hover {
 
 .project-wrapper {
     margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .projects-container {
@@ -142,10 +173,6 @@ form button:hover {
     padding: 20px;
     max-width: 800px;  /* Prevents projects from stretching too wide */
     margin: auto;  /* Centers horizontally */
-}
-
-.project-item:hover {
-    transform: scale(1.05);
 }
 
 .project-item h2 {
@@ -178,7 +205,7 @@ form button:hover {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     width: 350px;
     display: flex;
@@ -188,8 +215,9 @@ form button:hover {
 }
 
 .project-item:hover {
-    transform: scale(1.05);
+    transform: translateY(-5px);
     background-color: #e8f4ff; /* Light blue hover effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Programming Language Headers */
@@ -201,12 +229,7 @@ form button:hover {
     color: #333;
 }
 
-/* Wrapper to group language headers with project boxes */
-.project-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+/* Wrapper to group language headers with project boxes - Combined styles */
 
 /* Form */
 .form-group {
