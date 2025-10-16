@@ -208,20 +208,6 @@ form button:hover {
     align-items: center;
 }
 
-/* Profile Picture */
-.profile-picture {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.profile-picture img {
-    width: 150px; /* Adjust size */
-    height: 150px;
-    border-radius: 50%; /* Makes it round */
-    object-fit: cover;
-    border: 3px solid #3498db; /* Optional border */
-}
-
 /* Form */
 .form-group {
     display: flex;
@@ -399,7 +385,7 @@ form button:hover {
     height: 180px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #3498db;
+    border: 3px solid #ffffff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
