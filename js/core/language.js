@@ -33,8 +33,8 @@ export function updateLanguage(lang, firstLoad = false) {
     const resumeLink = document.getElementById('resume-link');
     if (resumeLink) {
         resumeLink.href = lang === 'no'
-            ? 'assets/norwegian_cv.pdf'
-            : 'assets/english_cv.pdf';
+            ? 'assets/documents/norwegian_cv.pdf'
+            : 'assets/documents/english_cv.pdf';
     }
 
     document.documentElement.lang = lang;
