@@ -1,4 +1,4 @@
-// In js/modules/darkmode.js
+// js/core/darkmode.js
 export function initDarkMode() {
     const darkModeToggle = document.getElementById('dark-mode-toggle');
     if (!darkModeToggle) return;
