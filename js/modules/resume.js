@@ -11,6 +11,6 @@ export function fixResumePath() {
     if (resumeLink) {
         const lang = localStorage.getItem('language') || 'en';
         const fileName = lang === 'no' ? 'norwegian_cv.pdf' : 'english_cv.pdf';
-        resumeLink.href = `assets/${fileName}`;
+        resumeLink.href = `assets/documents/${fileName}`;
     }
 }
