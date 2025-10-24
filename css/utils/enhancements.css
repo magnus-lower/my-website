@@ -13,7 +13,7 @@ h1, h2, h3 {
 
 /* Enhanced Hero Section */
 .hero {
-    background: linear-gradient(135deg, #3498db, #8e44ad);
+    background: linear-gradient(to right, #3498db, #6dd5fa);
     position: relative;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
