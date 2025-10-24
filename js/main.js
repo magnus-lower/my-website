@@ -1,13 +1,13 @@
-import { initDarkMode }      from './modules/darkmode.js';
-import { initHamburger }     from './modules/hamburger.js';
-import { initSmoothScroll }  from './modules/smoothScroll.js';
-import { initLanguageSwitcher }      from './modules/language.js';
-import { initTypingEffects }        from './modules/typing.js';
-import { initContactForm } from "./modules/contactForm.js";
-import { highlightActiveNavLink } from './modules/navHighlight.js';
-import { initSettingsPanel } from './modules/settingsPanel.js';
-import { initResumeButton, fixResumePath } from './modules/resume.js';
-import { initProjectLinks } from './modules/projectLinks.js';
+import { initDarkMode }      from './core/darkmode.js';
+import { initHamburger }     from './components/hamburger.js';
+import { initSmoothScroll }  from './components/smoothScroll.js';
+import { initLanguageSwitcher }      from './core/language.js';
+import { initTypingEffects }        from './features/typing.js';
+import { initContactForm } from "./features/contactForm.js";
+import { highlightActiveNavLink } from './components/navHighlight.js';
+import { initSettingsPanel } from './components/settingsPanel.js';
+import { initResumeButton, fixResumePath } from './utils/resume.js';
+import { initProjectLinks } from './features/projectLinks.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initDarkMode();

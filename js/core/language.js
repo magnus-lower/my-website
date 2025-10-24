@@ -1,5 +1,5 @@
-// js/modules/language.js
-import { initTypingEffects, restartTypingEffects } from './typing.js';
+// js/core/language.js
+import { initTypingEffects, restartTypingEffects } from '../features/typing.js';
 
 export function updateLanguage(lang, firstLoad = false) {
     document.querySelectorAll('[data-en]').forEach(el => {

@@ -25,7 +25,7 @@ export function initSettingsPanel() {
                 const lang = target.id.split('-')[0]; // Extract 'en' or 'no' from id
                 localStorage.setItem('language', lang);
                 // We import updateLanguage lazily to avoid circular deps
-                import('./language.js').then(mod => mod.updateLanguage(lang));
+                import('../core/language.js').then(mod => mod.updateLanguage(lang));
             }
         });
     }
