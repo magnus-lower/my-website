@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="no">
-<script>
-    // Only set default language if it hasn't been set already
-    if (!localStorage.getItem('language')) {
-        localStorage.setItem('language', 'no');
-    }
-
-    // Apply language immediately to prevent flashing English content
-    const language = localStorage.getItem('language');
-    document.documentElement.lang = language;
-</script>
+<script src="js/core/bootstrap.js"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +27,7 @@
     <link rel="stylesheet" href="css/features/dark-mode.css">
     <link rel="stylesheet" href="css/features/responsive.css">
     <link rel="stylesheet" href="css/components/ui-components.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/base/styles.css">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -138,13 +129,6 @@
         </p>
     </div>
 </footer>
-    <script>
-        // Apply dark mode immediately on page load
-        if (localStorage.getItem('darkMode') === 'true') {
-            document.documentElement.classList.add('dark-mode');
-            document.body.classList.add('dark-mode');
-        }
-    </script>
     <script type="module" src="js/main.js" defer></script>
 </body>
 </html>

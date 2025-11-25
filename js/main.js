@@ -1,38 +1,22 @@
-import { initDarkMode }      from './modules/darkmode.js';
-import { initHamburger }     from './modules/hamburger.js';
-import { initSmoothScroll }  from './modules/smoothScroll.js';
-import { initLanguageSwitcher }      from './modules/language.js';
-import { initTypingEffects }        from './modules/typing.js';
-import { initContactForm } from "./modules/contactForm.js";
-import { highlightActiveNavLink } from './modules/navHighlight.js';
-import { initSettingsPanel } from './modules/settingsPanel.js';
-import { initResumeButton, fixResumePath } from './modules/resume.js';
-import { initProjectLinks } from './modules/projectLinks.js';
+import { initializeApp } from './core/app.js';
+import { initDarkMode } from './features/theme/darkMode.js';
+import { initLanguageFeature } from './features/language/languageController.js';
+import { initScrollReveal } from './features/scroll/scrollReveal.js';
+import { initContactForm } from './features/forms/contactForm.js';
+import { initNavHighlight } from './features/navigation/navHighlight.js';
+import { initProjectLinks } from './features/navigation/projectLinks.js';
+import { initResumeLink } from './features/resume/resumeLink.js';
+import { initHamburgerMenu } from './ui/hamburgerMenu.js';
+import { initSettingsPanel } from './ui/settingsPanel.js';
 
-document.addEventListener('DOMContentLoaded', () => {
-    initDarkMode();
-    initHamburger();
-    initSmoothScroll();
-    initLanguageSwitcher();
-    initTypingEffects();
-    initContactForm();
-    highlightActiveNavLink();
-    initSettingsPanel();
-    initResumeButton();
-    fixResumePath();
-
-    // Listen for theme changes to update content appearance
-    document.addEventListener('themeChange', () => {
-        // Update fade-in elements when theme changes
-        document.querySelectorAll('.fade-in.visible').forEach(el => {
-            if (document.documentElement.classList.contains('dark-mode')) {
-                el.classList.add('dark-mode');
-            } else {
-                el.classList.remove('dark-mode');
-            }
-        });
-    });
-
-    // Initialize project links for card clicks
-    initProjectLinks();
-});
+initializeApp([
+    initDarkMode,
+    initHamburgerMenu,
+    initScrollReveal,
+    initLanguageFeature,
+    initContactForm,
+    initNavHighlight,
+    initSettingsPanel,
+    initResumeLink,
+    initProjectLinks
+]);
