@@ -1,104 +1,120 @@
-@media (max-width: 1024px) {
-    .header-container {
-        padding-inline: var(--space-md);
-    }
-}
-
-@media (max-width: 900px) {
-    main {
-        padding-inline: var(--space-md);
-    }
-}
-
 @media (max-width: 768px) {
-    .header-container {
-        flex-wrap: wrap;
-        gap: var(--space-sm);
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    nav {
-        position: fixed;
-        top: 0;
-        left: -100%;
-        width: 70%;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.96);
-        padding: 90px 20px 20px;
-        transition: left var(--transition);
-        box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
-        z-index: 1000;
-    }
-
-    nav.open {
-        left: 0;
-    }
-
-    .nav-list {
+    nav ul {
         flex-direction: column;
-        align-items: stretch;
-        gap: var(--space-xs);
-    }
-
-    .nav-link {
-        display: block;
-        padding: 14px 16px;
-        border-radius: var(--radius-md);
-        color: rgba(255, 255, 255, 0.9);
-    }
-
-    .nav-link:hover,
-    .nav-link[aria-current="page"] {
-        color: #fff;
-    }
-
-    .nav-link[aria-current="page"]::after {
-        background: var(--primary-color);
-        height: 2px;
-    }
-
-    .header-actions {
-        width: 100%;
-        justify-content: flex-end;
+        text-align: center;
     }
 
     .hero {
-        padding: 90px var(--space-md);
-        margin-bottom: var(--space-lg);
+        width: 90vw;
+        margin-left: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        box-sizing: border-box;
+    }
+
+    /* Fix for projects container alignment */
+    main {
+        padding: 10px 0; /* Remove horizontal padding */
+        width: 90%;
+    }
+
+    .projects-container {
+        width: 90%;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .project-wrapper {
+        width: 100%;
+        padding: 0;
+        margin: 0 auto 20px;
+    }
+
+    .project-item {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .settings-dropdown {
+        right: -10px;
+        width: 200px;
     }
 
     main {
-        padding-inline: var(--space-sm);
+        padding: 10px;
     }
 
-    .projects-container,
-    .about-container,
-    form {
-        width: 100%;
+    h1 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1.1em;
+    }
+
+    .projects-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    /* hide the menu by default on mobile */
+    nav .nav-list {
+        display: none;
+    }
+
+    /* when <nav> has .open, show it */
+    nav.open .nav-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background: var(--nav-bg);
+        padding: 10px;
     }
 }
 
 @media (max-width: 600px) {
-    .header-container {
-        padding-inline: var(--space-sm);
+    .hero-content h1 {
+        font-size: 1.8em;
     }
 
-    main {
-        padding-inline: var(--space-sm);
+    .hero-content p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6em;
     }
 
-    .hero-content p,
     p {
-        font-size: var(--fs-base);
+        font-size: 1em;
     }
+}
 
-    #scroll-top {
-        width: 42px;
-        height: 42px;
-        bottom: 18px;
-        right: 18px;
+@media (max-width: 768px) {
+    .nav-list {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    .language-switch img {
+        width: 30px;
+        height: 20px;
+    }
+    nav ul li a {
+        padding: 8px 15px;
+    }
+    .nav-list li:not(:last-child) {
+        border-right: none;
+        padding-right: 0;
+    }
+    .dark-mode-toggle {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-group, #contact-form {
+        max-width: 100%;
     }
 }

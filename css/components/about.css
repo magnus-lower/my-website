@@ -1,47 +1,47 @@
-.about {
+/* Section spacing */
+.intro,
+.about,
+.education,
+.mission,
+.contact,
+.cv-download {
     text-align: center;
+    padding: 40px 20px;
 }
 
-.about-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-lg);
-    max-width: 900px;
-    margin: 0 auto;
+/* Contact list */
+.contact ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.profile-picture {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    transition: transform var(--transition), box-shadow var(--transition);
+.contact li {
+    margin-bottom: 10px;
 }
 
-.profile-picture img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.contact a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
 }
 
-.profile-picture:hover {
-    transform: scale(1.03);
-    box-shadow: var(--shadow-strong);
+.contact a:hover {
+    color: #1e70bf;
+    text-decoration: underline;
 }
 
-.about-text {
-    width: 100%;
-    text-align: left;
+.cv-download .download-cv {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
 }
 
-.about-text p {
-    margin-bottom: var(--space-sm);
-    color: var(--text-color);
-    line-height: 1.7;
-}
-
-.about-text p + p {
-    color: var(--muted-text);
+.cv-download .download-cv:hover {
+    background: #1e70bf;
 }
