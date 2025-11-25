@@ -1,48 +1,47 @@
 <!DOCTYPE html>
 <html lang="no">
-<script>
-    // Only set default language if it hasn't been set already
-    if (!localStorage.getItem('language')) {
-        localStorage.setItem('language', 'no');
-    }
-
-    // Apply language immediately to prevent flashing English content
-    const language = localStorage.getItem('language');
-    document.documentElement.lang = language;
-</script>
 <head>
+    <script>
+        if (!localStorage.getItem('language')) {
+            localStorage.setItem('language', 'no');
+        }
+        const language = localStorage.getItem('language');
+        document.documentElement.lang = language;
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Magnus Løwer's portfolio showcasing software development projects in Java, Python, and more.">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <title>Projects - Magnus Løwer</title>
-    <link rel="stylesheet" href="css/components/enhancements.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="css/components/footer.css">
-    <link rel="stylesheet" href="css/components/hero.css">
-    <link rel="stylesheet" href="css/components/navbar.css">
-    <link rel="stylesheet" href="css/features/dark-mode.css">
-    <link rel="stylesheet" href="css/features/responsive.css">
-    <link rel="stylesheet" href="css/components/ui-components.css">
-    <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CCR3VMW7RV"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/base/variables.css">
+    <link rel="stylesheet" href="css/components/enhancements.css">
+    <link rel="stylesheet" href="css/components/footer.css">
+    <link rel="stylesheet" href="css/components/hero.css">
+    <link rel="stylesheet" href="css/components/navbar.css">
+    <link rel="stylesheet" href="css/components/ui-components.css">
+    <link rel="stylesheet" href="css/features/dark-mode.css">
+    <link rel="stylesheet" href="css/features/responsive.css">
+    <link rel="stylesheet" href="css/base/styles.css">
 
-    gtag('config', 'G-CCR3VMW7RV');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CCR3VMW7RV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-CCR3VMW7RV');
+    </script>
+</head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="main-header">
         <div class="header-container">
             <div class="logo">
@@ -53,14 +52,16 @@
                 <span></span><span></span><span></span>
             </button>
 
-            <nav>
+            <nav aria-label="Primary navigation">
                 <ul class="nav-list">
                     <li><a href="index.html" data-en="Home" data-no="Hjem">Home</a></li>
                     <li><a href="projects.html" data-en="Projects" data-no="Prosjekter">Projects</a></li>
                     <li><a href="about.html" data-en="About Me & Contact" data-no="Om meg og Kontakt">About</a></li>
-                    <a href="assets/english_cv.pdf" class="resume-btn" download id="resume-link">
-                        <i class="fas fa-file-alt"></i> <span class="resume-text">Resume</span>
-                    </a>
+                    <li class="resume-item">
+                        <a href="assets/english_cv.pdf" class="resume-btn" download id="resume-link">
+                            <i class="fas fa-file-alt"></i> <span class="resume-text">Resume</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
 
@@ -95,83 +96,65 @@
     </header>
 
     <main id="main-content">
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content fade-in">
-            <h1 id="typing-projects" data-en="My Projects" data-no="Mine Prosjekter">My Projects</h1>
-            <p data-en="Explore the projects I have built using various programming languages and frameworks!"
-               data-no="Utforsk prosjektene jeg har bygget med forskjellige programmeringsspråk og rammeverk!"></p>
-        </div>
-    </section>
-
-    <!-- Progress Bar -->
-    <div id="progress-overlay"></div>
-    <div id="progress-container">
-        <div id="progress-text">Loading...</div>
-        <div id="progress-bar-wrapper">
-            <div id="progress-bar"></div>
-        </div>
-    </div>
-
-    <!-- Projects Section -->
-    <section class="projects fade-in" id="projects-section">
-        <h2 data-en="Personal Projects" data-no="Personlige prosjekter">Personal Projects</h2>
-
-        <div class="projects-container">
-            <!-- Java Projects -->
-            <div class="project-wrapper">
-                <h3 class="project-lang"><i class="fab fa-java"></i> Java</h3>
-                <div class="project-item project-link" data-url="https://demo-store-k4g7.onrender.com/">
-                    <h2 data-en="E-Commerce Platform" data-no="E-handelsplattform">E-Commerce Platform</h2>
-                    <p
-                        data-en="A full-stack e-commerce platform using Java (Spring Boot), PostgreSQL, and Thymeleaf.
-                        Includes user login, product catalog, and shopping cart. Deployed on Render."
-                        data-no="En fullstack e-handelsplattform som bruker Java (Spring Boot), PostgreSQL og Thymeleaf.
-                        Inkluderer brukerinnlogging, produktkatalog og handlekurv. Distribuert på Render.">
-                    </p>
-                </div>
+        <section class="hero">
+            <div class="hero-content fade-in">
+                <h1 id="typing-projects" data-en="My Projects" data-no="Mine Prosjekter">My Projects</h1>
+                <p data-en="Explore the projects I have built using various programming languages and frameworks!" data-no="Utforsk prosjektene jeg har bygget med forskjellige programmeringsspråk og rammeverk!"></p>
             </div>
+        </section>
 
-            <!-- Python Projects -->
-            <div class="project-wrapper">
-                <h3 class="project-lang"><i class="fab fa-python"></i> Python</h3>
-                <div class="project-item project-link" data-url="https://weather-dashboard-still-leaf-2476.fly.dev/">
-                    <h2 data-en="Weather Dashboard" data-no="Værdashbord">Weather Dashboard</h2>
-                    <p
-                        data-en="A real-time weather dashboard built with Python (Flask), OpenWeather API, and Bootstrap.
-                        Shows live data, and location-based weather data. Deployed on Fly.io."
-                        data-no="Et værdashbord som er bygget med Python (Flask), OpenWeather API og Bootstrap.
-                        Viser live data, og stedsbasert værdata. Distribuert på Fly.io.">
-                    </p>
-                </div>
+        <div id="progress-overlay"></div>
+        <div id="progress-container">
+            <div id="progress-text">Loading...</div>
+            <div id="progress-bar-wrapper">
+                <div id="progress-bar"></div>
             </div>
         </div>
-    </section>
-</main>
 
-<!-- Scroll to Top Button -->
-<button id="scroll-top" aria-label="Scroll to top">
-    <i class="fas fa-chevron-up"></i>
-</button>
+        <section class="projects fade-in" id="projects-section">
+            <h2 data-en="Personal Projects" data-no="Personlige prosjekter">Personal Projects</h2>
 
-<footer>
-    <div class="footer-content">
-        <p>&copy; 2025 Magnus Løwer <span class="separator">|</span>
-            <a href="https://github.com/magnus-lower" target="_blank" aria-label="GitHub">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/magnus-løwer" target="_blank" aria-label="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
-        </p>
-    </div>
-</footer>
+            <div class="projects-container">
+                <div class="project-wrapper">
+                    <h3 class="project-lang"><i class="fab fa-java"></i> Java</h3>
+                    <div class="project-item project-link" data-url="https://demo-store-k4g7.onrender.com/">
+                        <h2 data-en="E-Commerce Platform" data-no="E-handelsplattform">E-Commerce Platform</h2>
+                        <p data-en="A full-stack e-commerce platform using Java (Spring Boot), PostgreSQL, and Thymeleaf. Includes user login, product catalog, and shopping cart. Deployed on Render." data-no="En fullstack e-handelsplattform som bruker Java (Spring Boot), PostgreSQL og Thymeleaf. Inkluderer brukerinnlogging, produktkatalog og handlekurv. Distribuert på Render."></p>
+                    </div>
+                </div>
+
+                <div class="project-wrapper">
+                    <h3 class="project-lang"><i class="fab fa-python"></i> Python</h3>
+                    <div class="project-item project-link" data-url="https://weather-dashboard-still-leaf-2476.fly.dev/">
+                        <h2 data-en="Weather Dashboard" data-no="Værdashbord">Weather Dashboard</h2>
+                        <p data-en="A real-time weather dashboard built with Python (Flask), OpenWeather API, and Bootstrap. Shows live data, and location-based weather data. Deployed on Fly.io." data-no="Et værdashbord som er bygget med Python (Flask), OpenWeather API og Bootstrap. Viser live data, og stedsbasert værdata. Distribuert på Fly.io."></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <button id="scroll-top" aria-label="Scroll to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Magnus Løwer <span class="separator">|</span>
+                <a href="https://github.com/magnus-lower" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/magnus-løwer" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </p>
+        </div>
+    </footer>
     <script>
-      // Apply dark mode immediately on page load
-      if (localStorage.getItem('darkMode') === 'true') {
-        document.documentElement.classList.add('dark-mode');
-        document.body.classList.add('dark-mode');
-      }
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark-mode');
+            document.body.classList.add('dark-mode');
+        }
     </script>
     <script type="module" src="js/main.js" defer></script>
 </body>

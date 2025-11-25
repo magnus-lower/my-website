@@ -399,6 +399,16 @@ nav ul li a.active {
     padding-left: 15px;
 }
 
+.nav-list li:nth-last-child(2) {
+    border-right: none;
+    padding-right: 0;
+    padding-left: 15px;
+}
+
+.nav-list .resume-item {
+    padding-left: 0;
+}
+
 /* Modified Resume Button - Less Flashy Design */
 .resume-btn {
     display: flex;

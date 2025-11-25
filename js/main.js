@@ -1,38 +1,30 @@
-import { initDarkMode }      from './modules/darkmode.js';
-import { initHamburger }     from './modules/hamburger.js';
-import { initSmoothScroll }  from './modules/smoothScroll.js';
-import { initLanguageSwitcher }      from './modules/language.js';
-import { initTypingEffects }        from './modules/typing.js';
-import { initContactForm } from "./modules/contactForm.js";
-import { highlightActiveNavLink } from './modules/navHighlight.js';
-import { initSettingsPanel } from './modules/settingsPanel.js';
-import { initResumeButton, fixResumePath } from './modules/resume.js';
-import { initProjectLinks } from './modules/projectLinks.js';
+import { onDocumentReady } from './core/events.js';
+import { initializePreferences } from './core/state.js';
+import { initContactForm } from './features/contact.js';
+import { initLanguage } from './features/language.js';
+import { initHamburgerMenu, highlightActiveNavLink } from './features/navigation.js';
+import { initProjectLinks } from './features/projects.js';
+import { prepareResumeLink } from './features/resume.js';
+import { initRevealOnScroll, updateVisibleElementsForTheme } from './features/scrollEffects.js';
+import { initSettingsPanel } from './features/settings.js';
+import { ensureScrollButtonIsDecorated, initThemeControls } from './features/theme.js';
 
-document.addEventListener('DOMContentLoaded', () => {
-    initDarkMode();
-    initHamburger();
-    initSmoothScroll();
-    initLanguageSwitcher();
-    initTypingEffects();
-    initContactForm();
-    highlightActiveNavLink();
+onDocumentReady(() => {
+    initializePreferences();
+
+    initLanguage();
+    initThemeControls();
+    updateVisibleElementsForTheme();
     initSettingsPanel();
-    initResumeButton();
-    fixResumePath();
 
-    // Listen for theme changes to update content appearance
-    document.addEventListener('themeChange', () => {
-        // Update fade-in elements when theme changes
-        document.querySelectorAll('.fade-in.visible').forEach(el => {
-            if (document.documentElement.classList.contains('dark-mode')) {
-                el.classList.add('dark-mode');
-            } else {
-                el.classList.remove('dark-mode');
-            }
-        });
-    });
+    initHamburgerMenu();
+    highlightActiveNavLink();
 
-    // Initialize project links for card clicks
+    initRevealOnScroll();
     initProjectLinks();
+    initContactForm();
+    prepareResumeLink();
+    ensureScrollButtonIsDecorated();
+
+    document.addEventListener('themeChange', updateVisibleElementsForTheme);
 });
