@@ -1,0 +1,47 @@
+/* Section spacing */
+.intro,
+.about,
+.education,
+.mission,
+.contact,
+.cv-download {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* Contact list */
+.contact ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact li {
+    margin-bottom: 10px;
+}
+
+.contact a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact a:hover {
+    color: #1e70bf;
+    text-decoration: underline;
+}
+
+.cv-download .download-cv {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.cv-download .download-cv:hover {
+    background: #1e70bf;
+}

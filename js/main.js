@@ -1,38 +1,19 @@
-import { initDarkMode }      from './modules/darkmode.js';
-import { initHamburger }     from './modules/hamburger.js';
-import { initSmoothScroll }  from './modules/smoothScroll.js';
-import { initLanguageSwitcher }      from './modules/language.js';
-import { initTypingEffects }        from './modules/typing.js';
-import { initContactForm } from "./modules/contactForm.js";
-import { highlightActiveNavLink } from './modules/navHighlight.js';
-import { initSettingsPanel } from './modules/settingsPanel.js';
-import { initResumeButton, fixResumePath } from './modules/resume.js';
+import { initContactForm } from './modules/contactForm.js';
+import { initLanguageSwitcher } from './modules/language.js';
+import { initNavigation } from './modules/navigation.js';
 import { initProjectLinks } from './modules/projectLinks.js';
+import { initScrollFeatures } from './modules/scroll.js';
+import { initSettingsPanel } from './modules/settingsPanel.js';
+import { initTheme } from './modules/theme.js';
+import { initResumeLink } from './modules/resume.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    initDarkMode();
-    initHamburger();
-    initSmoothScroll();
-    initLanguageSwitcher();
-    initTypingEffects();
-    initContactForm();
-    highlightActiveNavLink();
+    initNavigation();
     initSettingsPanel();
-    initResumeButton();
-    fixResumePath();
-
-    // Listen for theme changes to update content appearance
-    document.addEventListener('themeChange', () => {
-        // Update fade-in elements when theme changes
-        document.querySelectorAll('.fade-in.visible').forEach(el => {
-            if (document.documentElement.classList.contains('dark-mode')) {
-                el.classList.add('dark-mode');
-            } else {
-                el.classList.remove('dark-mode');
-            }
-        });
-    });
-
-    // Initialize project links for card clicks
+    initTheme();
+    initLanguageSwitcher();
+    initResumeLink();
+    initContactForm();
     initProjectLinks();
+    initScrollFeatures();
 });
