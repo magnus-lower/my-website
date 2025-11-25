@@ -49,43 +49,48 @@ I created this portfolio website to showcase my programming projects and what I'
 
 ```
 /
-├── index.html              # Home page
-├── projects.html           # Projects showcase
-├── about.html             # About and contact page
-├── README.md              # Project documentation
-├── assets/                # Static assets
-│   ├── dots-pattern.svg   # Background pattern
-│   ├── english_cv.pdf     # English resume
-│   ├── norwegian_cv.pdf   # Norwegian resume
-│   ├── favicon.png        # Site favicon
-│   ├── profile_picture.jpg # Profile image
-│   ├── norwegian-flag.png # Language selector flag
-│   └── uk-flag.png        # Language selector flag
-├── css/                   # Stylesheets
-│   ├── styles.css         # Main stylesheet
-│   ├── variables.css      # CSS custom properties
-│   ├── components/        # Component-specific styles
+├── index.html                # Home page
+├── projects.html             # Projects showcase
+├── about.html                # About and contact page
+├── README.md                 # Project documentation
+├── assets/                   # Static assets
+│   ├── dots-pattern.svg      # Background pattern
+│   ├── english_cv.pdf        # English resume
+│   ├── norwegian_cv.pdf      # Norwegian resume
+│   ├── favicon.png           # Site favicon
+│   ├── profile_picture.jpg   # Profile image
+│   ├── norwegian-flag.png    # Language selector flag
+│   └── uk-flag.png           # Language selector flag
+├── css/                      # Stylesheets
+│   ├── base/                 # Foundational styles
+│   │   ├── styles.css        # Global reset and layout rules
+│   │   └── variables.css     # CSS custom properties
+│   ├── components/           # Component-specific styles
 │   │   ├── enhancements.css
 │   │   ├── footer.css
 │   │   ├── hero.css
 │   │   ├── navbar.css
 │   │   └── ui-components.css
-│   └── features/          # Feature-specific styles
-│       ├── dark-mode.css  # Dark theme implementation
-│       └── responsive.css # Responsive design rules
-└── js/                    # JavaScript modules
-    ├── main.js            # Main entry point
-    └── modules/           # Modular JavaScript components
-        ├── contactForm.js
-        ├── darkmode.js
-        ├── hamburger.js
-        ├── language.js
-        ├── navHighlight.js
-        ├── projectLinks.js
-        ├── resume.js
-        ├── settingsPanel.js
-        ├── smoothScroll.js
-        └── typing.js
+│   └── features/             # Feature-specific styles
+│       ├── dark-mode.css     # Dark theme implementation
+│       └── responsive.css    # Responsive design rules
+└── js/                       # JavaScript modules
+    ├── core/                 # Shared utilities and state helpers
+    │   ├── dom.js
+    │   ├── events.js
+    │   ├── state.js
+    │   └── storage.js
+    ├── features/             # Page features organised by responsibility
+    │   ├── contact.js
+    │   ├── language.js
+    │   ├── navigation.js
+    │   ├── projects.js
+    │   ├── resume.js
+    │   ├── scrollEffects.js
+    │   ├── settings.js
+    │   ├── theme.js
+    │   └── typing.js
+    └── main.js               # Main entry point
 ```
 
 ## My Projects
