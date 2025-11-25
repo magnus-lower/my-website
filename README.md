@@ -51,40 +51,46 @@ I created this portfolio website to showcase my programming projects and what I'
 /
 ├── index.html              # Home page
 ├── projects.html           # Projects showcase
-├── about.html             # About and contact page
-├── README.md              # Project documentation
-├── assets/                # Static assets
-│   ├── dots-pattern.svg   # Background pattern
-│   ├── english_cv.pdf     # English resume
-│   ├── norwegian_cv.pdf   # Norwegian resume
-│   ├── favicon.png        # Site favicon
+├── about.html              # About and contact page
+├── README.md               # Project documentation
+├── assets/                 # Static assets
+│   ├── dots-pattern.svg    # Background pattern
+│   ├── english_cv.pdf      # English resume
+│   ├── norwegian_cv.pdf    # Norwegian resume
+│   ├── favicon.png         # Site favicon
 │   ├── profile_picture.jpg # Profile image
-│   ├── norwegian-flag.png # Language selector flag
-│   └── uk-flag.png        # Language selector flag
-├── css/                   # Stylesheets
-│   ├── styles.css         # Main stylesheet
-│   ├── variables.css      # CSS custom properties
-│   ├── components/        # Component-specific styles
-│   │   ├── enhancements.css
+│   ├── norwegian-flag.png  # Language selector flag
+│   └── uk-flag.png         # Language selector flag
+├── css/
+│   ├── base/               # Foundations
+│   │   ├── layout.css
+│   │   ├── reset.css
+│   │   └── variables.css
+│   ├── components/         # Component-specific styles
+│   │   ├── about.css
+│   │   ├── buttons.css
+│   │   ├── cards.css
 │   │   ├── footer.css
+│   │   ├── forms.css
+│   │   ├── header.css
 │   │   ├── hero.css
-│   │   ├── navbar.css
-│   │   └── ui-components.css
-│   └── features/          # Feature-specific styles
-│       ├── dark-mode.css  # Dark theme implementation
-│       └── responsive.css # Responsive design rules
-└── js/                    # JavaScript modules
-    ├── main.js            # Main entry point
-    └── modules/           # Modular JavaScript components
+│   │   └── interactive.css
+│   └── utilities/          # Global utilities
+│       ├── responsive.css
+│       └── theme.css
+└── js/                     # JavaScript modules
+    ├── main.js             # Main entry point
+    └── modules/            # Modular JavaScript components
         ├── contactForm.js
-        ├── darkmode.js
-        ├── hamburger.js
+        ├── dom.js
         ├── language.js
-        ├── navHighlight.js
+        ├── navigation.js
         ├── projectLinks.js
         ├── resume.js
+        ├── scroll.js
         ├── settingsPanel.js
-        ├── smoothScroll.js
+        ├── storage.js
+        ├── theme.js
         └── typing.js
 ```
 

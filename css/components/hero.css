@@ -1,42 +1,46 @@
-/* Hero Section */
 .hero {
-    background: linear-gradient(to right, #3498db, #6dd5fa);
-    color: white;
+    background: linear-gradient(135deg, #3498db, #8e44ad);
+    color: #fff;
     text-align: center;
-    padding: 100px 20px;
-    margin-bottom: 60px;
-    width: 100%; /* Ensure full width */
-    box-sizing: border-box; /* Include padding in width calculation */
+    padding: 110px var(--space-lg);
+    margin-bottom: var(--space-xl);
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-strong);
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('../../assets/dots-pattern.svg');
+    opacity: 0.1;
 }
 
 .hero-content {
-    max-width: 800px;
-    margin: 0 auto; /* Center the content horizontally */
-    width: 100%; /* Ensure the hero content uses full available width */
-}
-
-.hero-content h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+    max-width: 820px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .hero-content p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
+    color: #f5f7fb;
 }
 
 .contact-links {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    padding: 0;
+    gap: 12px;
     list-style: none;
+    padding: 0;
 }
 
 .contact-links a {
-    color: var(--primary-color);
-    font-weight: bold;
-    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
 }
 
 .contact-links a:hover {

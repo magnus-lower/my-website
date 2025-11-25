@@ -1,0 +1,35 @@
+:root.dark-mode body,
+:root.dark-mode main,
+:root.dark-mode section {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+:root.dark-mode form,
+:root.dark-mode .project-item,
+:root.dark-mode .settings-dropdown {
+    background: var(--surface-color);
+}
+
+:root.dark-mode form input,
+:root.dark-mode form textarea {
+    background: var(--surface-strong);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+:root.dark-mode #scroll-top {
+    background: #1a1a1a;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+:root.dark-mode .project-lang,
+:root.dark-mode .project-item h2,
+:root.dark-mode .about-text p {
+    color: var(--text-color);
+}
+
+:root.dark-mode .hero::before {
+    opacity: 0.14;
+}

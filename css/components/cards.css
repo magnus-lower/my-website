@@ -1,0 +1,77 @@
+.projects {
+    text-align: center;
+}
+
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+    padding: var(--space-md);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.project-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    width: 100%;
+}
+
+.project-lang {
+    color: var(--text-color);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    justify-content: center;
+}
+
+.project-item {
+    background: var(--surface-color);
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    text-align: center;
+    width: min(420px, 100%);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 5px;
+    width: 100%;
+    background: linear-gradient(90deg, #3498db, #6dd5fa);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition);
+}
+
+.project-item:hover {
+    transform: translateY(-6px);
+    background: var(--surface-strong);
+    box-shadow: var(--shadow-strong);
+}
+
+.project-item:hover::after {
+    transform: scaleX(1);
+}
+
+.project-item h2 {
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+
+.project-item p {
+    margin: 0;
+}

@@ -1,78 +1,89 @@
 <!DOCTYPE html>
 <html lang="no">
-<script>
-    // Only set default language if it hasn't been set already
-    if (!localStorage.getItem('language')) {
-        localStorage.setItem('language', 'no');
-    }
-
-    // Apply language immediately to prevent flashing English content
-    const language = localStorage.getItem('language');
-    document.documentElement.lang = language;
-</script>
 <head>
+    <script>
+        (() => {
+            try {
+                const storedLanguage = localStorage.getItem('language') || 'no';
+                const prefersDark = localStorage.getItem('darkMode') === 'true';
+                document.documentElement.lang = storedLanguage;
+                if (prefersDark) {
+                    document.documentElement.classList.add('dark-mode');
+                }
+            } catch (error) {
+                document.documentElement.lang = 'no';
+            }
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Learn about Magnus Løwer, Computer Science student at NTNU specializing in Visual Computing. Contact information and background.">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <title>About Me & Contact - Magnus Løwer</title>
-    <link rel="stylesheet" href="css/components/enhancements.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="css/components/footer.css">
+
+    <link rel="stylesheet" href="css/base/variables.css">
+    <link rel="stylesheet" href="css/base/reset.css">
+    <link rel="stylesheet" href="css/base/layout.css">
+    <link rel="stylesheet" href="css/components/header.css">
+    <link rel="stylesheet" href="css/components/buttons.css">
     <link rel="stylesheet" href="css/components/hero.css">
-    <link rel="stylesheet" href="css/components/navbar.css">
-    <link rel="stylesheet" href="css/features/dark-mode.css">
-    <link rel="stylesheet" href="css/features/responsive.css">
-    <link rel="stylesheet" href="css/components/ui-components.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/components/about.css">
+    <link rel="stylesheet" href="css/components/forms.css">
+    <link rel="stylesheet" href="css/components/interactive.css">
+    <link rel="stylesheet" href="css/components/footer.css">
+    <link rel="stylesheet" href="css/utilities/theme.css">
+    <link rel="stylesheet" href="css/utilities/responsive.css">
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CCR3VMW7RV"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){dataLayer.push(arguments);} 
     gtag('js', new Date());
-
     gtag('config', 'G-CCR3VMW7RV');
 </script>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <header class="main-header">
         <div class="header-container">
             <div class="logo">
-                <a href="index.html">ML</a>
+                <a href="index.html" aria-label="Home">ML</a>
             </div>
 
-            <button class="hamburger" aria-label="Toggle menu">
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
 
-            <nav>
+            <nav aria-label="Primary">
                 <ul class="nav-list">
-                    <li><a href="index.html" data-en="Home" data-no="Hjem">Home</a></li>
-                    <li><a href="projects.html" data-en="Projects" data-no="Prosjekter">Projects</a></li>
-                    <li><a href="about.html" data-en="About Me & Contact" data-no="Om meg og Kontakt">About</a></li>
-                    <a href="assets/english_cv.pdf" class="resume-btn" download id="resume-link">
-                        <i class="fas fa-file-alt"></i> <span class="resume-text">Resume</span>
-                    </a>
+                    <li><a class="nav-link" href="index.html" data-en="Home" data-no="Hjem">Home</a></li>
+                    <li><a class="nav-link" href="projects.html" data-en="Projects" data-no="Prosjekter">Projects</a></li>
+                    <li><a class="nav-link" href="about.html" data-en="About Me & Contact" data-no="Om meg og Kontakt">About</a></li>
+                    <li>
+                        <a href="assets/english_cv.pdf" class="resume-btn" id="resume-link">
+                            <i class="fas fa-file-alt" aria-hidden="true"></i>
+                            <span class="resume-text">Resume</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
 
             <div class="header-actions">
                 <div class="settings-panel">
-                    <button class="settings-toggle" aria-label="Toggle settings">
-                        <i class="fas fa-cog"></i>
+                    <button class="settings-toggle" aria-label="Toggle settings" aria-expanded="false">
+                        <i class="fas fa-cog" aria-hidden="true"></i>
                     </button>
-                    <div class="settings-dropdown" id="settings-dropdown">
+                    <div class="settings-dropdown" id="settings-dropdown" role="menu">
                         <div class="settings-item">
                             <div class="settings-item-label">
-                                <i class="fas fa-globe"></i> <span data-en="Language" data-no="Språk">Language</span>
+                                <i class="fas fa-globe" aria-hidden="true"></i>
+                                <span data-en="Language" data-no="Språk">Language</span>
                             </div>
                             <div class="language-toggle" id="language-toggle">
                                 <img src="assets/uk-flag.png" class="flag-icon" id="en-flag" alt="English">
@@ -81,9 +92,10 @@
                         </div>
                         <div class="settings-item">
                             <div class="settings-item-label">
-                                <i class="fas fa-moon"></i> <span id="theme-mode-text" data-en="Dark Mode" data-no="Mørk modus">Dark Mode</span>
+                                <i class="fas fa-moon" aria-hidden="true"></i>
+                                <span id="theme-mode-text" data-en="Dark Mode" data-no="Mørk modus">Dark Mode</span>
                             </div>
-                            <label class="theme-toggle">
+                            <label class="theme-toggle" aria-label="Toggle dark mode">
                                 <input type="checkbox" id="dark-mode-toggle">
                                 <span class="theme-slider"></span>
                             </label>
@@ -95,92 +107,79 @@
     </header>
 
     <main id="main-content">
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content fade-in">
-            <h1 id="typing-about" data-en="About Me" data-no="Om meg">About Me</h1>
-            <p data-en="Get to know me, my background - and feel free to get in touch!"
-               data-no="Bli kjent med meg, min bakgrunn - og ta gjerne kontakt!"></p>
-        </div>
-    </section>
-
-    <!-- About Me Section -->
-    <section class="about fade-in">
-        <h2 data-en="Who Am I?" data-no="Hvem er jeg?">Who Am I?</h2>
-        <div class="about-container">
-            <div class="profile-picture">
-                <img src="assets/profile_picture.jpg" alt="Magnus Løwer" loading="lazy">
+        <section class="hero">
+            <div class="hero-content fade-in">
+                <h1 id="typing-about" data-en="About Me" data-no="Om meg">About Me</h1>
+                <p data-en="Get to know me, my background - and feel free to get in touch!"
+                   data-no="Bli kjent med meg, min bakgrunn - og ta gjerne kontakt!">Get to know me, my background - and feel free to get in touch!</p>
             </div>
-            <div class="about-text">
-                <p data-en="Hi! My name is Magnus Løwer, and I have completed a bachelor's degree in Computer Engineering at NTNU in Gjøvik. I am currently in my fourth year of the Master of Science in Computer Science at NTNU in Trondheim, where I am specializing in Visual Computing."
-                   data-no="Hei! Jeg heter Magnus Løwer, og jeg har fullført en bachelorgrad i Dataingeniør ved NTNU i Gjøvik. For tiden går jeg fjerde året på datateknologi ved NTNU i Trondheim, med spesialisering i visuell databehandling."></p>
+        </section>
 
-                <p data-en="I am very interested in everything related to IT, and that is luckily a field that never stops evolving!"
-                   data-no="Jeg er veldig interessert i alt relatert til IT, og det er heldigvis et felt som aldri slutter å utvikle seg!"></p>
+        <section class="about fade-in">
+            <h2 data-en="Who Am I?" data-no="Hvem er jeg?">Who Am I?</h2>
+            <div class="about-container">
+                <div class="profile-picture">
+                    <img src="assets/profile_picture.jpg" alt="Magnus Løwer" loading="lazy">
+                </div>
+                <div class="about-text">
+                    <p data-en="Hi! My name is Magnus Løwer, and I have completed a bachelor's degree in Computer Engineering at NTNU in Gjøvik. I am currently in my fourth year of the Master of Science in Computer Science at NTNU in Trondheim, where I am specializing in Visual Computing."
+                       data-no="Hei! Jeg heter Magnus Løwer, og jeg har fullført en bachelorgrad i Dataingeniør ved NTNU i Gjøvik. For tiden går jeg fjerde året på datateknologi ved NTNU i Trondheim, med spesialisering i visuell databehandling.">Hi! My name is Magnus Løwer, and I have completed a bachelor's degree in Computer Engineering at NTNU in Gjøvik. I am currently in my fourth year of the Master of Science in Computer Science at NTNU in Trondheim, where I am specializing in Visual Computing.</p>
 
-                <p data-en="My first experience with IT was in high school, where I started learning HTML, CSS, and JavaScript. This sparked my interest in IT, which has contributed positively to my education."
-                   data-no="Min første erfaring med IT var på videregående, hvor jeg begynte å lære om HTML, CSS og JavaScript. Denne erfaringen har ført til at jeg har fått interesse for data, som har bidratt positivt til utdannelsen."></p>
+                    <p data-en="I am very interested in everything related to IT, and that is luckily a field that never stops evolving!"
+                       data-no="Jeg er veldig interessert i alt relatert til IT, og det er heldigvis et felt som aldri slutter å utvikle seg!">I am very interested in everything related to IT, and that is luckily a field that never stops evolving!</p>
 
-                <p data-en="I have mainly gained practical experience through personal projects (including developing this website), as well as through two summer internships at the Norwegian Digitalisation Agency (Digdir), where I developed broad competence through two exciting projects. The first project involved developing an EU wallet with a focus on decentralized identity, while the second project involved supporting the Service Desk at Digdir with various tasks using artificial intelligence."
-                   data-no="Jeg har hovedsakelig fått praktisk erfaring gjennom prosjekter på fritiden (blant annet utviklingen av denne nettsiden), samt gjennom to sommerjobber hos Digitaliseringsdirektoratet (Digdir), hvor jeg har bygget bred kompetanse gjennom to spennende prosjekter. Det første prosjektet handlet om å utvikle en EU-wallet med fokus på desentralisert ID, mens det andre prosjektet gikk ut på å støtte Service Desk i Digdir med ulike oppgaver ved hjelp av kunstig intelligens."></p>
+                    <p data-en="My first experience with IT was in high school, where I started learning HTML, CSS, and JavaScript. This sparked my interest in IT, which has contributed positively to my education."
+                       data-no="Min første erfaring med IT var på videregående, hvor jeg begynte å lære om HTML, CSS og JavaScript. Denne erfaringen har ført til at jeg har fått interesse for data, som har bidratt positivt til utdannelsen.">My first experience with IT was in high school, where I started learning HTML, CSS, and JavaScript. This sparked my interest in IT, which has contributed positively to my education.</p>
+
+                    <p data-en="I have mainly gained practical experience through personal projects (including developing this website), as well as through two summer internships at the Norwegian Digitalisation Agency (Digdir), where I developed broad competence through two exciting projects. The first project involved developing an EU wallet with a focus on decentralized identity, while the second project involved supporting the Service Desk at Digdir with various tasks using artificial intelligence."
+                       data-no="Jeg har hovedsakelig fått praktisk erfaring gjennom prosjekter på fritiden (blant annet utviklingen av denne nettsiden), samt gjennom to sommerjobber hos Digitaliseringsdirektoratet (Digdir), hvor jeg har bygget bred kompetanse gjennom to spennende prosjekter. Det første prosjektet handlet om å utvikle en EU-wallet med fokus på desentralisert ID, mens det andre prosjektet gikk ut på å støtte Service Desk i Digdir med ulike oppgaver ved hjelp av kunstig intelligens.">I have mainly gained practical experience through personal projects (including developing this website), as well as through two summer internships at the Norwegian Digitalisation Agency (Digdir), where I developed broad competence through two exciting projects. The first project involved developing an EU wallet with a focus on decentralized identity, while the second project involved supporting the Service Desk at Digdir with various tasks using artificial intelligence.</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section class="contact fade-in">
-        <h2 data-en="Contact Me" data-no="Kontakt meg">Contact Me</h2>
-        <p data-en="Feel free to reach out to me!" data-no="Ta gjerne kontakt med meg!"></p>
+        <section class="contact fade-in">
+            <h2 data-en="Contact Me" data-no="Kontakt meg">Contact Me</h2>
+            <p data-en="Feel free to reach out to me!" data-no="Ta gjerne kontakt med meg!">Feel free to reach out to me!</p>
 
-        <!-- Contact Form -->
-        <form action="https://formspree.io/f/mjkgzjjp" method="POST" id="contact-form">
-            <div class="form-group">
-                <label for="name" data-en="Your Name:" data-no="Ditt navn:">Your Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
+            <form action="https://formspree.io/f/mjkgzjjp" method="POST" id="contact-form">
+                <div class="form-group">
+                    <label for="name" data-en="Your Name:" data-no="Ditt navn:">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
 
-            <div class="form-group">
-                <label for="email" data-en="Your Email:" data-no="Din e-post:">Your Email:</label>
-                <input type="email" id="email" name="_replyto" required>
-            </div>
+                <div class="form-group">
+                    <label for="email" data-en="Your Email:" data-no="Din e-post:">Your Email:</label>
+                    <input type="email" id="email" name="_replyto" required>
+                </div>
 
-            <div class="form-group">
-                <label for="message" data-en="Message:" data-no="Melding:">Message:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-            </div>
+                <div class="form-group">
+                    <label for="message" data-en="Message:" data-no="Melding:">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
 
-            <button type="submit" class="cta-button" data-en="Send" data-no="Send"></button>
-        </form>
+                <button type="submit" class="cta-button" data-en="Send" data-no="Send">Send</button>
+            </form>
 
-        <!-- Confirmation Message -->
-            <p id="confirmation" class="confirmation-message" data-en="Your message has been sent!" data-no="Meldingen din er sendt!"></p>
-    </section>
+            <p id="confirmation" class="confirmation-message" role="status" aria-live="polite" data-en="Your message has been sent!" data-no="Meldingen din er sendt!" data-error-en="An error occurred. Please try again." data-error-no="En feil oppstod. Vennligst prøv igjen."></p>
+        </section>
     </main>
 
-<!-- Scroll to Top Button -->
-<button id="scroll-top" aria-label="Scroll to top">
-    <i class="fas fa-chevron-up"></i>
-</button>
+    <button id="scroll-top" aria-label="Scroll to top">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
 
-<footer>
-    <div class="footer-content">
-        <p>&copy; 2025 Magnus Løwer <span class="separator">|</span>
-            <a href="https://github.com/magnus-lower" target="_blank" aria-label="GitHub">
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Magnus Løwer <span class="separator">|</span></p>
+            <a href="https://github.com/magnus-lower" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <i class="fab fa-github"></i>
             </a>
-            <a href="https://www.linkedin.com/in/magnus-løwer" target="_blank" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/magnus-løwer" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <i class="fab fa-linkedin"></i>
             </a>
-        </p>
-    </div>
-</footer>
-    <script>
-        // Apply dark mode immediately on page load
-        if (localStorage.getItem('darkMode') === 'true') {
-            document.documentElement.classList.add('dark-mode');
-            document.body.classList.add('dark-mode');
-        }
-    </script>
+        </div>
+    </footer>
+
     <script type="module" src="js/main.js" defer></script>
 </body>
 </html>

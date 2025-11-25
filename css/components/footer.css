@@ -1,34 +1,30 @@
-/* ========== Footer ========== */
 footer {
-    background-color: var(--footer-bg);
-    color: white;
+    background: var(--footer-bg);
+    color: #fff;
     text-align: center;
-    padding: 15px;
-    font-size: 1em;
-    width: 100%;
+    padding: var(--space-md);
+    margin-top: auto;
 }
 
-/* Centering the footer content */
-.footer-content p {
+.footer-content {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
 }
 
-/* Separator Line */
-.separator {
-    margin: 0 10px;
-    font-weight: bold;
-}
-
-/* Social Media Icons */
 .footer-content a {
-    color: white;
-    font-size: 1.5em;
-    transition: color 0.3s ease-in-out;
+    color: #fff;
+    font-size: 1.4rem;
+    transition: transform var(--transition), color var(--transition);
 }
 
 .footer-content a:hover {
+    transform: translateY(-2px) scale(1.1);
     color: var(--primary-color);
+}
+
+.separator {
+    font-weight: 700;
 }

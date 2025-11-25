@@ -1,0 +1,67 @@
+main {
+    width: min(1200px, 100%);
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-lg);
+    text-align: center;
+}
+
+section {
+    padding: var(--space-xl) var(--space-sm);
+    position: relative;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: clamp(2rem, 4vw + 1rem, 3rem);
+    margin-bottom: var(--space-sm);
+}
+
+h2 {
+    font-size: clamp(1.5rem, 2vw + 1rem, 2.2rem);
+    margin-bottom: var(--space-sm);
+}
+
+h3 {
+    font-size: var(--fs-xl);
+    margin-bottom: var(--space-xs);
+}
+
+p {
+    color: var(--muted-text);
+    font-size: var(--fs-lg);
+    margin-bottom: var(--space-sm);
+}
+
+.section-intro {
+    max-width: 840px;
+    margin: 0 auto;
+}
+
+.about-preview,
+.contact,
+.projects,
+.about {
+    text-align: center;
+}
+
+.about-preview p,
+.contact p,
+.projects p,
+.about p {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.wrapper {
+    width: min(1100px, 100%);
+    margin: 0 auto;
+}

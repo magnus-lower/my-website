@@ -1,62 +1,57 @@
-// js/modules/language.js
-import { initTypingEffects, restartTypingEffects } from './typing.js';
+import { qs, qsa } from './dom.js';
+import { getPreference, setPreference } from './storage.js';
+import { syncThemeLanguage } from './theme.js';
+import { restartTypingEffects } from './typing.js';
+import { updateResumeLanguage } from './resume.js';
 
-export function updateLanguage(lang, firstLoad = false) {
-    document.querySelectorAll('[data-en]').forEach(el => {
-        if (el.id && el.id.startsWith('typing-')) return;
+const LANGUAGE_KEY = 'language';
 
-        el.textContent = lang === 'no'
-            ? el.getAttribute('data-no')
-            : el.getAttribute('data-en');
+function setFlagOpacity(language) {
+    const enFlag = qs('#en-flag');
+    const noFlag = qs('#no-flag');
+
+    if (enFlag) enFlag.style.opacity = language === 'en' ? '1' : '0.5';
+    if (noFlag) noFlag.style.opacity = language === 'no' ? '1' : '0.5';
+}
+
+function setDataText(language) {
+    qsa('[data-en]').forEach((element) => {
+        if (element.id && element.id.startsWith('typing-')) return;
+        const text = language === 'no' ? element.getAttribute('data-no') : element.getAttribute('data-en');
+        if (text !== null) {
+            element.textContent = text;
+        }
     });
 
-    const typingEffect = document.getElementById('typing-effect');
+    const typingEffect = qs('#typing-effect');
     if (typingEffect) {
-        typingEffect.textContent = lang === 'no'
-            ? typingEffect.getAttribute('data-no')
-            : typingEffect.getAttribute('data-en');
+        const fallback = language === 'no' ? typingEffect.getAttribute('data-no') : typingEffect.getAttribute('data-en');
+        typingEffect.textContent = fallback;
     }
+}
 
-    // Update theme mode text explicitly (to handle the dynamic dark/light mode label)
-    const themeModeText = document.getElementById('theme-mode-text');
-    if (themeModeText) {
-        themeModeText.textContent = lang === 'no'
-            ? themeModeText.getAttribute('data-no')
-            : themeModeText.getAttribute('data-en');
-    }
-
-    const resumeText = document.querySelector('.resume-text');
-    if (resumeText) {
-        resumeText.textContent = lang === 'no' ? 'CV' : 'Resume';
-    }
-
-    const resumeLink = document.getElementById('resume-link');
-    if (resumeLink) {
-        resumeLink.href = lang === 'no'
-            ? 'assets/norwegian_cv.pdf'
-            : 'assets/english_cv.pdf';
-    }
-
-    document.documentElement.lang = lang;
-
-    // Update flag opacities
-    const enFlag = document.getElementById('en-flag');
-    const noFlag = document.getElementById('no-flag');
-
-    if (enFlag && noFlag) {
-        enFlag.style.opacity = lang === 'en' ? '1' : '0.5';
-        noFlag.style.opacity = lang === 'no' ? '1' : '0.5';
-    }
-
-    if (firstLoad) initTypingEffects();
-    else restartTypingEffects();
+export function applyLanguage(language) {
+    document.documentElement.lang = language;
+    setPreference(LANGUAGE_KEY, language);
+    setDataText(language);
+    updateResumeLanguage(language);
+    setFlagOpacity(language);
+    syncThemeLanguage(language);
+    restartTypingEffects();
 }
 
 export function initLanguageSwitcher() {
-    let lang = localStorage.getItem('language');
-    if (!lang) {
-        lang = 'no'; // Bare bruk norsk hvis det ikke finnes noe fra før
-        localStorage.setItem('language', lang);
-    }
-    updateLanguage(lang, true);
+    const selectedLanguage = getPreference(LANGUAGE_KEY, 'no');
+    applyLanguage(selectedLanguage);
+
+    const languageToggle = qs('#language-toggle');
+    if (!languageToggle) return;
+
+    languageToggle.addEventListener('click', (event) => {
+        const flag = event.target.closest('.flag-icon');
+        if (!flag) return;
+
+        const language = flag.id.startsWith('no') ? 'no' : 'en';
+        applyLanguage(language);
+    });
 }
