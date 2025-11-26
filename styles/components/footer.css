@@ -1,3 +1,5 @@
+
+
 footer {
     background-color: var(--footer-bg);
     color: white;
@@ -7,6 +9,8 @@ footer {
     width: 100%;
 }
 
+
+
 .footer-content p {
     display: flex;
     align-items: center;
@@ -14,10 +18,14 @@ footer {
     gap: 10px;
 }
 
+
+
 .separator {
     margin: 0 10px;
     font-weight: bold;
 }
+
+
 
 .footer-content a {
     color: white;

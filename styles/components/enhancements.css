@@ -1,6 +1,8 @@
 
 
 
+
+
 body {
     font-family: 'Poppins', 'Arial', sans-serif;
     line-height: 1.6;
@@ -10,6 +12,7 @@ h1, h2, h3 {
     font-weight: 700;
     letter-spacing: -0.5px;
 }
+
 
 
 .hero {
@@ -34,6 +37,7 @@ h1, h2, h3 {
     position: relative;
     z-index: 2;
 }
+
 
 
 .cta-button {
@@ -69,6 +73,7 @@ h1, h2, h3 {
 }
 
 
+
 .project-item {
     border: none;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -100,6 +105,7 @@ h1, h2, h3 {
 }
 
 
+
 .profile-picture img {
     transition: transform 0.5s ease, box-shadow 0.5s ease;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
@@ -109,6 +115,7 @@ h1, h2, h3 {
     transform: scale(1.05);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
+
 
 
 form input, form textarea {
@@ -121,6 +128,7 @@ form input:focus, form textarea:focus {
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
     outline: none;
 }
+
 
 
 .nav-list li a::after {
@@ -138,6 +146,7 @@ form input:focus, form textarea:focus {
 }
 
 
+
 .dark-mode .project-item {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 }
@@ -147,10 +156,12 @@ form input:focus, form textarea:focus {
 }
 
 
+
 section {
     padding: 60px 20px;
     position: relative;
 }
+
 
 
 .footer-content a {
@@ -160,6 +171,7 @@ section {
 .footer-content a:hover {
     transform: translateY(-3px) scale(1.2);
 }
+
 
 
 .about, .projects {

@@ -1,3 +1,5 @@
+
+
 .main-header {
     background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
     padding: 0;
@@ -18,11 +20,15 @@
     padding: 15px 20px;
 }
 
+
+
 .header-actions {
     display: flex;
     align-items: center;
     gap: 20px;
 }
+
+
 
 .settings-panel {
     position: relative;
@@ -97,6 +103,8 @@
     gap: 10px;
 }
 
+
+
 .logo a {
     background-color: transparent;
     color: white;
@@ -116,6 +124,8 @@
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
+
+
 .skip-link {
     position: absolute;
     top: -40px;
@@ -126,7 +136,6 @@
     z-index: 1001;
     transition: top 0.3s ease;
 }
-
 .skip-link:focus {
     top: 0;
 }
@@ -214,7 +223,8 @@ nav ul li a {
 nav ul li a:hover {
     background-color: #3498db;
     color: #ffffff;
-    transform: scale(1.05);
+    transform: scale(1.05); 
+
 }
 
 nav ul li a.active {
@@ -224,6 +234,8 @@ nav ul li a.active {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+
 
 .hamburger {
     display: none;
@@ -251,6 +263,8 @@ nav ul li a.active {
     transform-origin: center;
 }
 
+
+
 .hamburger.active span:nth-child(1) {
     transform: translateY(6px) rotate(45deg);
 }
@@ -262,6 +276,8 @@ nav ul li a.active {
 .hamburger.active span:nth-child(3) {
     transform: translateY(-6px) rotate(-45deg);
 }
+
+
 
 @media (max-width: 768px) {
     .hamburger {
@@ -293,14 +309,17 @@ nav ul li a.active {
         left: -100%;
         width: 70%;
         height: 100vh;
-        height: 100dvh;
+        height: 100dvh; 
+
         background: rgba(0, 0, 0, 0.96);
         transition: left 0.3s ease;
         padding-top: 80px;
-        padding-bottom: 20px;
+        padding-bottom: 20px; 
+
         z-index: 1001;
         box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
-        overflow-y: auto;
+        overflow-y: auto; 
+
     }
 
     nav.open {
@@ -343,7 +362,12 @@ nav ul li a.active {
         color: white;
         font-weight: 600;
     }
+
+    
+
 }
+
+
 
 .language-toggle {
     display: flex;
@@ -364,6 +388,8 @@ nav ul li a.active {
 .language-toggle:hover .flag-icon {
     transform: scale(1.1);
 }
+
+
 
 .language-switch img {
     width: 32px;
@@ -386,4 +412,49 @@ nav ul li a.active {
 
 .nav-list li:last-child {
     padding-left: 15px;
+}
+
+
+
+.resume-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: transparent;
+    color: var(--primary-color) !important;
+    padding: 8px 15px;
+    border-radius: 4px;
+    margin-left: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid var(--primary-color);
+}
+
+.resume-btn:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+    transform: translateY(-2px);
+}
+
+.resume-btn:active {
+    transform: translateY(0);
+}
+
+
+
+.resume-btn i {
+    font-size: 1em;
+    margin-right: 5px;
+}
+
+.resume-btn span {
+    font-size: 0.95em;
+}
+
+
+
+@media (max-width: 768px) {
+    .resume-btn {
+        margin: 10px auto 0;
+    }
 }

@@ -1,4 +1,5 @@
 
+
 .cta-button {
     background: var(--primary-color);
     color: white;
@@ -32,6 +33,7 @@
     background: var(--primary-color);
     color: white;
 }
+
 
 
 form {
@@ -90,6 +92,7 @@ form button:active {
 }
 
 
+
 #confirmation {
     margin-top: 10px;
     font-size: 1.1em;
@@ -99,15 +102,19 @@ form button:active {
 
 
 
+
+
 .intro {
     padding: 40px 20px;
 }
+
 
 
 .about, .education, .mission, .contact, .cv-download {
     text-align: center;
     padding: 40px 20px;
 }
+
 
 
 
@@ -137,6 +144,7 @@ form button:active {
 }
 
 
+
 .cv-download .download-cv {
     display: inline-block;
     background: var(--primary-color);
@@ -151,6 +159,7 @@ form button:active {
 .cv-download .download-cv:hover {
     background: #1e70bf;
 }
+
 
 
 .projects {
@@ -168,11 +177,16 @@ form button:active {
 .projects-container {
     display: flex;
     flex-direction: column;  
+
     align-items: center;  
+
     gap: 40px;  
+
     padding: 20px;
     max-width: 800px;  
+
     margin: auto;  
+
 }
 
 .project-item h2 {
@@ -184,7 +198,9 @@ form button:active {
     font-size: 1.1em;
     margin-bottom: 15px;
     flex-grow: 1; 
+
 }
+
 
 
 .project-item a {
@@ -198,6 +214,7 @@ form button:active {
     color: #1e70bf;
     text-decoration: underline;
 }
+
 
 
 .project-item {
@@ -217,8 +234,10 @@ form button:active {
 .project-item:hover {
     transform: translateY(-5px);
     background-color: #e8f4ff; 
+
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
+
 
 
 .project-lang {
@@ -228,6 +247,8 @@ form button:active {
     margin-bottom: 10px;
     color: #333;
 }
+
+
 
 
 
@@ -255,6 +276,7 @@ form button:active {
     font-size: 1.1em;
     display: none;
 }
+
 
 
 #scroll-top {
@@ -287,11 +309,13 @@ form button:active {
 }
 
 
+
 #scroll-top.initially-hidden {
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none !important;
 }
+
 
 
 .fade-in {
@@ -304,6 +328,7 @@ form button:active {
     opacity: 1;
     transform: translateY(0);
 }
+
 
 
 @keyframes fadeIn {
@@ -319,6 +344,8 @@ form button:active {
 
 
 
+
+
 #progress-overlay {
     display: none;
     position: fixed;
@@ -327,9 +354,13 @@ form button:active {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5); 
+
     backdrop-filter: blur(5px); 
+
     z-index: 10000; 
+
 }
+
 
 
 #progress-container {
@@ -351,9 +382,11 @@ form button:active {
     font-weight: bold;
     color: #333;
     z-index: 10002; 
+
     padding: 15px;
     animation: fadeIn 0.3s ease-in-out;
 }
+
 
 
 #progress-bar-wrapper {
@@ -367,6 +400,7 @@ form button:active {
 }
 
 
+
 #progress-bar {
     height: 100%;
     width: 0;
@@ -376,6 +410,7 @@ form button:active {
 }
 
 
+
 #progress-text {
     position: absolute;
     width: 100%;
@@ -383,9 +418,11 @@ form button:active {
     color: #333;
     text-align: center;
     z-index: 10003; 
+
     line-height: 20px;
     font-size: 1.1em;
 }
+
 
 
 .about-container {
@@ -433,6 +470,7 @@ form button:active {
     margin-bottom: 8px;
     line-height: 1.5;
 }
+
 
 
 @media (min-width: 768px) {

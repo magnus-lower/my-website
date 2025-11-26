@@ -1,27 +1,41 @@
+
+
 :root {
+    
+
     --bg-color: #ffffff;
     --text-color: #333333;
     --primary-color: #3498db;
     --secondary-color: #6dd5fa;
     --accent-color: #8e44ad;
+    
+    
 
     --nav-bg: #333333;
     --nav-text: #ffffff;
+    
+    
 
     --card-bg: #f8f9fa;
     --border-color: #e9ecef;
     --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
     --shadow-medium: 0 4px 15px rgba(0, 0, 0, 0.15);
     --shadow-heavy: 0 8px 25px rgba(0, 0, 0, 0.2);
+    
+    
 
     --footer-bg: #333333;
     --footer-text: #ffffff;
+    
+    
 
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
     --spacing-lg: 2rem;
     --spacing-xl: 3rem;
+    
+    
 
     --font-family-primary: 'Poppins', 'Arial', sans-serif;
     --font-size-sm: 0.875rem;
@@ -30,10 +44,14 @@
     --font-size-xl: 1.25rem;
     --font-size-2xl: 1.5rem;
     --font-size-3xl: 2rem;
+    
+    
 
     --transition-fast: 0.2s ease;
     --transition-normal: 0.3s ease;
     --transition-slow: 0.5s ease;
+    
+    
 
     --radius-sm: 4px;
     --radius-md: 8px;
@@ -41,6 +59,8 @@
     --radius-xl: 16px;
     --radius-round: 50%;
 }
+
+
 
 [data-theme="dark"] {
     --bg-color: #121212;
@@ -51,6 +71,8 @@
     --footer-bg: #222222;
 }
 
+
+
 @media (prefers-contrast: high) {
     :root {
         --text-color: #000000;
@@ -59,6 +81,8 @@
         --border-color: #000000;
     }
 }
+
+
 
 @media (prefers-reduced-motion: reduce) {
     :root {
