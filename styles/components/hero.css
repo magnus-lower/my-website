@@ -1,18 +1,17 @@
-/* Hero Section */
 .hero {
     background: linear-gradient(to right, #3498db, #6dd5fa);
     color: white;
     text-align: center;
     padding: 100px 20px;
     margin-bottom: 60px;
-    width: 100%; /* Ensure full width */
-    box-sizing: border-box; /* Include padding in width calculation */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .hero-content {
     max-width: 800px;
-    margin: 0 auto; /* Center the content horizontally */
-    width: 100%; /* Ensure the hero content uses full available width */
+    margin: 0 auto;
+    width: 100%;
 }
 
 .hero-content h1 {

@@ -1,6 +1,6 @@
-/* Enhanced Visual Elements */
 
-/* Improved Typography */
+
+
 body {
     font-family: 'Poppins', 'Arial', sans-serif;
     line-height: 1.6;
@@ -11,7 +11,7 @@ h1, h2, h3 {
     letter-spacing: -0.5px;
 }
 
-/* Enhanced Hero Section */
+
 .hero {
     background: linear-gradient(135deg, #3498db, #8e44ad);
     position: relative;
@@ -35,7 +35,7 @@ h1, h2, h3 {
     z-index: 2;
 }
 
-/* Improved Buttons */
+
 .cta-button {
     position: relative;
     overflow: hidden;
@@ -68,7 +68,7 @@ h1, h2, h3 {
     opacity: 1;
 }
 
-/* Card Enhancements */
+
 .project-item {
     border: none;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -99,7 +99,7 @@ h1, h2, h3 {
     transform: scaleX(1);
 }
 
-/* Enhanced Profile Picture */
+
 .profile-picture img {
     transition: transform 0.5s ease, box-shadow 0.5s ease;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
@@ -110,7 +110,7 @@ h1, h2, h3 {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Form Enhancements */
+
 form input, form textarea {
     transition: border 0.3s, box-shadow 0.3s;
     border: 1px solid #e0e0e0;
@@ -122,7 +122,7 @@ form input:focus, form textarea:focus {
     outline: none;
 }
 
-/* Animated underline for nav links */
+
 .nav-list li a::after {
     height: 2px;
     bottom: 5px;
@@ -137,7 +137,7 @@ form input:focus, form textarea:focus {
     opacity: 1;
 }
 
-/* Dark mode enhancements */
+
 .dark-mode .project-item {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 }
@@ -146,13 +146,13 @@ form input:focus, form textarea:focus {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Enhanced Sections */
+
 section {
     padding: 60px 20px;
     position: relative;
 }
 
-/* Hover animation for social icons */
+
 .footer-content a {
     transition: transform 0.3s ease, color 0.3s ease;
 }
@@ -161,7 +161,7 @@ section {
     transform: translateY(-3px) scale(1.2);
 }
 
-/* Subtle background pattern for sections */
+
 .about, .projects {
     background-image: radial-gradient(circle at 1px 1px, #f0f0f0 1px, transparent 0);
     background-size: 20px 20px;

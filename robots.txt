@@ -1,8 +1,3 @@
 User-agent: *
 Allow: /
-
-# Sitemap location
 Sitemap: https://magnus-lower.github.io/my-website/sitemap.xml
-
-# Allow search engines to crawl all content
-# No disallowed paths for this portfolio website

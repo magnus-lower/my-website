@@ -1,4 +1,4 @@
-/* ========== Navbar ========== */
+
 .main-header {
     background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
     padding: 0;
@@ -19,14 +19,14 @@
     padding: 15px 20px;
 }
 
-/* Updated Header Actions */
+
 .header-actions {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-/* Settings Panel */
+
 .settings-panel {
     position: relative;
 }
@@ -100,7 +100,7 @@
     gap: 10px;
 }
 
-/* Logo styling to match Resume button */
+
 .logo a {
     background-color: transparent;
     color: white;
@@ -120,7 +120,7 @@
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Skip‑to‑content link (hidden until focused) */
+
 .skip-link {
     position: absolute;
     top: -40px;
@@ -218,7 +218,7 @@ nav ul li a {
 nav ul li a:hover {
     background-color: #3498db;
     color: #ffffff;
-    transform: scale(1.05); /* Adds subtle zoom on hover */
+    transform: scale(1.05); 
 }
 
 nav ul li a.active {
@@ -229,7 +229,7 @@ nav ul li a.active {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Hamburger button (mobile) */
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -256,7 +256,7 @@ nav ul li a.active {
     transform-origin: center;
 }
 
-/* Hamburger animation */
+
 .hamburger.active span:nth-child(1) {
     transform: translateY(6px) rotate(45deg);
 }
@@ -269,7 +269,7 @@ nav ul li a.active {
     transform: translateY(-6px) rotate(-45deg);
 }
 
-/* Toggle showing nav on mobile */
+
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
@@ -300,14 +300,14 @@ nav ul li a.active {
         left: -100%;
         width: 70%;
         height: 100vh;
-        height: 100dvh; /* Dynamic viewport height for mobile */
+        height: 100dvh; 
         background: rgba(0, 0, 0, 0.96);
         transition: left 0.3s ease;
         padding-top: 80px;
-        padding-bottom: 20px; /* Add bottom padding */
+        padding-bottom: 20px; 
         z-index: 1001;
         box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
-        overflow-y: auto; /* Allow scrolling if content is too tall */
+        overflow-y: auto; 
     }
 
     nav.open {
@@ -351,10 +351,10 @@ nav ul li a.active {
         font-weight: 600;
     }
 
-    /* Remove the old hamburger animation styles */
+    
 }
 
-/* Language Toggle */
+
 .language-toggle {
     display: flex;
     align-items: center;
@@ -375,7 +375,7 @@ nav ul li a.active {
     transform: scale(1.1);
 }
 
-/* Language Switcher */
+
 .language-switch img {
     width: 32px;
     height: 22px;
@@ -399,7 +399,7 @@ nav ul li a.active {
     padding-left: 15px;
 }
 
-/* Modified Resume Button - Less Flashy Design */
+
 .resume-btn {
     display: flex;
     align-items: center;
@@ -424,7 +424,7 @@ nav ul li a.active {
     transform: translateY(0);
 }
 
-/* Resume Button - Updated with document icon */
+
 .resume-btn i {
     font-size: 1em;
     margin-right: 5px;
@@ -434,7 +434,7 @@ nav ul li a.active {
     font-size: 0.95em;
 }
 
-/* Style for mobile */
+
 @media (max-width: 768px) {
     .resume-btn {
         margin: 10px auto 0;

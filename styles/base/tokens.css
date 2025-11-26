@@ -1,35 +1,28 @@
-/* CSS Custom Properties (Variables) */
 :root {
-    /* Color Scheme */
     --bg-color: #ffffff;
     --text-color: #333333;
     --primary-color: #3498db;
     --secondary-color: #6dd5fa;
     --accent-color: #8e44ad;
 
-    /* Navigation */
     --nav-bg: #333333;
     --nav-text: #ffffff;
 
-    /* Cards and Components */
     --card-bg: #f8f9fa;
     --border-color: #e9ecef;
     --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
     --shadow-medium: 0 4px 15px rgba(0, 0, 0, 0.15);
     --shadow-heavy: 0 8px 25px rgba(0, 0, 0, 0.2);
 
-    /* Footer */
     --footer-bg: #333333;
     --footer-text: #ffffff;
 
-    /* Spacing */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
     --spacing-lg: 2rem;
     --spacing-xl: 3rem;
 
-    /* Typography */
     --font-family-primary: 'Poppins', 'Arial', sans-serif;
     --font-size-sm: 0.875rem;
     --font-size-base: 1rem;
@@ -38,12 +31,10 @@
     --font-size-2xl: 1.5rem;
     --font-size-3xl: 2rem;
 
-    /* Transitions */
     --transition-fast: 0.2s ease;
     --transition-normal: 0.3s ease;
     --transition-slow: 0.5s ease;
 
-    /* Border Radius */
     --radius-sm: 4px;
     --radius-md: 8px;
     --radius-lg: 12px;
@@ -51,7 +42,6 @@
     --radius-round: 50%;
 }
 
-/* Dark Mode Variables */
 [data-theme="dark"] {
     --bg-color: #121212;
     --text-color: #ffffff;
@@ -61,7 +51,6 @@
     --footer-bg: #222222;
 }
 
-/* High Contrast Variables (for accessibility) */
 @media (prefers-contrast: high) {
     :root {
         --text-color: #000000;
@@ -71,7 +60,6 @@
     }
 }
 
-/* Reduced Motion Variables (for accessibility) */
 @media (prefers-reduced-motion: reduce) {
     :root {
         --transition-fast: 0s;
