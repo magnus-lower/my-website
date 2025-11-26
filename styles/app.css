@@ -1,10 +1,10 @@
 @import './base/reset.css';
-@import './base/tokens.css';
-@import './base/base.css';
 @import './components/enhancements.css';
+@import './base/tokens.css';
 @import './components/navigation.css';
+@import './base/base.css';
 @import './components/hero.css';
+@import './features/dark-mode.css';
 @import './components/footer.css';
 @import './components/ui-components.css';
-@import './features/dark-mode.css';
 @import './features/responsive.css';

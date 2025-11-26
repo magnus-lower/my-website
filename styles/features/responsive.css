@@ -3,7 +3,6 @@
         flex-direction: column;
         text-align: center;
     }
-
     .hero {
         width: 90vw;
         margin-left: -20px;
@@ -11,61 +10,44 @@
         padding-right: 20px;
         box-sizing: border-box;
     }
-
-    
-
     main {
-        padding: 10px 0; 
-
+        padding: 10px 0;
         width: 90%;
     }
-
     .projects-container {
         width: 90%;
         margin: 0 auto;
         padding: 0;
     }
-
     .project-wrapper {
         width: 100%;
         padding: 0;
         margin: 0 auto 20px;
     }
-
     .project-item {
         width: 100%;
         max-width: 100%;
     }
-
     .settings-dropdown {
         right: -10px;
         width: 200px;
     }
-
     main {
         padding: 10px;
     }
-
     h1 {
         font-size: 2em;
     }
-
     p {
         font-size: 1.1em;
     }
-
     .projects-container {
         flex-direction: column;
         align-items: center;
     }
-    
-
     nav .nav-list {
         display: none;
     }
-
-    
-
     nav.open .nav-list {
         display: flex;
         flex-direction: column;
@@ -74,27 +56,22 @@
         padding: 10px;
     }
 }
-
 @media (max-width: 600px) {
     .hero-content h1 {
         font-size: 1.8em;
     }
-
     .hero-content p {
         font-size: 1em;
     }
 }
-
 @media (max-width: 480px) {
     h1 {
         font-size: 1.6em;
     }
-
     p {
         font-size: 1em;
     }
 }
-
 @media (max-width: 768px) {
     .nav-list {
         flex-direction: column;
@@ -116,7 +93,6 @@
         margin-top: 10px;
     }
 }
-
 @media (max-width: 480px) {
     .form-group, #contact-form {
         max-width: 100%;

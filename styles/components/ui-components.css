@@ -1,5 +1,3 @@
-
-
 .cta-button {
     background: var(--primary-color);
     color: white;
@@ -11,31 +9,24 @@
     transition: all 0.3s ease-in-out;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
 .cta-button:hover {
     background: #1e70bf;
     transform: scale(1.05);
     box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
 }
-
 .cta-button:focus {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
 }
-
 .cta-button.secondary {
     background: transparent;
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
 }
-
 .cta-button.secondary:hover {
     background: var(--primary-color);
     color: white;
 }
-
-
-
 form {
     display: flex;
     flex-direction: column;
@@ -48,12 +39,10 @@ form {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-
 form label {
     font-size: 1.2em;
     font-weight: bold;
 }
-
 form input, form textarea {
     width: 100%;
     padding: 10px;
@@ -62,13 +51,11 @@ form input, form textarea {
     font-size: 1em;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
-
 form input:focus, form textarea:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
 }
-
 form button {
     background-color: var(--primary-color);
     color: white;
@@ -80,45 +67,27 @@ form button {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
 form button:hover {
     background-color: #1e70bf;
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
 }
-
 form button:active {
     transform: translateY(0);
 }
-
-
-
 #confirmation {
     margin-top: 10px;
     font-size: 1.1em;
     color: green;
     display: none;
 }
-
-
-
-
-
 .intro {
     padding: 40px 20px;
 }
-
-
-
 .about, .education, .mission, .contact, .cv-download {
     text-align: center;
     padding: 40px 20px;
 }
-
-
-
-
-
 .skills-container {
     display: flex;
     flex-wrap: wrap;
@@ -126,7 +95,6 @@ form button:active {
     gap: 10px;
     padding: 20px;
 }
-
 .skill {
     background: var(--primary-color);
     color: white;
@@ -137,14 +105,10 @@ form button:active {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     cursor: default;
 }
-
 .skill:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
-
-
 .cv-download .download-cv {
     display: inline-block;
     background: var(--primary-color);
@@ -155,68 +119,47 @@ form button:active {
     font-weight: bold;
     transition: background 0.3s;
 }
-
 .cv-download .download-cv:hover {
     background: #1e70bf;
 }
-
-
-
 .projects {
     text-align: center;
     padding: 40px 20px;
 }
-
 .project-wrapper {
     margin-bottom: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 .projects-container {
     display: flex;
-    flex-direction: column;  
-
-    align-items: center;  
-
-    gap: 40px;  
-
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
     padding: 20px;
-    max-width: 800px;  
-
-    margin: auto;  
-
+    max-width: 800px;
+    margin: auto;
 }
-
 .project-item h2 {
     font-size: 1.4em;
     margin-bottom: 10px;
 }
-
 .project-item p {
     font-size: 1.1em;
     margin-bottom: 15px;
-    flex-grow: 1; 
-
+    flex-grow: 1;
 }
-
-
-
 .project-item a {
     color: var(--primary-color);
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
-
 .project-item a:hover {
     color: #1e70bf;
     text-decoration: underline;
 }
-
-
-
 .project-item {
     background: var(--card-bg);
     padding: 20px;
@@ -230,16 +173,11 @@ form button:active {
     align-items: center;
     text-align: center;
 }
-
 .project-item:hover {
     transform: translateY(-5px);
-    background-color: #e8f4ff; 
-
+    background-color: #e8f4ff;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
-
-
-
 .project-lang {
     font-size: 1.2em;
     font-weight: bold;
@@ -247,19 +185,12 @@ form button:active {
     margin-bottom: 10px;
     color: #333;
 }
-
-
-
-
-
-
 .form-group {
     display: flex;
     flex-direction: column;
     width: 100%;
     max-width: 400px;
 }
-
 #contact-form {
     display: flex;
     flex-direction: column;
@@ -270,15 +201,11 @@ form button:active {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-
 .confirmation-message {
     color: green;
     font-size: 1.1em;
     display: none;
 }
-
-
-
 #scroll-top {
     position: fixed;
     bottom: 30px;
@@ -299,38 +226,26 @@ form button:active {
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-
 #scroll-top:hover {
     opacity: 1;
 }
-
 #scroll-top:active {
     transform: translateY(-2px);
 }
-
-
-
 #scroll-top.initially-hidden {
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none !important;
 }
-
-
-
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
-
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
 }
-
-
-
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -341,11 +256,6 @@ form button:active {
         transform: translate(-50%, -50%);
     }
 }
-
-
-
-
-
 #progress-overlay {
     display: none;
     position: fixed;
@@ -353,16 +263,10 @@ form button:active {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); 
-
-    backdrop-filter: blur(5px); 
-
-    z-index: 10000; 
-
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 10000;
 }
-
-
-
 #progress-container {
     display: none;
     flex-direction: column;
@@ -381,14 +285,10 @@ form button:active {
     font-size: 1.3em;
     font-weight: bold;
     color: #333;
-    z-index: 10002; 
-
+    z-index: 10002;
     padding: 15px;
     animation: fadeIn 0.3s ease-in-out;
 }
-
-
-
 #progress-bar-wrapper {
     width: 100%;
     height: 20px;
@@ -398,9 +298,6 @@ form button:active {
     position: relative;
     margin-top: 10px;
 }
-
-
-
 #progress-bar {
     height: 100%;
     width: 0;
@@ -408,23 +305,16 @@ form button:active {
     border-radius: 10px;
     transition: width 0.4s ease-in-out;
 }
-
-
-
 #progress-text {
     position: absolute;
     width: 100%;
     font-weight: bold;
     color: #333;
     text-align: center;
-    z-index: 10003; 
-
+    z-index: 10003;
     line-height: 20px;
     font-size: 1.1em;
 }
-
-
-
 .about-container {
     display: flex;
     flex-direction: column;
@@ -433,13 +323,11 @@ form button:active {
     max-width: 800px;
     margin: 0 auto;
 }
-
 .profile-picture {
     text-align: center;
     margin-bottom: 20px;
     width: 100%;
 }
-
 .profile-picture img {
     width: 180px;
     height: 180px;
@@ -448,36 +336,28 @@ form button:active {
     border: 3px solid #ffffff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
-
 .about-text {
     width: 100%;
 }
-
 .about-text p {
     margin-bottom: 16px;
     text-align: left;
     line-height: 1.6;
 }
-
 .about-text ul {
     text-align: left;
     margin-left: 30px;
     margin-bottom: 16px;
     list-style-type: disc;
 }
-
 .about-text li {
     margin-bottom: 8px;
     line-height: 1.5;
 }
-
-
-
 @media (min-width: 768px) {
     .about-container {
         flex-direction: column;
     }
-
     .about-text {
         width: 100%;
     }
