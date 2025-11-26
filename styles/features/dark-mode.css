@@ -1,0 +1,41 @@
+.dark-mode section,
+.dark-mode .hero,
+.dark-mode .projects-container,
+.dark-mode .project-wrapper,
+.dark-mode .project-item,
+.dark-mode .about,
+.dark-mode .contact,
+.dark-mode .form-group,
+.dark-mode #contact-form {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+.dark-mode .project-item {
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .project-lang {
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .project-item:hover {
+    background-color: #2a2a2a;
+}
+
+.dark-mode input,
+.dark-mode textarea {
+    background-color: #2a2a2a;
+    color: white;
+    border-color: #444;
+}
+
+.dark-mode #scroll-top,
+#scroll-top.dark-mode {
+    background-color: #1a1a1a;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}

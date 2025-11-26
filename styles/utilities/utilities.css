@@ -1,0 +1,30 @@
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.separator {
+    margin: 0 var(--spacing-xs);
+    font-weight: bold;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 8px 12px;
+    z-index: 1001;
+    transition: top var(--transition-normal);
+}
+
+.skip-link:focus {
+    top: 0;
+}

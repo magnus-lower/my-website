@@ -1,0 +1,52 @@
+main {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+section {
+    padding: 60px 20px;
+    position: relative;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: var(--spacing-sm);
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero,
+.about,
+.projects,
+.contact,
+.about-preview {
+    background-size: cover;
+}
+
+.about,
+.projects {
+    background-image: radial-gradient(circle at 1px 1px, #f0f0f0 1px, transparent 0);
+    background-size: 20px 20px;
+}
+
+.dark-mode .about,
+.dark-mode .projects {
+    background-image: radial-gradient(circle at 1px 1px, #2a2a2a 1px, transparent 0);
+}
