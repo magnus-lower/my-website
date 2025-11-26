@@ -1,57 +1,56 @@
-// In js/modules/darkmode.js
+import { getStoredDarkModePreference, getStoredLanguage, setStoredDarkModePreference } from './preferences.js';
+
+const DARK_MODE_CLASS = 'dark-mode';
+const DARK_MODE_LABEL = {
+    en: { dark: 'Dark Mode', light: 'Light Mode' },
+    no: { dark: 'Mørk modus', light: 'Lys modus' }
+};
+
 export function initDarkMode() {
     const darkModeToggle = document.getElementById('dark-mode-toggle');
     if (!darkModeToggle) return;
 
-    // Find the theme mode text element
     const themeModeText = document.getElementById('theme-mode-text');
 
-    // Function to update the label text based on both dark mode state and language
-    const updateDarkModeLabel = (isDark) => {
-        if (themeModeText) {
-            const lang = localStorage.getItem('language') || 'en';
+    const applyDarkModeToSections = (enabled) => {
+        document.documentElement.classList.toggle(DARK_MODE_CLASS, enabled);
+        document.body.classList.toggle(DARK_MODE_CLASS, enabled);
+        document
+            .querySelectorAll('section, .project-item, .hero, .projects-container')
+            .forEach(el => el.classList.toggle(DARK_MODE_CLASS, enabled));
 
-            // Update the data attributes to reflect the mode you would SWITCH TO (not the current mode)
-            themeModeText.setAttribute('data-en', isDark ? 'Dark Mode' : 'Light Mode');
-            themeModeText.setAttribute('data-no', isDark ? 'Mørk modus' : 'Lys modus');
-
-            // Apply the correct text based on current language
-            themeModeText.textContent = lang === 'no'
-                ? themeModeText.getAttribute('data-no')
-                : themeModeText.getAttribute('data-en');
-
-            // Update icon - keep the icon logic as is
-            const labelIcon = themeModeText.previousElementSibling;
-            if (labelIcon) {
-                labelIcon.className = isDark ? "fas fa-moon" : "fas fa-sun";
-            }
+        const scrollButton = document.getElementById('scroll-top');
+        if (scrollButton) {
+            scrollButton.classList.toggle(DARK_MODE_CLASS, enabled);
         }
     };
 
-    // Apply initial state
-    const isDarkMode = localStorage.getItem('darkMode') === 'true';
-    updateDarkModeLabel(isDarkMode);
+    const updateDarkModeLabel = (isDark) => {
+        if (!themeModeText) return;
 
-    if (isDarkMode) {
-        document.documentElement.classList.add('dark-mode');
-        document.body.classList.add('dark-mode');
-        document.querySelectorAll('section, .project-item, .hero, .projects-container')
-            .forEach(el => el.classList.add('dark-mode'));
-        const scrollButton = document.getElementById('scroll-top');
-        if (scrollButton) scrollButton.classList.add('dark-mode');
-        darkModeToggle.checked = true;
-    }
+        const language = getStoredLanguage();
+        const translations = DARK_MODE_LABEL[language] || DARK_MODE_LABEL.en;
+        const labelIcon = themeModeText.previousElementSibling;
 
-    darkModeToggle.addEventListener('change', () => {
-        const enabled = darkModeToggle.checked;
+        themeModeText.setAttribute('data-en', isDark ? DARK_MODE_LABEL.en.dark : DARK_MODE_LABEL.en.light);
+        themeModeText.setAttribute('data-no', isDark ? DARK_MODE_LABEL.no.dark : DARK_MODE_LABEL.no.light);
+        themeModeText.textContent = isDark ? translations.dark : translations.light;
+
+        if (labelIcon) {
+            labelIcon.className = isDark ? 'fas fa-moon' : 'fas fa-sun';
+        }
+    };
+
+    const applyDarkMode = (enabled) => {
         updateDarkModeLabel(enabled);
-        document.documentElement.classList.toggle('dark-mode', enabled);
-        document.body.classList.toggle('dark-mode', enabled);
-        document.querySelectorAll('section, .project-item, .hero, .projects-container')
-            .forEach(el => el.classList.toggle('dark-mode', enabled));
-        const scrollButton = document.getElementById('scroll-top');
-        if (scrollButton) scrollButton.classList.toggle('dark-mode', enabled);
-        localStorage.setItem('darkMode', enabled.toString());
+        applyDarkModeToSections(enabled);
+        setStoredDarkModePreference(enabled);
         document.dispatchEvent(new CustomEvent('themeChange', { detail: { darkMode: enabled } }));
-    });
+    };
+
+    const isDarkMode = getStoredDarkModePreference();
+    applyDarkMode(isDarkMode);
+    darkModeToggle.checked = isDarkMode;
+
+    darkModeToggle.addEventListener('change', () => applyDarkMode(darkModeToggle.checked));
 }
