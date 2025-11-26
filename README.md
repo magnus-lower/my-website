@@ -62,8 +62,9 @@ I created this portfolio website to showcase my programming projects and what I'
 │   ├── norwegian-flag.png # Language selector flag
 │   └── uk-flag.png        # Language selector flag
 ├── css/                   # Stylesheets
-│   ├── styles.css         # Main stylesheet
-│   ├── variables.css      # CSS custom properties
+│   ├── base/              # Global foundations
+│   │   ├── base.css       # Global reset and layout rules
+│   │   └── variables.css  # CSS custom properties
 │   ├── components/        # Component-specific styles
 │   │   ├── enhancements.css
 │   │   ├── footer.css
@@ -74,18 +75,27 @@ I created this portfolio website to showcase my programming projects and what I'
 │       ├── dark-mode.css  # Dark theme implementation
 │       └── responsive.css # Responsive design rules
 └── js/                    # JavaScript modules
-    ├── main.js            # Main entry point
-    └── modules/           # Modular JavaScript components
-        ├── contactForm.js
-        ├── darkmode.js
-        ├── hamburger.js
-        ├── language.js
-        ├── navHighlight.js
-        ├── projectLinks.js
-        ├── resume.js
-        ├── settingsPanel.js
-        ├── smoothScroll.js
-        └── typing.js
+    ├── app.js             # Application entry point
+    ├── core/              # Bootstrapping utilities
+    │   ├── languageBootstrap.js
+    │   └── themeBootstrap.js
+    └── features/          # Feature-oriented modules
+        ├── appearance/
+        │   ├── darkModeToggle.js
+        │   └── scrollReveal.js
+        ├── content/
+        │   ├── projectCardLinks.js
+        │   └── typingEffect.js
+        ├── forms/
+        │   └── contactFormHandler.js
+        ├── localization/
+        │   └── languageSwitcher.js
+        ├── navigation/
+        │   ├── activeNavigationHighlight.js
+        │   ├── hamburgerMenu.js
+        │   └── settingsDropdown.js
+        └── resources/
+            └── resumeLinkManager.js
 ```
 
 ## My Projects

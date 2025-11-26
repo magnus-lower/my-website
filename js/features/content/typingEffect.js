@@ -1,28 +1,27 @@
 let typingIntervals = [];
 
-function typeEffect(el, text, speed=100) {
-    if (!el || !text) return;
+function typeEffect(element, text, speed = 100) {
+    if (!element || !text) return;
 
-    // Clear any existing interval for this element
-    clearTypingForElement(el);
+    clearTypingForElement(element);
+    element.textContent = '';
+    let index = 0;
 
-    el.textContent = '';
-    let i = 0;
     const interval = setInterval(() => {
-        if (i <= text.length) {
-            el.textContent = text.substring(0, i);
-            i++;
+        if (index <= text.length) {
+            element.textContent = text.substring(0, index);
+            index++;
         } else {
             clearInterval(interval);
         }
     }, speed);
 
-    typingIntervals.push({ el, interval });
+    typingIntervals.push({ element, interval });
 }
 
-function clearTypingForElement(el) {
+function clearTypingForElement(element) {
     typingIntervals = typingIntervals.filter(item => {
-        if (item.el === el) {
+        if (item.element === element) {
             clearInterval(item.interval);
             return false;
         }
@@ -36,26 +35,24 @@ function clearAllTyping() {
 }
 
 export function initTypingEffects() {
-    // Small delay to ensure DOM is ready
     setTimeout(() => {
-        const lang = localStorage.getItem('language') || 'en';
+        const language = localStorage.getItem('language') || 'en';
 
-        // Try each element individually to avoid one failure stopping others
         const typingEffect = document.getElementById('typing-effect');
         if (typingEffect) {
-            const text = lang === 'no' ? typingEffect.getAttribute('data-no') : typingEffect.getAttribute('data-en');
+            const text = language === 'no' ? typingEffect.getAttribute('data-no') : typingEffect.getAttribute('data-en');
             typeEffect(typingEffect, text);
         }
 
         const typingProjects = document.getElementById('typing-projects');
         if (typingProjects) {
-            const text = lang === 'no' ? typingProjects.getAttribute('data-no') : typingProjects.getAttribute('data-en');
+            const text = language === 'no' ? typingProjects.getAttribute('data-no') : typingProjects.getAttribute('data-en');
             typeEffect(typingProjects, text);
         }
 
         const typingAbout = document.getElementById('typing-about');
         if (typingAbout) {
-            const text = lang === 'no' ? typingAbout.getAttribute('data-no') : typingAbout.getAttribute('data-en');
+            const text = language === 'no' ? typingAbout.getAttribute('data-no') : typingAbout.getAttribute('data-en');
             typeEffect(typingAbout, text);
         }
     }, 1);
@@ -65,8 +62,8 @@ export function restartTypingEffects() {
     clearAllTyping();
 
     ['typing-effect', 'typing-projects', 'typing-about'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.textContent = '';
+        const element = document.getElementById(id);
+        if (element) element.textContent = '';
     });
 
     setTimeout(initTypingEffects, 200);
