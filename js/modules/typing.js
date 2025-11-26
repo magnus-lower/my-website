@@ -1,3 +1,5 @@
+import { getStoredLanguage } from './preferences.js';
+
 let typingIntervals = [];
 
 function typeEffect(el, text, speed=100) {
@@ -38,7 +40,7 @@ function clearAllTyping() {
 export function initTypingEffects() {
     // Small delay to ensure DOM is ready
     setTimeout(() => {
-        const lang = localStorage.getItem('language') || 'en';
+        const lang = getStoredLanguage();
 
         // Try each element individually to avoid one failure stopping others
         const typingEffect = document.getElementById('typing-effect');
