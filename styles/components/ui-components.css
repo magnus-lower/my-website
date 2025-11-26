@@ -83,19 +83,13 @@ form button:active {
 }
 .intro {
     padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 .about-preview {
-    max-width: 1200px;
-    margin: 0 auto;
     padding: 40px 20px;
 }
 .about, .education, .mission, .contact, .cv-download {
     text-align: center;
     padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 .skills-container {
     display: flex;
@@ -134,8 +128,6 @@ form button:active {
 .projects {
     text-align: center;
     padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 .project-wrapper {
     margin-bottom: 40px;
