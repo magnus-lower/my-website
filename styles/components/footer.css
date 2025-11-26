@@ -1,3 +1,4 @@
+/* ========== Footer ========== */
 footer {
     background-color: var(--footer-bg);
     color: white;
@@ -7,6 +8,7 @@ footer {
     width: 100%;
 }
 
+/* Centering the footer content */
 .footer-content p {
     display: flex;
     align-items: center;
@@ -14,13 +16,19 @@ footer {
     gap: 10px;
 }
 
+/* Separator Line */
+.separator {
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+/* Social Media Icons */
 .footer-content a {
     color: white;
     font-size: 1.5em;
-    transition: color var(--transition-normal), transform var(--transition-normal);
+    transition: color 0.3s ease-in-out;
 }
 
 .footer-content a:hover {
     color: var(--primary-color);
-    transform: translateY(-3px) scale(1.1);
 }

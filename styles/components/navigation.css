@@ -1,3 +1,4 @@
+/* ========== Navbar ========== */
 .main-header {
     background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
     padding: 0;
@@ -16,25 +17,100 @@
     max-width: 1400px;
     margin: 0 auto;
     padding: 15px 20px;
-    gap: var(--spacing-md);
 }
 
+/* Updated Header Actions */
 .header-actions {
     display: flex;
     align-items: center;
-    gap: var(--spacing-md);
+    gap: 20px;
 }
 
+/* Settings Panel */
+.settings-panel {
+    position: relative;
+}
+
+.settings-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(30deg);
+}
+
+.settings-dropdown {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: rgba(40, 40, 40, 0.95);
+    border-radius: 8px;
+    width: 220px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 1001;
+    transform-origin: top right;
+    animation: settingsAppear 0.2s ease-out forwards;
+}
+
+@keyframes settingsAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.settings-dropdown.visible {
+    display: block;
+}
+
+.settings-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.settings-item:last-child {
+    border-bottom: none;
+}
+
+.settings-item-label {
+    color: white;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Logo styling to match Resume button */
 .logo a {
     background-color: transparent;
-    color: #ffffff;
+    color: white;
     padding: 6px 15px;
-    border-radius: var(--radius-sm);
+    border-radius: 5px;
     font-weight: 600;
     font-size: 1.2em;
     text-decoration: none;
     display: inline-block;
-    transition: all var(--transition-normal);
+    transition: all 0.3s ease;
     border: 2px solid var(--primary-color);
 }
 
@@ -42,6 +118,21 @@
     background-color: var(--primary-color);
     transform: translateY(-2px);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Skip‑to‑content link (hidden until focused) */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 8px 12px;
+    z-index: 1001;
+    transition: top 0.3s ease;
+}
+.skip-link:focus {
+    top: 0;
 }
 
 nav {
@@ -66,9 +157,13 @@ nav {
     padding: 10px 15px;
     font-size: 1.1em;
     font-weight: 500;
-    border-radius: var(--radius-sm);
-    transition: color var(--transition-normal), background-color var(--transition-normal), transform 0.2s;
+    border-radius: 5px;
+    transition: all 0.3s;
     position: relative;
+}
+
+.nav-list li a:hover {
+    color: #ffffff;
 }
 
 .nav-list li a::after {
@@ -76,22 +171,15 @@ nav {
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: 5px;
+    bottom: 0;
     left: 50%;
     background-color: var(--primary-color);
-    transition: all var(--transition-normal);
-    opacity: 0;
+    transition: all 0.3s ease;
 }
 
-.nav-list li a:hover {
-    color: #ffffff;
-}
-
-.nav-list li a:hover::after,
-.nav-list li a.active::after {
+.nav-list li a:hover::after {
     width: 100%;
     left: 0;
-    opacity: 1;
 }
 
 .nav-list li a.active {
@@ -99,188 +187,49 @@ nav {
     color: var(--primary-color);
 }
 
-.nav-list li:not(:last-child) {
-    border-right: 1px solid rgba(255, 255, 255, 0.2);
-    padding-right: 15px;
-}
-
-.nav-list li:last-child {
-    padding-left: 15px;
-}
-
-.resume-btn {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    background: transparent;
-    color: var(--primary-color) !important;
-    padding: 8px 15px;
-    border-radius: var(--radius-sm);
-    margin-left: 15px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all var(--transition-normal);
-    border: 1px solid var(--primary-color);
-}
-
-.resume-btn:hover {
-    background-color: rgba(52, 152, 219, 0.1);
-    transform: translateY(-2px);
-}
-
-.resume-btn i {
-    font-size: 1em;
-}
-
-.settings-panel {
-    position: relative;
-}
-
-.settings-toggle {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.4rem;
-    cursor: pointer;
-    transition: transform var(--transition-normal), background-color var(--transition-normal);
-    padding: 8px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.settings-toggle:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: rotate(30deg);
-}
-
-.settings-dropdown {
-    position: absolute;
-    right: 0;
-    top: 100%;
-    background: rgba(40, 40, 40, 0.95);
-    border-radius: var(--radius-md);
-    width: 220px;
-    padding: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    display: none;
-    z-index: 1001;
-    transform-origin: top right;
-    animation: settingsAppear 0.2s ease-out forwards;
-}
-
-.settings-dropdown.visible {
-    display: block;
-}
-
-@keyframes settingsAppear {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.settings-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.settings-item:last-child {
-    border-bottom: none;
-}
-
-.settings-item-label {
-    color: white;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.language-toggle {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-}
-
-.flag-icon {
-    width: 24px;
-    height: 18px;
-    border-radius: 3px;
-    object-fit: cover;
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
-    transition: transform var(--transition-fast);
-}
-
-.language-toggle:hover .flag-icon {
-    transform: scale(1.1);
-}
-
-.theme-toggle {
-    position: relative;
-    width: 56px;
-    height: 28px;
-}
-
-.theme-toggle input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.theme-slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
+.nav-list li a.active::after {
+    width: 100%;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.2);
-    transition: 0.4s;
-    border-radius: 28px;
-    overflow: hidden;
+    background-color: var(--primary-color);
+    height: 3px;
 }
 
-.theme-slider:before {
-    position: absolute;
-    content: "☀️";
+nav ul {
+    list-style: none;
     display: flex;
-    align-items: center;
     justify-content: center;
-    height: 22px;
-    width: 22px;
-    left: 3px;
-    bottom: 3px;
-    background: #FFD43B;
-    box-shadow: 0 0 10px rgba(255, 211, 67, 0.5);
-    transition: 0.4s;
-    border-radius: 50%;
+    gap: 20px;
 }
 
-input:checked + .theme-slider {
-    background: rgba(30, 30, 50, 0.6);
+nav ul li {
+    display: inline-block;
 }
 
-input:checked + .theme-slider:before {
-    transform: translateX(28px);
-    content: "🌙";
-    background: var(--primary-color);
-    box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+nav ul li a {
+    color: var(--nav-text);
+    text-decoration: none;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: color 0.3s, background-color 0.3s, transform 0.2s;
 }
 
-.theme-slider:hover:before {
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+nav ul li a:hover {
+    background-color: #3498db;
+    color: #ffffff;
+    transform: scale(1.05); /* Adds subtle zoom on hover */
 }
 
+nav ul li a.active {
+    font-weight: bold;
+    background-color: #6dd5fa;
+    color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Hamburger button (mobile) */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -291,18 +240,23 @@ input:checked + .theme-slider:before {
     padding: 10px;
     z-index: 1002;
     border-radius: 6px;
-    transition: background-color var(--transition-normal);
+    transition: background-color 0.3s ease;
+}
+
+.hamburger:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .hamburger span {
     width: 22px;
     height: 2px;
     background: var(--nav-text);
-    transition: all var(--transition-normal);
+    transition: all 0.3s ease;
     border-radius: 1px;
     transform-origin: center;
 }
 
+/* Hamburger animation */
 .hamburger.active span:nth-child(1) {
     transform: translateY(6px) rotate(45deg);
 }
@@ -315,10 +269,19 @@ input:checked + .theme-slider:before {
     transform: translateY(-6px) rotate(-45deg);
 }
 
+/* Toggle showing nav on mobile */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
         order: 1;
+    }
+
+    #scroll-top {
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1em;
     }
 
     .logo {
@@ -337,14 +300,14 @@ input:checked + .theme-slider:before {
         left: -100%;
         width: 70%;
         height: 100vh;
-        height: 100dvh;
+        height: 100dvh; /* Dynamic viewport height for mobile */
         background: rgba(0, 0, 0, 0.96);
-        transition: left var(--transition-normal);
+        transition: left 0.3s ease;
         padding-top: 80px;
-        padding-bottom: 20px;
+        padding-bottom: 20px; /* Add bottom padding */
         z-index: 1001;
         box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
-        overflow-y: auto;
+        overflow-y: auto; /* Allow scrolling if content is too tall */
     }
 
     nav.open {
@@ -360,8 +323,6 @@ input:checked + .theme-slider:before {
 
     .nav-list li {
         width: 100%;
-        border-right: none;
-        padding-right: 0;
     }
 
     .nav-list li a {
@@ -370,8 +331,8 @@ input:checked + .theme-slider:before {
         width: 100%;
         font-size: 1.1em;
         font-weight: 500;
-        transition: all var(--transition-normal);
-        border-radius: var(--radius-md);
+        transition: all 0.3s ease;
+        border-radius: 8px;
         color: rgba(255, 255, 255, 0.9);
         border-left: 3px solid transparent;
     }
@@ -390,6 +351,91 @@ input:checked + .theme-slider:before {
         font-weight: 600;
     }
 
+    /* Remove the old hamburger animation styles */
+}
+
+/* Language Toggle */
+.language-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.flag-icon {
+    width: 24px;
+    height: 18px;
+    border-radius: 3px;
+    object-fit: cover;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+    transition: transform 0.2s;
+}
+
+.language-toggle:hover .flag-icon {
+    transform: scale(1.1);
+}
+
+/* Language Switcher */
+.language-switch img {
+    width: 32px;
+    height: 22px;
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.language-switch img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+}
+
+.nav-list li:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    padding-right: 15px;
+}
+
+.nav-list li:last-child {
+    padding-left: 15px;
+}
+
+/* Modified Resume Button - Less Flashy Design */
+.resume-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: transparent;
+    color: var(--primary-color) !important;
+    padding: 8px 15px;
+    border-radius: 4px;
+    margin-left: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid var(--primary-color);
+}
+
+.resume-btn:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+    transform: translateY(-2px);
+}
+
+.resume-btn:active {
+    transform: translateY(0);
+}
+
+/* Resume Button - Updated with document icon */
+.resume-btn i {
+    font-size: 1em;
+    margin-right: 5px;
+}
+
+.resume-btn span {
+    font-size: 0.95em;
+}
+
+/* Style for mobile */
+@media (max-width: 768px) {
     .resume-btn {
         margin: 10px auto 0;
     }

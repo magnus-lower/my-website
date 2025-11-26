@@ -1,0 +1,50 @@
+/* ========== Global Reset ========== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* ========== Light Mode Variables ========== */
+:root {
+    --bg-color: white;
+    --text-color: black;
+    --primary-color: #3498db;
+    --nav-bg: #333;
+    --nav-text: white;
+    --card-bg: #f8f8f8;
+    --footer-bg: #333;
+}
+
+/* ========== Layout ========== */
+html, body {
+    height: 100%;
+    scroll-behavior: smooth;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.3s ease, color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ========== Main Content Layout ========== */
+main {
+    flex: 1;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+/* ========== Typography ========== */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}

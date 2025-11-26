@@ -1,7 +1,7 @@
 @media (max-width: 768px) {
-    main {
-        padding: 10px;
-        width: 90%;
+    nav ul {
+        flex-direction: column;
+        text-align: center;
     }
 
     .hero {
@@ -10,6 +10,12 @@
         padding-left: 20px;
         padding-right: 20px;
         box-sizing: border-box;
+    }
+
+    /* Fix for projects container alignment */
+    main {
+        padding: 10px 0; /* Remove horizontal padding */
+        width: 90%;
     }
 
     .projects-container {
@@ -34,6 +40,10 @@
         width: 200px;
     }
 
+    main {
+        padding: 10px;
+    }
+
     h1 {
         font-size: 2em;
     }
@@ -45,6 +55,19 @@
     .projects-container {
         flex-direction: column;
         align-items: center;
+    }
+    /* hide the menu by default on mobile */
+    nav .nav-list {
+        display: none;
+    }
+
+    /* when <nav> has .open, show it */
+    nav.open .nav-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background: var(--nav-bg);
+        padding: 10px;
     }
 }
 
@@ -66,9 +89,32 @@
     p {
         font-size: 1em;
     }
+}
 
-    .form-group,
-    #contact-form {
+@media (max-width: 768px) {
+    .nav-list {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    .language-switch img {
+        width: 30px;
+        height: 20px;
+    }
+    nav ul li a {
+        padding: 8px 15px;
+    }
+    .nav-list li:not(:last-child) {
+        border-right: none;
+        padding-right: 0;
+    }
+    .dark-mode-toggle {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-group, #contact-form {
         max-width: 100%;
     }
 }

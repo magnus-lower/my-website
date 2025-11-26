@@ -1,32 +1,18 @@
+/* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #3498db, #8e44ad);
+    background: linear-gradient(to right, #3498db, #6dd5fa);
     color: white;
     text-align: center;
     padding: 100px 20px;
     margin-bottom: 60px;
-    width: 100%;
-    box-sizing: border-box;
-    position: relative;
-    overflow: hidden;
-    box-shadow: var(--shadow-medium);
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('../../assets/dots-pattern.svg');
-    opacity: 0.1;
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .hero-content {
     max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
+    margin: 0 auto; /* Center the content horizontally */
+    width: 100%; /* Ensure the hero content uses full available width */
 }
 
 .hero-content h1 {
