@@ -51,36 +51,64 @@ The site now follows a feature-first layout with a single entrypoint (`app.js`) 
 
 ```
 /
-├── app.js                 # Application entrypoint
-├── index.html             # Home page
-├── projects.html          # Projects showcase
-├── about.html             # About and contact page
-├── assets/                # Static assets (images, PDFs, icons)
-├── core/                  # Core bootstrapping and shared state
-│   ├── bootstrap.js       # Preference preloading (theme/language)
-│   ├── language.js        # Language controller and DOM updates
-│   ├── preferences.js     # Local storage helpers
-│   └── theme.js           # Theme controller
-├── components/            # Cross-page UI components
-│   ├── navigation.js      # Header, hamburger behaviour
-│   ├── resumeLink.js      # Resume link handling
-│   └── settingsPanel.js   # Settings dropdown interactions
-├── features/              # Feature-specific behaviour
-│   ├── contact/           # Contact form submission
-│   ├── navigation/        # Active nav highlighting
-│   ├── projects/          # Project card click handling
-│   ├── scroll/            # Fade-in observer
-│   └── typing/            # Typing animations
-├── styles/                # Modular CSS
-│   ├── app.css            # CSS entry importing all layers
-│   ├── base/              # Tokens and resets
-│   ├── layout/            # Structural layout rules
-│   ├── utilities/         # Reusable helpers
-│   ├── components/        # Component-level styling (nav, hero, forms, etc.)
-│   ├── features/          # Feature-specific styling (dark mode, responsive)
-│   └── pages/             # Page-level refinements
-└── utils/                 # Generic utilities
-    └── dom.js             # DOM selection helpers
+├── README.md              
+├── robots.txt           
+├── sitemap.xml           
+├── assets/           
+│   ├── profile_picture.jpg
+│   ├── norwegian_cv.pdf
+│   ├── english_cv.pdf
+│   ├── favicon.png
+│   ├── dots-pattern.svg
+│   ├── norwegian-flag.png
+│   └── uk-flag.png
+├── pages/               
+│   ├── index.html        
+│   ├── projects.html     
+│   └── about.html        
+├── js/                   
+│   ├── core/             
+│   │   ├── app.js        
+│   │   ├── bootstrap.js  
+│   │   ├── language.js   
+│   │   ├── preferences.js
+│   │   └── theme.js      
+│   ├── components/       
+│   │   ├── navigation.js 
+│   │   ├── resumeLink.js 
+│   │   └── settingsPanel.js 
+│   ├── features/         
+│   │   ├── contact/      
+│   │   │   └── contactForm.js
+│   │   ├── navigation/   
+│   │   │   └── navHighlight.js
+│   │   ├── projects/     
+│   │   │   └── projectLinks.js
+│   │   ├── scroll/       
+│   │   │   └── fadeInObserver.js
+│   │   └── typing/        
+│   │       └── typingController.js
+│   └── utils/
+│       └── dom.js     
+├── styles/            
+│   ├── app.css        
+│   ├── base/          
+│   │   ├── reset.css
+│   │   ├── tokens.css
+│   │   └── base.css
+│   ├── components/       
+│   │   ├── navigation.css
+│   │   ├── hero.css
+│   │   ├── footer.css
+│   │   ├── ui-components.css
+│   │   └── enhancements.css
+│   └── features/        
+│       ├── dark-mode.css
+│       └── responsive.css
+├── .github/
+│   └── workflows/    
+├── .vercel/          
+└── .idea/               
 ```
 
 ## My Projects
