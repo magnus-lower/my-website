@@ -1,14 +1,14 @@
-import { preloadPreferences } from './core/bootstrap.js';
-import { createLanguageController } from './core/language.js';
-import { createThemeController } from './core/theme.js';
-import { initNavigation } from './components/navigation.js';
-import { initSettingsPanel } from './components/settingsPanel.js';
-import { initResumeLink } from './components/resumeLink.js';
-import { highlightActiveNavLink } from './features/navigation/navHighlight.js';
-import { initFadeInObserver } from './features/scroll/fadeInObserver.js';
-import { initTyping } from './features/typing/typingController.js';
-import { initContactForm } from './features/contact/contactForm.js';
-import { initProjectLinks } from './features/projects/projectLinks.js';
+import { preloadPreferences } from './bootstrap.js';
+import { createLanguageController } from './language.js';
+import { createThemeController } from './theme.js';
+import { initNavigation } from '../components/navigation.js';
+import { initSettingsPanel } from '../components/settingsPanel.js';
+import { initResumeLink } from '../components/resumeLink.js';
+import { highlightActiveNavLink } from '../features/navigation/navHighlight.js';
+import { initFadeInObserver } from '../features/scroll/fadeInObserver.js';
+import { initTyping } from '../features/typing/typingController.js';
+import { initContactForm } from '../features/contact/contactForm.js';
+import { initProjectLinks } from '../features/projects/projectLinks.js';
 
 preloadPreferences();
 
