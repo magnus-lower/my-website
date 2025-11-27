@@ -52,13 +52,14 @@ The site now follows a feature-first layout with a single entrypoint (`app.js`) 
 ```
 /
 ├── README.md              
-├── robots.txt           
-├── sitemap.xml           
+├── public/                 # Alt som skal være offentlig tilgjengelig i root
+│   ├── favicon.png
+│   ├── robots.txt
+│   └── sitemap.xml          
 ├── assets/           
 │   ├── profile_picture.jpg
 │   ├── norwegian_cv.pdf
 │   ├── english_cv.pdf
-│   ├── favicon.png
 │   ├── dots-pattern.svg
 │   ├── norwegian-flag.png
 │   └── uk-flag.png
