@@ -47,45 +47,40 @@ I created this portfolio website to showcase my programming projects and what I'
 
 ## Project Structure
 
+The site now follows a feature-first layout with a single entrypoint (`app.js`) coordinating initialization across modules.
+
 ```
 /
-├── index.html              # Home page
-├── projects.html           # Projects showcase
+├── app.js                 # Application entrypoint
+├── index.html             # Home page
+├── projects.html          # Projects showcase
 ├── about.html             # About and contact page
-├── README.md              # Project documentation
-├── assets/                # Static assets
-│   ├── dots-pattern.svg   # Background pattern
-│   ├── english_cv.pdf     # English resume
-│   ├── norwegian_cv.pdf   # Norwegian resume
-│   ├── favicon.png        # Site favicon
-│   ├── profile_picture.jpg # Profile image
-│   ├── norwegian-flag.png # Language selector flag
-│   └── uk-flag.png        # Language selector flag
-├── css/                   # Stylesheets
-│   ├── styles.css         # Main stylesheet
-│   ├── variables.css      # CSS custom properties
-│   ├── components/        # Component-specific styles
-│   │   ├── enhancements.css
-│   │   ├── footer.css
-│   │   ├── hero.css
-│   │   ├── navbar.css
-│   │   └── ui-components.css
-│   └── features/          # Feature-specific styles
-│       ├── dark-mode.css  # Dark theme implementation
-│       └── responsive.css # Responsive design rules
-└── js/                    # JavaScript modules
-    ├── main.js            # Main entry point
-    └── modules/           # Modular JavaScript components
-        ├── contactForm.js
-        ├── darkmode.js
-        ├── hamburger.js
-        ├── language.js
-        ├── navHighlight.js
-        ├── projectLinks.js
-        ├── resume.js
-        ├── settingsPanel.js
-        ├── smoothScroll.js
-        └── typing.js
+├── assets/                # Static assets (images, PDFs, icons)
+├── core/                  # Core bootstrapping and shared state
+│   ├── bootstrap.js       # Preference preloading (theme/language)
+│   ├── language.js        # Language controller and DOM updates
+│   ├── preferences.js     # Local storage helpers
+│   └── theme.js           # Theme controller
+├── components/            # Cross-page UI components
+│   ├── navigation.js      # Header, hamburger behaviour
+│   ├── resumeLink.js      # Resume link handling
+│   └── settingsPanel.js   # Settings dropdown interactions
+├── features/              # Feature-specific behaviour
+│   ├── contact/           # Contact form submission
+│   ├── navigation/        # Active nav highlighting
+│   ├── projects/          # Project card click handling
+│   ├── scroll/            # Fade-in observer
+│   └── typing/            # Typing animations
+├── styles/                # Modular CSS
+│   ├── app.css            # CSS entry importing all layers
+│   ├── base/              # Tokens and resets
+│   ├── layout/            # Structural layout rules
+│   ├── utilities/         # Reusable helpers
+│   ├── components/        # Component-level styling (nav, hero, forms, etc.)
+│   ├── features/          # Feature-specific styling (dark mode, responsive)
+│   └── pages/             # Page-level refinements
+└── utils/                 # Generic utilities
+    └── dom.js             # DOM selection helpers
 ```
 
 ## My Projects
