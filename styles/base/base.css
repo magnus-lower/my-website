@@ -1,3 +1,4 @@
+/* Base typography and shared defaults */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,24 +6,67 @@
 }
 
 html {
-    font-size: 18px;
+    font-size: 17px;
 }
 
 body {
     font-family: var(--font-family-base);
     background-color: var(--color-surface);
     color: var(--color-text-primary);
-    line-height: 1.6;
-    transition: background 0.3s ease, color 0.3s ease;
+    line-height: 1.7;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    transition: background var(--motion-normal), color var(--motion-normal);
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
 }
 
 h1 {
-    font-size: 2.5em;
-    margin-bottom: 15px;
-    font-weight: bold;
+    font-size: clamp(2.2rem, 3vw + 1rem, 3.3rem);
+    line-height: 1.1;
+    margin-bottom: 0.65em;
+}
+
+h2 {
+    font-size: clamp(1.6rem, 2vw + 1rem, 2.2rem);
+    margin-bottom: 0.6em;
+}
+
+h3 {
+    font-size: clamp(1.25rem, 1vw + 1rem, 1.6rem);
+    margin-bottom: 0.4em;
 }
 
 p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-secondary);
+}
+
+a {
+    color: inherit;
+}
+
+a,
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 3px;
+    border-radius: 6px;
 }

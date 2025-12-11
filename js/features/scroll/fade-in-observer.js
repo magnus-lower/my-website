@@ -7,11 +7,20 @@ export function initFadeInObserver() {
     const fadeInElements = selectAll('.fade-in');
     if (!('IntersectionObserver' in window) || fadeInElements.length === 0) return;
 
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        fadeInElements.forEach(element => element.classList.add('visible'));
+        return;
+    }
+
+    fadeInElements.forEach((element, index) => {
+        element.dataset.fadeIndex = index;
+    });
+
     const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             if (!entry.isIntersecting) return;
 
-            const delay = selectAll('.fade-in').indexOf(entry.target) * 0.1;
+            const delay = (Number(entry.target.dataset.fadeIndex) || 0) * 0.1;
             entry.target.style.transitionDelay = `${delay}s`;
             entry.target.classList.add('visible');
 

@@ -1,16 +1,17 @@
 .hero {
-    background: linear-gradient(to right, #3498db, #6dd5fa);
+    background: linear-gradient(120deg, #2563eb, #7c3aed);
     color: white;
 }
 
 .hero-content h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+    font-size: clamp(2.4rem, 3vw + 1rem, 3.4rem);
+    margin-bottom: 0.4em;
 }
 
 .hero-content p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
+    font-size: 1.15em;
+    margin-bottom: 1.4em;
+    color: rgba(255, 255, 255, 0.92);
 }
 
 .contact-links a {
