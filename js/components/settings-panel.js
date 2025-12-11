@@ -4,8 +4,14 @@ function setActiveFlag(language) {
     const enFlag = select('#en-flag');
     const noFlag = select('#no-flag');
 
-    if (enFlag) enFlag.style.opacity = language === 'en' ? '1' : '0.5';
-    if (noFlag) noFlag.style.opacity = language === 'no' ? '1' : '0.5';
+    if (enFlag) {
+        enFlag.style.opacity = language === 'en' ? '1' : '0.5';
+        enFlag.setAttribute('aria-pressed', language === 'en');
+    }
+    if (noFlag) {
+        noFlag.style.opacity = language === 'no' ? '1' : '0.5';
+        noFlag.setAttribute('aria-pressed', language === 'no');
+    }
 }
 
 /**
@@ -21,12 +27,14 @@ export function initSettingsPanel({ onLanguageSelect }) {
 
     settingsToggle.addEventListener('click', event => {
         event.stopPropagation();
-        settingsDropdown.classList.toggle('visible');
+        const nextExpanded = settingsDropdown.classList.toggle('visible');
+        settingsToggle.setAttribute('aria-expanded', String(nextExpanded));
     });
 
     document.addEventListener('click', event => {
         if (!settingsDropdown.contains(event.target) && !settingsToggle.contains(event.target)) {
             settingsDropdown.classList.remove('visible');
+            settingsToggle.setAttribute('aria-expanded', 'false');
         }
     });
 
@@ -39,7 +47,20 @@ export function initSettingsPanel({ onLanguageSelect }) {
             setActiveFlag(language);
             onLanguageSelect?.(language);
         });
+
+        languageToggle.addEventListener('keydown', event => {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+
+            const target = event.target.closest('.flag-icon');
+            if (!target) return;
+
+            event.preventDefault();
+            const language = target.dataset.lang || target.id.split('-')[0];
+            setActiveFlag(language);
+            onLanguageSelect?.(language);
+        });
     }
 
     setActiveFlag(document.documentElement.lang || 'en');
+    settingsToggle.setAttribute('aria-expanded', 'false');
 }

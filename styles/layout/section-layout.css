@@ -1,15 +1,18 @@
+/* Section sizing and grid scaffolding */
 .hero {
     text-align: center;
-    padding: 140px 30px;
-    margin-bottom: 60px;
+    padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 3rem);
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
     width: 100%;
     box-sizing: border-box;
 }
 
 .hero-content {
-    max-width: 900px;
+    max-width: 920px;
     margin: 0 auto;
     width: 100%;
+    display: grid;
+    gap: 1.25rem;
 }
 
 .contact-links {
@@ -20,12 +23,9 @@
     list-style: none;
 }
 
-.intro {
-    padding: 40px 20px;
-}
-
+.intro,
 .about-preview {
-    padding: 40px 20px;
+    padding: clamp(2.25rem, 3vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .about,
@@ -34,7 +34,7 @@
 .contact,
 .cv-download {
     text-align: center;
-    padding: 40px 20px;
+    padding: clamp(2.25rem, 3vw, 3.25rem) clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .skills-container {
@@ -47,7 +47,7 @@
 
 .projects {
     text-align: center;
-    padding: 40px 20px;
+    padding: clamp(2.5rem, 3vw, 3.5rem) clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .project-wrapper {
@@ -55,48 +55,63 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 16px;
 }
 
 .projects-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
-    padding: 20px;
-    max-width: 800px;
+    gap: clamp(1.5rem, 3vw, 2.75rem);
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    max-width: 900px;
     margin: auto;
 }
 
 .project-item {
-    width: 350px;
+    width: min(420px, 100%);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
+    gap: 0.5rem;
 }
 
 .project-lang {
-    font-size: 1.2em;
-    font-weight: bold;
+    font-size: 1.05rem;
+    font-weight: 600;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 
 .about-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     align-items: center;
-    gap: 30px;
-    max-width: 800px;
+    gap: clamp(1.75rem, 3vw, 2.5rem);
+    max-width: 960px;
     margin: 0 auto;
 }
 
 .profile-picture {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     width: 100%;
 }
 
 .about-text {
     width: 100%;
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width: 900px) {
+    .about-container {
+        grid-template-columns: minmax(240px, 1fr) 2fr;
+        align-items: start;
+    }
+
+    .about-text {
+        text-align: left;
+    }
 }

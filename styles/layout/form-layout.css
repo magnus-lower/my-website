@@ -1,26 +1,29 @@
+/* Form alignment and overlay stacking */
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    max-width: 500px;
+    gap: 12px;
+    max-width: 520px;
     margin: auto;
-    padding: 20px;
+    padding: 24px;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 400px;
+    max-width: 440px;
+    gap: 6px;
 }
 
 #contact-form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
-    padding: 20px;
+    gap: 16px;
+    padding: 24px;
+    width: 100%;
 }
 
 #progress-overlay {

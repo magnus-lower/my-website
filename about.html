@@ -27,30 +27,33 @@
     gtag('config', 'G-CCR3VMW7RV');
 </script>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="main-header">
         <div class="header-container">
             <div class="logo">
                 <a href="index.html">ML</a>
             </div>
 
-            <button class="hamburger" aria-label="Toggle menu">
+            <button class="hamburger" aria-label="Toggle menu" aria-controls="primary-menu" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
 
-            <nav>
-                <ul class="nav-list">
+            <nav id="site-nav" aria-label="Primary navigation">
+                <ul class="nav-list" id="primary-menu">
                     <li><a href="index.html" data-en="Home" data-no="Hjem">Home</a></li>
                     <li><a href="projects.html" data-en="Projects" data-no="Prosjekter">Projects</a></li>
                     <li><a href="about.html" data-en="About Me & Contact" data-no="Om meg og Kontakt">About</a></li>
-                    <a href="assets/english_cv.pdf" class="resume-btn" download id="resume-link">
-                        <i class="fas fa-file-alt"></i> <span class="resume-text" data-en="Resume" data-no="CV">Resume</span>
-                    </a>
+                    <li class="resume-item">
+                        <a href="assets/english_cv.pdf" class="resume-btn" download id="resume-link">
+                            <i class="fas fa-file-alt"></i> <span class="resume-text" data-en="Resume" data-no="CV">Resume</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
 
             <div class="header-actions">
                 <div class="settings-panel">
-                    <button class="settings-toggle" aria-label="Toggle settings">
+                    <button class="settings-toggle" aria-label="Toggle settings" aria-expanded="false" aria-controls="settings-dropdown">
                         <i class="fas fa-cog"></i>
                     </button>
                     <div class="settings-dropdown" id="settings-dropdown">
@@ -58,9 +61,9 @@
                             <div class="settings-item-label">
                                 <i class="fas fa-globe"></i> <span data-en="Language" data-no="Språk">Language</span>
                             </div>
-                            <div class="language-toggle" id="language-toggle">
-                                <img src="assets/uk-flag.png" class="flag-icon" id="en-flag" data-lang="en" alt="English">
-                                <img src="assets/norwegian-flag.png" class="flag-icon" id="no-flag" data-lang="no" alt="Norwegian" style="opacity: 0.5;">
+                            <div class="language-toggle" id="language-toggle" role="group" aria-label="Language selection">
+                                <img src="assets/uk-flag.png" class="flag-icon" id="en-flag" data-lang="en" alt="English" role="button" tabindex="0">
+                                <img src="assets/norwegian-flag.png" class="flag-icon" id="no-flag" data-lang="no" alt="Norwegian" style="opacity: 0.5;" role="button" tabindex="0">
                             </div>
                         </div>
                         <div class="settings-item">
@@ -68,7 +71,7 @@
                                 <i class="fas fa-moon"></i> <span id="theme-mode-text" data-en="Dark Mode" data-no="Mørk modus">Dark Mode</span>
                             </div>
                             <label class="theme-toggle">
-                                <input type="checkbox" id="dark-mode-toggle">
+                                <input type="checkbox" id="dark-mode-toggle" aria-label="Toggle dark mode">
                                 <span class="theme-slider"></span>
                             </label>
                         </div>
