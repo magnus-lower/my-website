@@ -10,11 +10,21 @@ export function initNavigation() {
 
     if (!hamburger || !nav) return;
 
+    const isDesktopView = window.matchMedia('(min-width: 769px)').matches;
+
+    const setAriaState = isOpen => {
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+        nav.setAttribute('aria-hidden', String(!isOpen));
+    };
+
+    setAriaState(isDesktopView);
+
     const closeMenu = () => {
         nav.classList.remove('open');
         document.body.classList.remove('menu-open');
         hamburger.classList.remove('active');
         document.body.style.overflow = '';
+        setAriaState(false);
     };
 
     const toggleMenu = () => {
@@ -26,6 +36,7 @@ export function initNavigation() {
             document.body.classList.add('menu-open');
             hamburger.classList.add('active');
             document.body.style.overflow = 'hidden';
+            setAriaState(true);
         }
     };
 
