@@ -1,5 +1,8 @@
 import { selectAll } from '../../utils/dom.js';
 
+/**
+ * Highlight the navigation item that matches the current URL.
+ */
 export function highlightActiveNavLink() {
     const links = selectAll('nav ul li a');
     let currentPath = window.location.pathname;
