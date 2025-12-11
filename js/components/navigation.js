@@ -1,5 +1,8 @@
 import { select, selectAll } from '../utils/dom.js';
 
+/**
+ * Initialize the mobile navigation toggle and close interactions.
+ */
 export function initNavigation() {
     const hamburger = select('.hamburger');
     const nav = select('nav');

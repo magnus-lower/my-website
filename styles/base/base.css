@@ -2,39 +2,18 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
-}
-
-:root {
-    --bg-color: white;
-    --text-color: black;
-    --primary-color: #3498db;
-    --nav-bg: #333;
-    --nav-text: white;
-    --card-bg: #f8f8f8;
-    --footer-bg: #333;
 }
 
 html {
     font-size: 18px;
 }
 
-html, body {
-    height: 100%;
-    scroll-behavior: smooth;
-    background-color: var(--bg-color);
-    color: var(--text-color);
+body {
+    font-family: var(--font-family-base);
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    line-height: 1.6;
     transition: background 0.3s ease, color 0.3s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-main {
-    flex: 1;
-    padding: 50px 30px;
-    max-width: 1400px;
-    margin: auto;
-    text-align: center;
 }
 
 h1 {

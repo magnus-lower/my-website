@@ -1,5 +1,8 @@
 import { select } from '../../utils/dom.js';
 
+/**
+ * Enhance the contact form with async submission feedback.
+ */
 export function initContactForm() {
     const contactForm = select('#contact-form');
     const confirmationMessage = select('#confirmation');

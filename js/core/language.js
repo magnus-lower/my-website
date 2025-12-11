@@ -1,6 +1,11 @@
 import { readPreferences, saveLanguagePreference } from './preferences.js';
 import { selectAll } from '../utils/dom.js';
 
+/**
+ * Replace copy on any element with language data attributes.
+ * @param {string} language Selected language code.
+ * @param {{skipTyping?: boolean}} [options]
+ */
 function applyLanguageToDom(language, { skipTyping = true } = {}) {
     selectAll('[data-en]').forEach(element => {
         if (skipTyping && element.id && element.id.startsWith('typing-')) return;
@@ -17,6 +22,10 @@ function applyLanguageToDom(language, { skipTyping = true } = {}) {
     document.documentElement.lang = language;
 }
 
+/**
+ * Create a controller that manages language preference and DOM updates.
+ * @returns {{init: function(): string, setLanguage: function(string): void, onChange: function(function): function, getLanguage: function(): string, applyLanguageToDom: function(string, {skipTyping?: boolean}=): void}}
+ */
 export function createLanguageController() {
     const listeners = new Set();
     let currentLanguage = readPreferences().language;

@@ -55,6 +55,11 @@ function startTyping(language) {
     });
 }
 
+/**
+ * Start the typing animation for the configured elements.
+ * @param {string} language Selected language code.
+ * @returns {{restart: function(string): void}}
+ */
 export function initTyping(language) {
     startTyping(language);
 

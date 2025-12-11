@@ -93,7 +93,7 @@ form input, form textarea {
     border: 1px solid #e0e0e0;
 }
 form input:focus, form textarea:focus {
-    border-color: var(--primary-color);
+    border-color: var(--color-primary);
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
     outline: none;
 }
@@ -114,10 +114,6 @@ form input:focus, form textarea:focus {
 }
 .dark-mode .project-item:hover {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-}
-section {
-    padding: 60px 20px;
-    position: relative;
 }
 .footer-content a {
     transition: transform 0.3s ease, color 0.3s ease;

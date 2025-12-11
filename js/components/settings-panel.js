@@ -8,6 +8,10 @@ function setActiveFlag(language) {
     if (noFlag) noFlag.style.opacity = language === 'no' ? '1' : '0.5';
 }
 
+/**
+ * Wire settings dropdown interactions and language toggle visuals.
+ * @param {{onLanguageSelect: function(string): void}} options
+ */
 export function initSettingsPanel({ onLanguageSelect }) {
     const settingsToggle = select('.settings-toggle');
     const settingsDropdown = select('#settings-dropdown');
