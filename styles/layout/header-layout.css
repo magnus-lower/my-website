@@ -1,0 +1,135 @@
+.main-header {
+    padding: 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 15px 20px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.settings-panel {
+    position: relative;
+}
+
+.settings-dropdown {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 220px;
+    padding: 15px;
+    display: none;
+    z-index: 1001;
+    transform-origin: top right;
+}
+
+.settings-dropdown.visible {
+    display: block;
+}
+
+nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+        order: 1;
+    }
+
+    #scroll-top {
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1em;
+    }
+
+    .logo {
+        order: 2;
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    .header-actions {
+        order: 3;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 70%;
+        height: 100vh;
+        height: 100dvh;
+        transition: left 0.3s ease;
+        padding-top: 80px;
+        padding-bottom: 20px;
+        z-index: 1001;
+        overflow-y: auto;
+    }
+
+    nav.open {
+        left: 0;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 0 20px;
+    }
+
+    .nav-list li {
+        width: 100%;
+    }
+
+    .nav-list li a {
+        display: block;
+        width: 100%;
+    }
+}

@@ -14,6 +14,11 @@ function updateResumeLink(language) {
     }
 }
 
+/**
+ * Initialize the resume anchor to point at the correct language asset.
+ * @param {string} language Current language code.
+ * @returns {{refresh: function(string): void}}
+ */
 export function initResumeLink(language) {
     const resumeLink = select('#resume-link');
     if (!resumeLink) {

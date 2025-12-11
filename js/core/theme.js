@@ -34,6 +34,11 @@ function updateThemeLabel(isDarkMode, language) {
     }
 }
 
+/**
+ * Build a theme controller that syncs the UI with the stored preference.
+ * @param {{getLanguage: function(): string}} options
+ * @returns {{init: function(): boolean, setTheme: function(boolean): void, refreshLabel: function(): void, getTheme: function(): boolean}}
+ */
 export function createThemeController({ getLanguage }) {
     let { darkMode: isDarkMode } = readPreferences();
 

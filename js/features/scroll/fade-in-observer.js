@@ -1,5 +1,8 @@
 import { selectAll } from '../../utils/dom.js';
 
+/**
+ * Activate lazy fade-in animations when elements enter the viewport.
+ */
 export function initFadeInObserver() {
     const fadeInElements = selectAll('.fade-in');
     if (!('IntersectionObserver' in window) || fadeInElements.length === 0) return;

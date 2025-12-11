@@ -11,17 +11,17 @@ body.dark-mode,
 .dark-mode .contact,
 .dark-mode .form-group,
 .dark-mode #contact-form {
-    --bg-color: #121212;
-    --text-color: white;
-    --nav-bg: #222;
-    --card-bg: #1e1e1e;
-    --footer-bg: #222;
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    --color-surface: #121212;
+    --color-text-primary: white;
+    --color-nav-surface: #222;
+    --color-card-surface: #1e1e1e;
+    --color-footer-surface: #222;
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 .dark-mode .project-item {
-    background-color: var(--card-bg);
+    background-color: var(--color-card-surface);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 .dark-mode .project-lang {
