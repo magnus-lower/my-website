@@ -4,8 +4,14 @@ function setActiveFlag(language) {
     const enFlag = select('#en-flag');
     const noFlag = select('#no-flag');
 
-    if (enFlag) enFlag.style.opacity = language === 'en' ? '1' : '0.5';
-    if (noFlag) noFlag.style.opacity = language === 'no' ? '1' : '0.5';
+    if (enFlag) {
+        enFlag.style.opacity = language === 'en' ? '1' : '0.5';
+        enFlag.setAttribute('aria-pressed', language === 'en' ? 'true' : 'false');
+    }
+    if (noFlag) {
+        noFlag.style.opacity = language === 'no' ? '1' : '0.5';
+        noFlag.setAttribute('aria-pressed', language === 'no' ? 'true' : 'false');
+    }
 }
 
 /**
@@ -19,25 +25,48 @@ export function initSettingsPanel({ onLanguageSelect }) {
 
     if (!settingsToggle || !settingsDropdown) return;
 
+    const setDropdownVisibility = isVisible => {
+        settingsDropdown.classList.toggle('visible', isVisible);
+        settingsToggle.setAttribute('aria-expanded', String(isVisible));
+        settingsDropdown.setAttribute('aria-hidden', String(!isVisible));
+    };
+
+    settingsToggle.setAttribute('aria-expanded', 'false');
+    settingsDropdown.setAttribute('aria-hidden', 'true');
+
     settingsToggle.addEventListener('click', event => {
         event.stopPropagation();
-        settingsDropdown.classList.toggle('visible');
+        const willOpen = !settingsDropdown.classList.contains('visible');
+        setDropdownVisibility(willOpen);
     });
 
     document.addEventListener('click', event => {
         if (!settingsDropdown.contains(event.target) && !settingsToggle.contains(event.target)) {
-            settingsDropdown.classList.remove('visible');
+            setDropdownVisibility(false);
         }
     });
 
     if (languageToggle) {
-        languageToggle.addEventListener('click', event => {
-            const target = event.target.closest('.flag-icon');
+        const handleLanguageSelection = target => {
             if (!target) return;
 
             const language = target.dataset.lang || target.id.split('-')[0];
             setActiveFlag(language);
             onLanguageSelect?.(language);
+        };
+
+        languageToggle.addEventListener('click', event => {
+            const target = event.target.closest('.flag-icon');
+            handleLanguageSelection(target);
+        });
+
+        languageToggle.addEventListener('keydown', event => {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            const target = event.target.closest('.flag-icon');
+            if (!target) return;
+
+            event.preventDefault();
+            handleLanguageSelection(target);
         });
     }
 
