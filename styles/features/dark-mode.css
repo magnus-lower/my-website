@@ -89,6 +89,9 @@ input:checked + .theme-slider:before {
     background: #3498db;
     box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
 }
+.theme-toggle input:focus-visible + .theme-slider {
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.35);
+}
 .theme-slider:hover:before {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
 }

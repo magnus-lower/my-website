@@ -23,6 +23,16 @@
     transform: rotate(30deg);
 }
 
+.hamburger:focus-visible,
+.settings-toggle:focus-visible,
+.nav-list a:focus-visible,
+.resume-btn:focus-visible,
+.language-toggle .flag-icon:focus-visible,
+#scroll-top:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+}
+
 .settings-dropdown {
     background: rgba(40, 40, 40, 0.95);
     border-radius: 8px;

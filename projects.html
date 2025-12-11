@@ -33,11 +33,11 @@
                 <a href="index.html">ML</a>
             </div>
 
-            <button class="hamburger" aria-label="Toggle menu">
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-navigation">
                 <span></span><span></span><span></span>
             </button>
 
-            <nav>
+            <nav id="primary-navigation" role="navigation" aria-label="Primary navigation">
                 <ul class="nav-list">
                     <li><a href="index.html" data-en="Home" data-no="Hjem">Home</a></li>
                     <li><a href="projects.html" data-en="Projects" data-no="Prosjekter">Projects</a></li>
@@ -50,7 +50,7 @@
 
             <div class="header-actions">
                 <div class="settings-panel">
-                    <button class="settings-toggle" aria-label="Toggle settings">
+                    <button class="settings-toggle" aria-label="Toggle settings" aria-expanded="false" aria-controls="settings-dropdown">
                         <i class="fas fa-cog"></i>
                     </button>
                     <div class="settings-dropdown" id="settings-dropdown">
@@ -58,9 +58,9 @@
                             <div class="settings-item-label">
                                 <i class="fas fa-globe"></i> <span data-en="Language" data-no="Språk">Language</span>
                             </div>
-                            <div class="language-toggle" id="language-toggle">
-                                <img src="assets/uk-flag.png" class="flag-icon" id="en-flag" data-lang="en" alt="English">
-                                <img src="assets/norwegian-flag.png" class="flag-icon" id="no-flag" data-lang="no" alt="Norwegian" style="opacity: 0.5;">
+                            <div class="language-toggle" id="language-toggle" role="group" aria-label="Language selection">
+                                <img src="assets/uk-flag.png" class="flag-icon" id="en-flag" data-lang="en" alt="English" role="button" tabindex="0" aria-pressed="false">
+                                <img src="assets/norwegian-flag.png" class="flag-icon" id="no-flag" data-lang="no" alt="Norwegian" style="opacity: 0.5;" role="button" tabindex="0" aria-pressed="true">
                             </div>
                         </div>
                         <div class="settings-item">
@@ -68,7 +68,7 @@
                                 <i class="fas fa-moon"></i> <span id="theme-mode-text" data-en="Dark Mode" data-no="Mørk modus">Dark Mode</span>
                             </div>
                             <label class="theme-toggle">
-                                <input type="checkbox" id="dark-mode-toggle">
+                                <input type="checkbox" id="dark-mode-toggle" aria-labelledby="theme-mode-text">
                                 <span class="theme-slider"></span>
                             </label>
                         </div>
