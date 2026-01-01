@@ -1,0 +1,17 @@
+{
+  "name": "my-website",
+  "version": "1.0.0",
+  "description": "A bilingual, theme-aware portfolio that showcases programming projects, education highlights, and an accessible contact channel. The site is a static HTML/CSS/JS build designed for fast Vercel deployment without changing any runtime behavior.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.7.4"
+  }
+}

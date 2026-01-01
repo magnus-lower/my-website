@@ -3,6 +3,7 @@
 A bilingual, theme-aware portfolio that showcases programming projects, education highlights, and an accessible contact channel. The site is a static HTML/CSS/JS build designed for fast Vercel deployment without changing any runtime behavior.
 
 ## Features
+
 - Dual language support (English and Norwegian) with persisted preference
 - Light/Dark theme toggle with instant preloading to avoid flashes
 - Typing intro animation across hero sections
@@ -11,6 +12,7 @@ A bilingual, theme-aware portfolio that showcases programming projects, educatio
 - Project cards that deep-link to live demos
 
 ## Architecture Overview
+
 ```
 [preferences preload] -> [core controllers] -> [components] -> [features]
           |                    |                  |              |
@@ -21,6 +23,7 @@ A bilingual, theme-aware portfolio that showcases programming projects, educatio
 ```
 
 ### File Tree
+
 ```
 .
 ├── about.html
@@ -79,6 +82,7 @@ A bilingual, theme-aware portfolio that showcases programming projects, educatio
 ```
 
 ## Technical Decisions
+
 - **Single entrypoint (`js/core/app.js`)** orchestrates language, theme, navigation, typing, projects, and contact form initialization after preferences are preloaded.
 - **Preferences preloading (`js/core/preferences-preload-runner.js`)** runs before DOMContentLoaded to keep language and dark-mode synced with stored values immediately.
 - **Feature-scoped modules**: components handle reusable UI pieces, while feature modules encapsulate behaviors like typing, scrolling, navigation highlighting, and contact submission.
@@ -86,11 +90,13 @@ A bilingual, theme-aware portfolio that showcases programming projects, educatio
 - **Utility helpers**: shared DOM helpers live in `js/utils/dom.js` to avoid repeated query logic.
 
 ## Deployment (Vercel Static)
+
 1. Ensure all HTML files stay in the repository root.
 2. Deploy the repository as a static site on Vercel (no build step required).
 3. Verify environment: external assets (Font Awesome, Google Fonts) are pulled via CDN, and Formspree handles contact POSTs.
 
 ## Future Improvements
+
 - Add automated visual regression checks to safeguard layout refinements.
 - Introduce unit tests for core controllers (language/theme/preferences).
 - Expand accessibility auditing (axe/lighthouse) as a CI check.

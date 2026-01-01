@@ -5,7 +5,7 @@
  * @returns {Element|null}
  */
 export function select(selector, scope = document) {
-    return scope.querySelector(selector);
+  return scope.querySelector(selector);
 }
 
 /**
@@ -15,7 +15,7 @@ export function select(selector, scope = document) {
  * @returns {Element[]}
  */
 export function selectAll(selector, scope = document) {
-    return Array.from(scope.querySelectorAll(selector));
+  return Array.from(scope.querySelectorAll(selector));
 }
 
 /**
@@ -27,7 +27,7 @@ export function selectAll(selector, scope = document) {
  * @returns {function(): void}
  */
 export function on(element, event, handler, options) {
-    if (!element) return () => {};
-    element.addEventListener(event, handler, options);
-    return () => element.removeEventListener(event, handler, options);
+  if (!element) return () => {};
+  element.addEventListener(event, handler, options);
+  return () => element.removeEventListener(event, handler, options);
 }

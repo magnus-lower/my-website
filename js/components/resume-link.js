@@ -1,17 +1,17 @@
-import { select } from '../utils/dom.js';
+import { select } from "../utils/dom.js";
 
 function updateResumeLink(language) {
-    const resumeLink = select('#resume-link');
-    if (!resumeLink) return;
+  const resumeLink = select("#resume-link");
+  if (!resumeLink) return;
 
-    const label = resumeLink.querySelector('.resume-text');
-    const fileName = language === 'no' ? 'norwegian_cv.pdf' : 'english_cv.pdf';
+  const label = resumeLink.querySelector(".resume-text");
+  const fileName = language === "no" ? "norwegian_cv.pdf" : "english_cv.pdf";
 
-    resumeLink.href = `assets/${fileName}`;
+  resumeLink.href = `assets/${fileName}`;
 
-    if (label) {
-        label.textContent = language === 'no' ? 'CV' : 'Resume';
-    }
+  if (label) {
+    label.textContent = language === "no" ? "CV" : "Resume";
+  }
 }
 
 /**
@@ -20,17 +20,17 @@ function updateResumeLink(language) {
  * @returns {{refresh: function(string): void}}
  */
 export function initResumeLink(language) {
-    const resumeLink = select('#resume-link');
-    if (!resumeLink) {
-        return { refresh: () => {} };
-    }
+  const resumeLink = select("#resume-link");
+  if (!resumeLink) {
+    return { refresh: () => {} };
+  }
 
-    resumeLink.removeAttribute('download');
-    resumeLink.setAttribute('target', '_blank');
+  resumeLink.removeAttribute("download");
+  resumeLink.setAttribute("target", "_blank");
 
-    updateResumeLink(language);
+  updateResumeLink(language);
 
-    return {
-        refresh: updateResumeLink,
-    };
+  return {
+    refresh: updateResumeLink,
+  };
 }

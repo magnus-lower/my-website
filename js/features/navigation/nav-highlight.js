@@ -1,24 +1,24 @@
-import { selectAll } from '../../utils/dom.js';
+import { selectAll } from "../../utils/dom.js";
 
 /**
  * Highlight the navigation item that matches the current URL.
  */
 export function highlightActiveNavLink() {
-    const links = selectAll('nav ul li a');
-    let currentPath = window.location.pathname;
+  const links = selectAll("nav ul li a");
+  let currentPath = window.location.pathname;
 
-    if (currentPath === '/' || currentPath.endsWith('/index.html')) {
-        currentPath = 'index.html';
+  if (currentPath === "/" || currentPath.endsWith("/index.html")) {
+    currentPath = "index.html";
+  }
+
+  links.forEach((link) => {
+    const linkPath = link.getAttribute("href");
+    if (!linkPath || linkPath.startsWith("http")) return;
+
+    if (currentPath.includes(linkPath)) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
     }
-
-    links.forEach(link => {
-        const linkPath = link.getAttribute('href');
-        if (!linkPath || linkPath.startsWith('http')) return;
-
-        if (currentPath.includes(linkPath)) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
+  });
 }
