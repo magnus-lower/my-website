@@ -136,13 +136,13 @@ form button:active {
     transform 0.3s ease-in-out,
     background-color 0.3s ease,
     box-shadow 0.3s ease;
-  cursor: pointer;
+  cursor: default;
 }
 
 .project-item:hover {
-  transform: translateY(-5px);
-  background-color: #e8f4ff;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: none;
+  background-color: var(--color-card-surface);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .project-item h2 {
@@ -172,6 +172,30 @@ form button:active {
 .project-item a:hover {
   color: #1e70bf;
   text-decoration: underline;
+}
+
+.project-actions .cta-button {
+  color: white;
+  font-size: 1em;
+  padding: 10px 18px;
+  text-decoration: none;
+}
+
+.project-actions .cta-button:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.project-actions .cta-button.secondary {
+  color: var(--color-primary);
+}
+
+.project-item::after {
+  transform: scaleX(0);
+}
+
+.project-item:hover::after {
+  transform: scaleX(0);
 }
 
 .project-lang {

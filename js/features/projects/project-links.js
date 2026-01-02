@@ -20,6 +20,7 @@ export function initProjectLinks() {
             labelEn: "Source",
             labelNo: "Kildekode",
             language,
+            variant: "secondary",
           })
         );
       }
@@ -31,26 +32,23 @@ export function initProjectLinks() {
             labelEn: "Live demo",
             labelNo: "Live demo",
             language,
+            variant: "primary",
           })
         );
       }
 
       card.appendChild(actions);
     }
-
-    card.addEventListener("click", (event) => {
-      if (event.target.closest("a")) return;
-      const url = card.getAttribute("data-url");
-      if (url) window.location.href = url;
-    });
   });
 }
 
-function createProjectAction({ href, labelEn, labelNo, language }) {
+function createProjectAction({ href, labelEn, labelNo, language, variant }) {
   const link = document.createElement("a");
   link.href = href;
   link.target = "_blank";
   link.rel = "noopener noreferrer";
+  link.className =
+    variant === "secondary" ? "cta-button secondary" : "cta-button";
   link.setAttribute("data-en", labelEn);
   link.setAttribute("data-no", labelNo);
   link.textContent = language === "no" ? labelNo : labelEn;
