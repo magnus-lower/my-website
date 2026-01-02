@@ -30,7 +30,7 @@ export function initProjectLinks() {
       actions.append(
         createActionLink({
           href: github,
-          text: "Kildekode",
+          text: "Source Code",
           variantClass: "project-action-github",
         })
       );
@@ -40,12 +40,17 @@ export function initProjectLinks() {
       actions.append(
         createActionLink({
           href: live,
-          text: "Live demo",
+          text: "Live Demo",
           variantClass: "project-action-live",
         })
       );
     }
 
-    card.append(actions);
+    const description = card.querySelector("p");
+    if (description) {
+      description.insertAdjacentElement("afterend", actions);
+    } else {
+      card.append(actions);
+    }
   });
 }
