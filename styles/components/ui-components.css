@@ -32,6 +32,54 @@
   color: white;
 }
 
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 18px;
+  border-radius: 9px;
+  font-size: 1em;
+  font-weight: 600;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.btn--primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.2);
+}
+
+.btn--primary:hover {
+  background-color: #1e70bf;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(52, 152, 219, 0.3);
+}
+
+.btn--secondary {
+  background-color: transparent;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn--secondary:hover {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(52, 152, 219, 0.2);
+}
+
 form {
   background: var(--color-card-surface);
   border-radius: 10px;
@@ -136,7 +184,9 @@ form button:active {
     transform 0.3s ease-in-out,
     background-color 0.3s ease,
     box-shadow 0.3s ease;
-  cursor: pointer;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-media {
@@ -236,6 +286,17 @@ form button:active {
   font-size: 1.1em;
   margin-bottom: 15px;
   flex-grow: 1;
+}
+
+.project-card__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.project-card__btn {
+  flex: 1 1 140px;
 }
 
 .project-item a {
