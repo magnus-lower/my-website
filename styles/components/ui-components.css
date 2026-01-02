@@ -192,6 +192,11 @@ form button:active {
   color: var(--color-primary);
 }
 
+.project-actions .cta-button.secondary:hover {
+  background: transparent;
+  color: var(--color-primary);
+}
+
 .project-actions .cta-button::after {
   display: none;
 }
