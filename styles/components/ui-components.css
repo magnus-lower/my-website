@@ -264,30 +264,51 @@ form button:active {
   justify-content: center;
   padding: 10px 20px;
   border-radius: 999px;
-  border: 2px solid var(--color-primary);
+  border: 2px solid transparent;
   background: transparent;
   color: var(--color-primary);
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
   transition:
+    transform 0.2s ease,
     background-color 0.2s ease,
     border-color 0.2s ease,
     color 0.2s ease,
     box-shadow 0.2s ease;
 }
 
-.project-action-btn:hover {
-  background-color: rgba(30, 112, 191, 0.12);
-  border-color: #1e70bf;
-  color: #1e70bf;
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
-}
-
 .project-action-btn:focus-visible {
   outline: 2px solid #1e70bf;
   outline-offset: 2px;
+}
+
+.project-action-live {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #f8fbff;
+  box-shadow: 0 6px 14px rgba(30, 112, 191, 0.28);
+}
+
+.project-action-live:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(30, 112, 191, 0.34);
+  color: #f8fbff;
+  text-decoration: none;
+}
+
+.project-action-github {
+  background-color: transparent;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  box-shadow: none;
+}
+
+.project-action-github:hover {
+  background-color: rgba(30, 112, 191, 0.12);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  text-decoration: none;
 }
 
 .project-lang {
