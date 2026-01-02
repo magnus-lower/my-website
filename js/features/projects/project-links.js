@@ -2,7 +2,13 @@ import { selectAll } from "../../utils/dom.js";
 
 function createActionLink({ href, text, variantClass }) {
   const link = document.createElement("a");
-  link.className = `project-action-btn ${variantClass}`;
+  link.className = `project-action-btn project-btn ${variantClass}`;
+  if (variantClass === "project-action-live") {
+    link.classList.add("primary");
+  }
+  if (variantClass === "project-action-github") {
+    link.classList.add("secondary");
+  }
   link.href = href;
   link.textContent = text;
   link.target = "_blank";
