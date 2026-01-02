@@ -255,7 +255,7 @@ form button:active {
   justify-content: center;
   gap: 22px;
   margin-top: 28px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .project-action-btn,
@@ -264,7 +264,7 @@ form button:active {
   align-items: center;
   justify-content: center;
   padding: 14px 26px;
-  min-width: 180px;
+  min-width: 160px;
   max-width: 100%;
   font-size: 1.05rem;
   font-weight: 600;
@@ -286,6 +286,17 @@ form button:active {
 .project-btn:focus-visible {
   outline: 2px solid #1e70bf;
   outline-offset: 2px;
+}
+
+@media (max-width: 420px) {
+  .project-actions {
+    flex-wrap: wrap;
+  }
+
+  .project-action-btn,
+  .project-btn {
+    min-width: min(180px, 100%);
+  }
 }
 
 .project-action-live,
