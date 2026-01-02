@@ -159,7 +159,7 @@ form button:active {
 .project-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 16px;
 }
 
 .project-item a {
@@ -176,18 +176,24 @@ form button:active {
 
 .project-actions .cta-button {
   color: white;
-  font-size: 1em;
-  padding: 10px 18px;
+  font-size: 1.05em;
+  padding: 12px 22px;
   text-decoration: none;
 }
 
 .project-actions .cta-button:hover {
   color: white;
+  transform: none;
+  box-shadow: 0 3px 8px rgba(52, 152, 219, 0.3);
   text-decoration: none;
 }
 
 .project-actions .cta-button.secondary {
   color: var(--color-primary);
+}
+
+.project-actions .cta-button::after {
+  display: none;
 }
 
 .project-item::after {
