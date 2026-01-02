@@ -156,6 +156,12 @@ form button:active {
   flex-grow: 1;
 }
 
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .project-item a {
   color: var(--color-primary);
   text-decoration: none;
