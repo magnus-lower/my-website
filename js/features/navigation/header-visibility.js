@@ -15,8 +15,12 @@ export function initHeaderVisibility() {
   const showThreshold = 1;
   const showDelay = 160;
 
-  const getScrollTop = () =>
-    scrollEl.scrollTop || window.pageYOffset || document.documentElement.scrollTop || 0;
+  const getScrollTop = () => {
+    if (scrollEl && Number.isFinite(scrollEl.scrollTop)) return scrollEl.scrollTop;
+    if (Number.isFinite(window.pageYOffset)) return window.pageYOffset;
+    if (Number.isFinite(document.documentElement.scrollTop)) return document.documentElement.scrollTop;
+    return 0;
+  };
 
   const showHeader = () => {
     header.classList.remove("main-header--hidden");
