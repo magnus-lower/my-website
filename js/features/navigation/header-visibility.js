@@ -1,4 +1,4 @@
-import { on, select } from "../../utils/dom.js";
+import { select } from "../../utils/dom.js";
 
 export function initHeaderVisibility() {
   const header = select(".main-header");
@@ -8,19 +8,18 @@ export function initHeaderVisibility() {
   const hamburger = select(".hamburger");
   let lastScrollTop = 0;
   let ticking = false;
-  let isHidden = false;
   let showTimer = null;
   const hideThreshold = 12;
   const showThreshold = 1;
   const showDelay = 160;
 
   const getScrollTop = () => {
-    if (Number.isFinite(window.scrollY)) return window.scrollY;
-    if (Number.isFinite(window.pageYOffset)) return window.pageYOffset;
-    if (Number.isFinite(document.scrollingElement?.scrollTop)) {
+    if (typeof window.scrollY === "number") return window.scrollY;
+    if (typeof window.pageYOffset === "number") return window.pageYOffset;
+    if (typeof document.scrollingElement?.scrollTop === "number") {
       return document.scrollingElement.scrollTop;
     }
-    if (Number.isFinite(document.documentElement.scrollTop)) {
+    if (typeof document.documentElement.scrollTop === "number") {
       return document.documentElement.scrollTop;
     }
     return 0;
@@ -28,12 +27,10 @@ export function initHeaderVisibility() {
 
   const showHeader = () => {
     header.classList.remove("main-header--hidden");
-    isHidden = false;
   };
 
   const hideHeader = () => {
     header.classList.add("main-header--hidden");
-    isHidden = true;
   };
 
   const clearShowTimer = () => {
@@ -55,7 +52,7 @@ export function initHeaderVisibility() {
     const currentScrollTop = getScrollTop();
     const menuOpen = nav?.classList.contains("open") || hamburger?.classList.contains("active");
     const headerHeight = header.offsetHeight || 0;
-    isHidden = header.classList.contains("main-header--hidden");
+    const isHiddenNow = header.classList.contains("main-header--hidden");
 
     if (menuOpen) {
       clearShowTimer();
@@ -75,7 +72,7 @@ export function initHeaderVisibility() {
 
     if (currentScrollTop > lastScrollTop + hideThreshold) {
       clearShowTimer();
-      if (!isHidden) hideHeader();
+      if (!isHiddenNow) hideHeader();
     } else if (currentScrollTop < lastScrollTop - showThreshold) {
       scheduleShow();
     }
@@ -90,13 +87,13 @@ export function initHeaderVisibility() {
     requestAnimationFrame(update);
   };
 
-  lastScrollTop = getScrollTop();
-
-  on(window, "scroll", onScroll, { passive: true });
+  window.addEventListener("scroll", onScroll, { passive: true });
   document.addEventListener("scroll", onScroll, { passive: true, capture: true });
 
-  on(window, "resize", () => {
+  window.addEventListener("resize", () => {
     lastScrollTop = getScrollTop();
     if (getScrollTop() <= header.offsetHeight) showHeader();
   });
+
+  update();
 }
