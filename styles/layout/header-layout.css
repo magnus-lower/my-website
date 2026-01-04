@@ -39,7 +39,7 @@
   width: 220px;
   padding: 15px;
   display: none;
-  z-index: 1001;
+  z-index: 1700;
   transform-origin: top right;
 }
 
@@ -141,9 +141,20 @@ nav ul li {
     display: block;
     width: 100%;
   }
+}
 
-  body.menu-open .settings-dropdown {
-    display: none;
+@media (max-width: 768px) {
+  .settings-item {
+    gap: 12px;
+    align-items: center;
+  }
+
+  .settings-item-label {
+    margin-right: 8px;
+  }
+
+  .language-toggle {
+    gap: 10px;
   }
 }
 
