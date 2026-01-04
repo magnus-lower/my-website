@@ -13,9 +13,6 @@ import { initProjectLinks } from "../features/projects/project-links.js";
 import { initProjectMedia } from "../features/projects/project-media.js";
 import { initScrollTop } from "../features/scroll/scroll-top.js";
 
-/**
- * Boot the client application by preloading preferences and wiring all feature modules.
- */
 export function startApp() {
   preloadPreferences();
 
