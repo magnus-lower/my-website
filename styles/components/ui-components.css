@@ -187,12 +187,18 @@ form button:active {
   cursor: default;
   display: flex;
   flex-direction: column;
+  gap: 16px;
+  height: 100%;
 }
 
 .project-media {
-  margin-bottom: 16px;
+  margin-bottom: 0;
   border-radius: 8px;
   overflow: hidden;
+  aspect-ratio: 16 / 9;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
 }
 
 .project-media__button {
@@ -207,7 +213,8 @@ form button:active {
 .project-media__image {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 
 .project-media__image--cover {
@@ -279,13 +286,13 @@ form button:active {
 
 .project-item h2 {
   font-size: 1.4em;
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 
 .project-item p {
   font-size: 1.1em;
-  margin-bottom: 15px;
-  flex-grow: 1;
+  margin-bottom: 0;
+  flex: 1;
 }
 
 .project-card__actions {
@@ -313,6 +320,15 @@ form button:active {
 
 .project-lang {
   color: #333;
+}
+
+.project-item .project-lang {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 #contact-form {
