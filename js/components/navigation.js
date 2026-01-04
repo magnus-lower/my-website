@@ -13,6 +13,7 @@ export function initNavigation() {
   if (!hamburger || !nav) return;
 
   const isDesktopView = window.matchMedia("(min-width: 769px)").matches;
+  const isMobileView = window.matchMedia("(max-width: 768px)");
   const backdrop = document.createElement("div");
   backdrop.className = "nav-backdrop";
   backdrop.setAttribute("aria-hidden", "true");
@@ -52,7 +53,9 @@ export function initNavigation() {
     if (isOpen) {
       closeMenu();
     } else {
-      closeSettings();
+      if (isMobileView.matches) {
+        closeSettings();
+      }
       nav.classList.add("open");
       document.body.classList.add("menu-open");
       hamburger.classList.add("active");

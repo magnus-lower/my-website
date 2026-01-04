@@ -110,7 +110,7 @@ nav ul li {
     position: fixed;
     top: 0;
     left: 0;
-    width: min(80vw, 320px);
+    width: min(72vw, 300px);
     height: 100vh;
     height: 100dvh;
     transform: translateX(-100%);
@@ -119,6 +119,11 @@ nav ul li {
     z-index: 1600;
     overflow-y: auto;
     overscroll-behavior: contain;
+    background: var(--color-surface) !important;
+  }
+
+  .dark-mode nav {
+    background: var(--color-card-surface) !important;
   }
 
   nav.open {
@@ -140,6 +145,7 @@ nav ul li {
   .nav-list li a {
     display: block;
     width: 100%;
+    color: var(--color-text-primary) !important;
   }
 }
 
@@ -155,6 +161,10 @@ nav ul li {
 
   .language-toggle {
     gap: 10px;
+  }
+
+  .settings-dropdown {
+    width: min(320px, calc(100vw - 24px));
   }
 }
 
