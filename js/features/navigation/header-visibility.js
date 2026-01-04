@@ -6,7 +6,6 @@ export function initHeaderVisibility() {
 
   const nav = select("nav");
   const hamburger = select(".hamburger");
-  const scrollEl = document.scrollingElement || document.documentElement;
   let lastScrollTop = 0;
   let ticking = false;
   let isHidden = false;
@@ -16,9 +15,13 @@ export function initHeaderVisibility() {
   const showDelay = 160;
 
   const getScrollTop = () => {
-    if (scrollEl && Number.isFinite(scrollEl.scrollTop)) return scrollEl.scrollTop;
-    if (Number.isFinite(window.pageYOffset)) return window.pageYOffset;
-    if (Number.isFinite(document.documentElement.scrollTop)) return document.documentElement.scrollTop;
+    if (Number.isFinite(window.scrollY)) return window.scrollY;
+    if (Number.isFinite(document.scrollingElement?.scrollTop)) {
+      return document.scrollingElement.scrollTop;
+    }
+    if (Number.isFinite(document.documentElement.scrollTop)) {
+      return document.documentElement.scrollTop;
+    }
     return 0;
   };
 
@@ -89,9 +92,7 @@ export function initHeaderVisibility() {
   lastScrollTop = getScrollTop();
 
   on(window, "scroll", onScroll, { passive: true });
-  if (scrollEl !== window) {
-    on(scrollEl, "scroll", onScroll, { passive: true });
-  }
+  document.addEventListener("scroll", onScroll, { passive: true, capture: true });
 
   on(window, "resize", () => {
     lastScrollTop = getScrollTop();
