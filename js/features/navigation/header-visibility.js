@@ -50,7 +50,9 @@ export function initHeaderVisibility() {
 
   const update = () => {
     const currentScrollTop = getScrollTop();
-    const menuOpen = nav?.classList.contains("open") || hamburger?.classList.contains("active");
+    const menuOpen =
+      nav?.classList.contains("open") ||
+      hamburger?.classList.contains("active");
     const headerHeight = header.offsetHeight || 0;
     const isHiddenNow = header.classList.contains("main-header--hidden");
 
@@ -88,7 +90,10 @@ export function initHeaderVisibility() {
   };
 
   window.addEventListener("scroll", onScroll, { passive: true });
-  document.addEventListener("scroll", onScroll, { passive: true, capture: true });
+  document.addEventListener("scroll", onScroll, {
+    passive: true,
+    capture: true,
+  });
 
   window.addEventListener("resize", () => {
     lastScrollTop = getScrollTop();
