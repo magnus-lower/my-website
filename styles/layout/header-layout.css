@@ -1,6 +1,10 @@
+:root {
+  --header-height: 80px;
+}
+
 .main-header {
   padding: 0;
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
@@ -11,6 +15,10 @@
 .main-header--hidden {
   transform: translateY(-110%);
   transition-duration: 0.32s;
+}
+
+#main-content {
+  padding-top: var(--header-height);
 }
 
 .header-container {
@@ -83,6 +91,10 @@ nav ul li {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --header-height: 76px;
+  }
+
   .hamburger {
     display: flex;
     order: 1;

@@ -36,7 +36,7 @@ export function initHeaderVisibility() {
   };
 
   const scheduleShow = () => {
-    if (!isHidden || showTimer) return;
+    if (showTimer) return;
     showTimer = setTimeout(() => {
       showHeader();
       showTimer = null;
@@ -47,6 +47,7 @@ export function initHeaderVisibility() {
     const currentScrollTop = getScrollTop();
     const menuOpen = nav?.classList.contains("open") || hamburger?.classList.contains("active");
     const headerHeight = header.offsetHeight || 0;
+    isHidden = header.classList.contains("main-header--hidden");
 
     if (menuOpen) {
       clearShowTimer();
