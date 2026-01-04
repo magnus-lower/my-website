@@ -11,6 +11,7 @@ export function initHeaderVisibility() {
   let isHidden = false;
   let showTimer = null;
   const hideThreshold = 10;
+  const showThreshold = 1;
   const showDelay = 160;
 
   const showHeader = () => {
@@ -43,7 +44,15 @@ export function initHeaderVisibility() {
     const menuOpen = nav?.classList.contains("open") || hamburger?.classList.contains("active");
     const headerHeight = header.offsetHeight || 0;
 
-    if (menuOpen || currentScrollY <= headerHeight) {
+    if (menuOpen) {
+      clearShowTimer();
+      showHeader();
+      lastScrollY = currentScrollY;
+      ticking = false;
+      return;
+    }
+
+    if (currentScrollY <= headerHeight) {
       clearShowTimer();
       showHeader();
       lastScrollY = currentScrollY;
@@ -54,7 +63,7 @@ export function initHeaderVisibility() {
     if (currentScrollY > lastScrollY + hideThreshold) {
       clearShowTimer();
       if (!isHidden) hideHeader();
-    } else if (currentScrollY < lastScrollY) {
+    } else if (currentScrollY < lastScrollY - showThreshold) {
       scheduleShow();
     }
 
