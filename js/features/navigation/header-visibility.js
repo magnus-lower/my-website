@@ -6,13 +6,17 @@ export function initHeaderVisibility() {
 
   const nav = select("nav");
   const hamburger = select(".hamburger");
-  let lastScrollY = window.scrollY;
+  const scrollEl = document.scrollingElement || document.documentElement;
+  let lastScrollTop = 0;
   let ticking = false;
   let isHidden = false;
   let showTimer = null;
-  const hideThreshold = 10;
+  const hideThreshold = 12;
   const showThreshold = 1;
   const showDelay = 160;
+
+  const getScrollTop = () =>
+    scrollEl.scrollTop || window.pageYOffset || document.documentElement.scrollTop || 0;
 
   const showHeader = () => {
     header.classList.remove("main-header--hidden");
@@ -40,50 +44,52 @@ export function initHeaderVisibility() {
   };
 
   const update = () => {
-    const currentScrollY = window.scrollY;
+    const currentScrollTop = getScrollTop();
     const menuOpen = nav?.classList.contains("open") || hamburger?.classList.contains("active");
     const headerHeight = header.offsetHeight || 0;
 
     if (menuOpen) {
       clearShowTimer();
       showHeader();
-      lastScrollY = currentScrollY;
+      lastScrollTop = currentScrollTop;
       ticking = false;
       return;
     }
 
-    if (currentScrollY <= headerHeight) {
+    if (currentScrollTop <= headerHeight) {
       clearShowTimer();
       showHeader();
-      lastScrollY = currentScrollY;
+      lastScrollTop = currentScrollTop;
       ticking = false;
       return;
     }
 
-    if (currentScrollY > lastScrollY + hideThreshold) {
+    if (currentScrollTop > lastScrollTop + hideThreshold) {
       clearShowTimer();
       if (!isHidden) hideHeader();
-    } else if (currentScrollY < lastScrollY - showThreshold) {
+    } else if (currentScrollTop < lastScrollTop - showThreshold) {
       scheduleShow();
     }
 
-    lastScrollY = currentScrollY;
+    lastScrollTop = currentScrollTop;
     ticking = false;
   };
 
-  on(
-    window,
-    "scroll",
-    () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(update);
-    },
-    { passive: true },
-  );
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  };
+
+  lastScrollTop = getScrollTop();
+
+  on(window, "scroll", onScroll, { passive: true });
+  if (scrollEl !== window) {
+    on(scrollEl, "scroll", onScroll, { passive: true });
+  }
 
   on(window, "resize", () => {
-    lastScrollY = window.scrollY;
-    if (window.scrollY <= header.offsetHeight) showHeader();
+    lastScrollTop = getScrollTop();
+    if (getScrollTop() <= header.offsetHeight) showHeader();
   });
 }
