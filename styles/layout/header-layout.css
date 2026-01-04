@@ -4,6 +4,12 @@
   top: 0;
   width: 100%;
   z-index: 1000;
+  transition: transform 0.25s ease;
+  will-change: transform;
+}
+
+.main-header--hidden {
+  transform: translateY(-110%);
 }
 
 .header-container {
