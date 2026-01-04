@@ -22,6 +22,9 @@ export function initSettingsPanel({ onLanguageSelect }) {
   const settingsToggle = select(".settings-toggle");
   const settingsDropdown = select("#settings-dropdown");
   const languageToggle = select("#language-toggle");
+  const nav = select("nav");
+  const hamburger = select(".hamburger");
+  const isMobileView = window.matchMedia("(max-width: 768px)");
 
   if (!settingsToggle || !settingsDropdown) return;
 
@@ -31,12 +34,25 @@ export function initSettingsPanel({ onLanguageSelect }) {
     settingsDropdown.setAttribute("aria-hidden", String(!isVisible));
   };
 
+  const closeNav = () => {
+    if (!nav || !hamburger) return;
+    nav.classList.remove("open");
+    document.body.classList.remove("menu-open");
+    hamburger.classList.remove("active");
+    document.body.style.overflow = "";
+    hamburger.setAttribute("aria-expanded", "false");
+    nav.setAttribute("aria-hidden", "true");
+  };
+
   settingsToggle.setAttribute("aria-expanded", "false");
   settingsDropdown.setAttribute("aria-hidden", "true");
 
   settingsToggle.addEventListener("click", (event) => {
     event.stopPropagation();
     const willOpen = !settingsDropdown.classList.contains("visible");
+    if (willOpen && isMobileView.matches) {
+      closeNav();
+    }
     setDropdownVisibility(willOpen);
   });
 
