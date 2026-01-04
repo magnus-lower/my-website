@@ -11,6 +11,17 @@ export function initNavigation() {
   if (!hamburger || !nav) return;
 
   const isDesktopView = window.matchMedia("(min-width: 769px)").matches;
+  const backdrop = document.createElement("div");
+  backdrop.className = "nav-backdrop";
+  backdrop.setAttribute("aria-hidden", "true");
+  document.body.appendChild(backdrop);
+
+  const closeButton = document.createElement("button");
+  closeButton.type = "button";
+  closeButton.className = "nav-close";
+  closeButton.setAttribute("aria-label", "Close menu");
+  closeButton.textContent = "×";
+  nav.insertBefore(closeButton, nav.firstChild);
 
   const setAriaState = (isOpen) => {
     hamburger.setAttribute("aria-expanded", String(isOpen));
@@ -46,9 +57,20 @@ export function initNavigation() {
     toggleMenu();
   });
 
+  closeButton.addEventListener("click", closeMenu);
+
+  backdrop.addEventListener("click", closeMenu);
+
   document.addEventListener("click", (event) => {
     if (!nav.classList.contains("open")) return;
     if (!nav.contains(event.target) && !hamburger.contains(event.target)) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    if (nav.classList.contains("open")) {
       closeMenu();
     }
   });
