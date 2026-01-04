@@ -22,6 +22,16 @@ function parseAspectRatio(value) {
   return `${width} / ${height}`;
 }
 
+function getAspectDimensions(value) {
+  const parts = value?.split("/").map((part) => Number(part.trim()));
+  if (!parts || parts.length !== 2) return { width: 1600, height: 900 };
+  const [widthRatio, heightRatio] = parts;
+  if (!widthRatio || !heightRatio) return { width: 1600, height: 900 };
+  const width = 1600;
+  const height = Math.round((width * heightRatio) / widthRatio);
+  return { width, height };
+}
+
 function createModal() {
   const modal = document.createElement("div");
   modal.className = "project-media-modal";
@@ -83,13 +93,15 @@ export function initProjectMedia() {
     modalElements.image.src = "";
   };
 
-  cards.forEach((card) => {
+  cards.forEach((card, index) => {
     const src = card.dataset[MEDIA_ATTRS.src];
     if (!src) return;
 
     const alt = card.dataset[MEDIA_ATTRS.alt] || "";
     const type = card.dataset[MEDIA_ATTRS.type] || inferMediaType(src);
-    const aspect = parseAspectRatio(card.dataset[MEDIA_ATTRS.aspect]);
+    const aspectValue = card.dataset[MEDIA_ATTRS.aspect];
+    const aspect = parseAspectRatio(aspectValue);
+    const dimensions = getAspectDimensions(aspectValue);
 
     const wrapper = document.createElement("div");
     wrapper.className = "project-media";
@@ -104,6 +116,14 @@ export function initProjectMedia() {
     image.src = src;
     image.alt = alt;
     image.setAttribute("data-media-type", type);
+    image.loading = "eager";
+    image.decoding = "async";
+    image.width = dimensions.width;
+    image.height = dimensions.height;
+
+    if (index < 2) {
+      image.setAttribute("fetchpriority", "high");
+    }
 
     if (aspect) {
       wrapper.style.aspectRatio = aspect;
