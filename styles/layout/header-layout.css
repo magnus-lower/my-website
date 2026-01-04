@@ -158,20 +158,40 @@ nav ul li {
 
 @media (max-width: 768px) {
   .settings-item {
+    display: flex;
+    justify-content: space-between;
     gap: 12px;
     align-items: center;
   }
 
   .settings-item-label {
-    margin-right: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 0;
+    flex: 1;
+    min-width: 0;
   }
 
   .language-toggle {
-    gap: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    white-space: nowrap;
   }
 
   .settings-dropdown {
-    width: min(320px, calc(100vw - 24px));
+    width: min(360px, calc(100vw - 24px));
+    max-width: calc(100vw - 24px);
+    right: 12px;
+    padding-right: 18px;
+    box-sizing: border-box;
+  }
+
+  .settings-panel,
+  .header-container {
+    overflow: visible;
   }
 }
 
