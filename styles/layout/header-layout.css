@@ -116,18 +116,21 @@ nav ul li {
     transform: translateX(-100%);
     transition: transform 0.24s ease;
     padding: 72px 22px 24px;
-    z-index: 1600;
+    z-index: 1700;
     overflow-y: auto;
     overscroll-behavior: contain;
-    background: var(--color-surface) !important;
+    background: #f3f3f3;
+    opacity: 1;
+    pointer-events: none;
   }
 
   .dark-mode nav {
-    background: var(--color-card-surface) !important;
+    background: #111111;
   }
 
   nav.open {
     transform: translateX(0);
+    pointer-events: auto;
   }
 
   .nav-list {
@@ -145,7 +148,11 @@ nav ul li {
   .nav-list li a {
     display: block;
     width: 100%;
-    color: var(--color-text-primary) !important;
+    color: #111111;
+  }
+
+  .dark-mode .nav-list li a {
+    color: #f1f1f1;
   }
 }
 
@@ -175,7 +182,7 @@ nav ul li {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.24s ease;
-  z-index: 1500;
+  z-index: 1600;
 }
 
 body.menu-open .nav-backdrop {
