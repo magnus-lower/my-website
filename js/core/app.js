@@ -5,15 +5,14 @@ import { initNavigation } from "../components/navigation.js";
 import { initSettingsPanel } from "../components/settings-panel.js";
 import { initResumeLink } from "../components/resume-link.js";
 import { highlightActiveNavLink } from "../features/navigation/nav-highlight.js";
+import { initHeaderVisibility } from "../features/navigation/header-visibility.js";
 import { initFadeInObserver } from "../features/scroll/fade-in-observer.js";
 import { initTyping } from "../features/typing/typing-controller.js";
 import { initContactForm } from "../features/contact/contact-form.js";
 import { initProjectLinks } from "../features/projects/project-links.js";
 import { initProjectMedia } from "../features/projects/project-media.js";
+import { initScrollTop } from "../features/scroll/scroll-top.js";
 
-/**
- * Boot the client application by preloading preferences and wiring all feature modules.
- */
 export function startApp() {
   preloadPreferences();
 
@@ -39,12 +38,14 @@ export function startApp() {
       onLanguageSelect: (language) => languageController.setLanguage(language),
     });
 
+    initHeaderVisibility();
     initNavigation();
     highlightActiveNavLink();
-    initFadeInObserver();
     initContactForm();
     initProjectLinks();
     initProjectMedia();
+    initScrollTop();
+    initFadeInObserver();
   });
 }
 

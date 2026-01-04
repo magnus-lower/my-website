@@ -359,9 +359,16 @@ form button:active {
   z-index: 100;
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transition:
     opacity 0.3s ease,
     visibility 0.3s ease;
+}
+
+#scroll-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 #scroll-top:hover {
@@ -376,6 +383,12 @@ form button:active {
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
+}
+
+@media (max-width: 768px) {
+  #scroll-top {
+    display: none;
+  }
 }
 
 .fade-in {
