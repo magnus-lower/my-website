@@ -17,11 +17,14 @@
     width: 100%;
     margin: 0 auto;
     padding: 0;
+    grid-template-columns: 1fr;
+    justify-items: center;
   }
   .project-wrapper {
     width: 100%;
+    max-width: 100%;
     padding: 0;
-    margin: 0 auto 20px;
+    margin: 0;
   }
   .project-item {
     width: 100%;
@@ -41,8 +44,8 @@
     font-size: 1.1em;
   }
   .projects-container {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
+    justify-items: center;
   }
   nav .nav-list {
     display: none;
@@ -96,5 +99,17 @@
   .form-group,
   #contact-form {
     max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .projects-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  .projects-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
