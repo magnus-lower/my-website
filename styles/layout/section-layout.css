@@ -83,6 +83,17 @@
   flex: 1;
 }
 
+.project-title {
+  width: 100%;
+  line-height: 1.3;
+  max-height: calc(1.3em * 2);
+  min-height: calc(1.3em * 2);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .project-lang {
   font-size: 2em;
   font-weight: bold;
