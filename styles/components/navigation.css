@@ -238,10 +238,12 @@ nav ul li a.active {
   border: none;
   background: transparent;
   color: inherit;
-  font-size: 2rem;
+  font-size: 1.6rem;
   line-height: 1;
   cursor: pointer;
-  padding: 8px;
+  padding: 6px;
+  width: 36px;
+  height: 36px;
   border-radius: 10px;
   align-self: flex-end;
 }
@@ -260,9 +262,9 @@ nav ul li a.active {
   }
 
   .nav-list li a {
-    padding: 16px 18px;
+    padding: 12px 14px;
     width: 100%;
-    font-size: 1.1em;
+    font-size: 1rem;
     font-weight: 500;
     transition: all 0.3s ease;
     border-radius: 8px;
@@ -289,7 +291,7 @@ nav ul li a.active {
     align-items: center;
     justify-content: center;
     color: var(--color-nav-drawer-text);
-    margin: 6px 6px 8px auto;
+    margin: 4px 4px 10px auto;
   }
 }
 
@@ -373,6 +375,8 @@ nav ul li a.active {
 
 @media (max-width: 768px) {
   .resume-btn {
-    margin: 10px auto 0;
+    margin: 8px auto 0;
+    padding: 8px 12px;
+    font-size: 0.95em;
   }
 }

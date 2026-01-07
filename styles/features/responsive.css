@@ -53,7 +53,12 @@
   nav.open .nav-list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 6px;
+  }
+  .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 @media (max-width: 600px) {
