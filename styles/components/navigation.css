@@ -179,8 +179,8 @@ nav ul li a.active {
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 1002;
-  transition: background-color 0.3s ease;
+  z-index: 1201;
+  transition: background-color 0.22s ease-out;
 }
 
 .hamburger:hover {
@@ -191,7 +191,7 @@ nav ul li a.active {
   width: 22px;
   height: 2px;
   background: var(--color-nav-text);
-  transition: all 0.3s ease;
+  transition: transform 0.22s ease-out, opacity 0.22s ease-out;
   border-radius: 1px;
   transform-origin: center;
 }
@@ -238,7 +238,7 @@ nav ul li a.active {
   border: none;
   background: transparent;
   color: inherit;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   line-height: 1;
   cursor: pointer;
   padding: 0;
@@ -247,7 +247,7 @@ nav ul li a.active {
   border-radius: 10px;
   position: absolute;
   top: 12px;
-  right: 12px;
+  left: 20px;
   z-index: 2;
 }
 

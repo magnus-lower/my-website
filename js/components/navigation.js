@@ -8,9 +8,14 @@ export function initNavigation() {
   const nav = select("nav");
   const navLinks = selectAll(".nav-list a");
   let overlay = select(".nav-overlay");
-  let closeButton = select(".nav-close", nav);
+  const settingsToggle = select(".settings-toggle");
 
   if (!hamburger || !nav) return;
+
+  const existingCloseButton = select(".nav-close", nav);
+  if (existingCloseButton) {
+    existingCloseButton.remove();
+  }
 
   if (!overlay) {
     overlay = document.createElement("div");
@@ -19,20 +24,23 @@ export function initNavigation() {
     document.body.append(overlay);
   }
 
-  if (!closeButton) {
-    closeButton = document.createElement("button");
-    closeButton.className = "nav-close";
-    closeButton.type = "button";
-    closeButton.setAttribute("aria-label", "Close menu");
-    closeButton.textContent = "×";
-    nav.prepend(closeButton);
-  }
-
   const isDesktopView = window.matchMedia("(min-width: 769px)").matches;
+
+  const setSettingsInteractivity = (isOpen) => {
+    if (!settingsToggle) return;
+    settingsToggle.setAttribute("aria-hidden", String(isOpen));
+    settingsToggle.tabIndex = isOpen ? -1 : 0;
+    settingsToggle.style.pointerEvents = isOpen ? "none" : "";
+    if (isOpen && document.activeElement === settingsToggle) {
+      hamburger.focus();
+    }
+  };
 
   const setAriaState = (isOpen) => {
     hamburger.setAttribute("aria-expanded", String(isOpen));
     nav.setAttribute("aria-hidden", String(!isOpen));
+    hamburger.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    setSettingsInteractivity(isOpen);
   };
 
   setAriaState(isDesktopView);
@@ -76,7 +84,6 @@ export function initNavigation() {
   });
 
   overlay.addEventListener("click", closeMenu);
-  closeButton.addEventListener("click", closeMenu);
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && nav.classList.contains("open")) {
