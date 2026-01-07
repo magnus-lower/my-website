@@ -117,7 +117,7 @@ nav ul li {
     position: fixed;
     top: 0;
     left: 0;
-    width: min(62vw, 270px);
+    width: min(58vw, 250px);
     height: 100vh;
     height: 100dvh;
     transform: translateX(-100%);
