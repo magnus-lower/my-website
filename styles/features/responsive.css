@@ -32,7 +32,7 @@
   }
   .settings-dropdown {
     right: -10px;
-    top: 100%;
+    top: calc(100% + 10px);
     width: min(260px, 92vw);
     min-width: 220px;
   }
