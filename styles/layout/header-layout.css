@@ -36,7 +36,8 @@
   position: absolute;
   right: 0;
   top: 100%;
-  width: 220px;
+  width: min(280px, 92vw);
+  min-width: 240px;
   padding: 15px;
   display: none;
   z-index: 1001;
