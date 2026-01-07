@@ -6,6 +6,9 @@
   --color-accent: #8e44ad;
   --color-nav-surface: #333333;
   --color-nav-text: #ffffff;
+  --color-nav-drawer: #f7f8fb;
+  --color-nav-drawer-text: #1f2a37;
+  --color-nav-overlay: rgba(15, 23, 42, 0.35);
   --color-card-surface: #f8f9fa;
   --color-border-subtle: #e9ecef;
   --shadow-elevation-1: 0 2px 10px rgba(0, 0, 0, 0.1);

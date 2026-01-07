@@ -5,8 +5,10 @@ import { selectAll } from "../../utils/dom.js";
  */
 export function initFadeInObserver() {
   const fadeInElements = selectAll(".fade-in");
-  if (!("IntersectionObserver" in window) || fadeInElements.length === 0)
+  if (!("IntersectionObserver" in window) || fadeInElements.length === 0) {
+    fadeInElements.forEach((element) => element.classList.add("visible"));
     return;
+  }
 
   const observer = new IntersectionObserver(
     (entries, obs) => {

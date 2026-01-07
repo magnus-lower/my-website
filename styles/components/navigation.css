@@ -56,6 +56,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 0;
+  gap: 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -179,8 +180,8 @@ nav ul li a.active {
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 1002;
-  transition: background-color 0.3s ease;
+  z-index: 1201;
+  transition: background-color 0.22s ease-out;
 }
 
 .hamburger:hover {
@@ -191,9 +192,20 @@ nav ul li a.active {
   width: 22px;
   height: 2px;
   background: var(--color-nav-text);
-  transition: all 0.3s ease;
+  transition: transform 0.22s ease-out, opacity 0.22s ease-out;
   border-radius: 1px;
   transform-origin: center;
+}
+
+html:not(.dark-mode) .hamburger span,
+body:not(.dark-mode) .hamburger span {
+  background: #ffffff;
+}
+
+html:not(.dark-mode) .hamburger.active span,
+body:not(.dark-mode) .hamburger.active span {
+  background: var(--color-text-primary);
+  text-shadow: none;
 }
 
 .hamburger.active span:nth-child(1) {
@@ -208,20 +220,70 @@ nav ul li a.active {
   transform: translateY(-6px) rotate(-45deg);
 }
 
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--color-nav-overlay);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--motion-normal),
+    visibility var(--motion-normal);
+  z-index: 999;
+}
+
+.nav-close {
+  display: none;
+}
+
+.menu-open {
+  overflow: hidden;
+  touch-action: none;
+}
+
+.nav-overlay.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-close {
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  z-index: 2;
+}
+
+.nav-close:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
 @media (max-width: 768px) {
   nav {
-    background: rgba(0, 0, 0, 0.96);
-    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
+    background: var(--color-nav-drawer);
+    box-shadow: var(--shadow-elevation-3);
+    color: var(--color-nav-drawer-text);
+    --color-nav-text: var(--color-nav-drawer-text);
   }
 
   .nav-list li a {
-    padding: 16px 18px;
+    padding: 12px 14px;
     width: 100%;
-    font-size: 1.1em;
+    font-size: 1rem;
     font-weight: 500;
     transition: all 0.3s ease;
     border-radius: 8px;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--color-nav-drawer-text);
     border-left: 3px solid transparent;
   }
 
@@ -229,14 +291,22 @@ nav ul li a.active {
     background-color: rgba(52, 152, 219, 0.15);
     border-left: 3px solid var(--color-primary);
     transform: translateX(4px);
-    color: white;
+    color: var(--color-nav-drawer-text);
   }
 
   .nav-list li a.active {
     background-color: rgba(52, 152, 219, 0.2);
     border-left: 3px solid var(--color-primary);
-    color: white;
+    color: var(--color-nav-drawer-text);
     font-weight: 600;
+  }
+
+  .nav-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-nav-drawer-text);
+    margin: 0;
   }
 }
 
@@ -320,6 +390,8 @@ nav ul li a.active {
 
 @media (max-width: 768px) {
   .resume-btn {
-    margin: 10px auto 0;
+    margin: 8px auto 0;
+    padding: 8px 12px;
+    font-size: 0.95em;
   }
 }

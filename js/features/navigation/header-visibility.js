@@ -6,6 +6,8 @@ export function initHeaderVisibility() {
 
   const nav = select("nav");
   const hamburger = select(".hamburger");
+  const settingsDropdown = select("#settings-dropdown");
+  const settingsToggle = select(".settings-toggle");
   let lastScrollTop = 0;
   let ticking = false;
   let showTimer = null;
@@ -29,8 +31,16 @@ export function initHeaderVisibility() {
     header.classList.remove("main-header--hidden");
   };
 
+  const closeSettingsPanel = () => {
+    if (!settingsDropdown?.classList.contains("visible")) return;
+    settingsDropdown.classList.remove("visible");
+    settingsDropdown.setAttribute("aria-hidden", "true");
+    settingsToggle?.setAttribute("aria-expanded", "false");
+  };
+
   const hideHeader = () => {
     header.classList.add("main-header--hidden");
+    closeSettingsPanel();
   };
 
   const clearShowTimer = () => {
