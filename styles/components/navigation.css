@@ -199,9 +199,16 @@ nav ul li a.active {
   transform-origin: center;
 }
 
+html:not(.dark-mode) .hamburger span,
 body:not(.dark-mode) .hamburger span {
-  background: var(--color-text-primary);
+  background: #ffffff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+html:not(.dark-mode) .hamburger.active span,
+body:not(.dark-mode) .hamburger.active span {
+  background: var(--color-text-primary);
+  text-shadow: none;
 }
 
 .hamburger.active span:nth-child(1) {
