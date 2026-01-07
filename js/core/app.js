@@ -16,7 +16,7 @@ import { initScrollTop } from "../features/scroll/scroll-top.js";
 export function startApp() {
   preloadPreferences();
 
-  document.addEventListener("DOMContentLoaded", () => {
+  const initialize = () => {
     const languageController = createLanguageController();
     const themeController = createThemeController({
       getLanguage: languageController.getLanguage,
@@ -46,7 +46,13 @@ export function startApp() {
     initProjectMedia();
     initScrollTop();
     initFadeInObserver();
-  });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initialize, { once: true });
+  } else {
+    initialize();
+  }
 }
 
 startApp();
