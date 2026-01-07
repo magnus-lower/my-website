@@ -238,14 +238,17 @@ nav ul li a.active {
   border: none;
   background: transparent;
   color: inherit;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   line-height: 1;
   cursor: pointer;
-  padding: 6px;
-  width: 36px;
-  height: 36px;
+  padding: 0;
+  width: 44px;
+  height: 44px;
   border-radius: 10px;
   align-self: flex-end;
+  position: sticky;
+  top: 12px;
+  z-index: 1;
 }
 
 .nav-close:focus-visible {
@@ -291,7 +294,7 @@ nav ul li a.active {
     align-items: center;
     justify-content: center;
     color: var(--color-nav-drawer-text);
-    margin: 4px 4px 10px auto;
+    margin: 0 12px 12px auto;
   }
 }
 
