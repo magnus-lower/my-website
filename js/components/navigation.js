@@ -9,6 +9,7 @@ export function initNavigation() {
   const navLinks = selectAll(".nav-list a");
   let overlay = select(".nav-overlay");
   const settingsToggle = select(".settings-toggle");
+  const settingsDropdown = select("#settings-dropdown");
 
   if (!hamburger || !nav) return;
 
@@ -43,6 +44,13 @@ export function initNavigation() {
     setSettingsInteractivity(isOpen);
   };
 
+  const closeSettingsDropdown = () => {
+    if (!settingsDropdown) return;
+    settingsDropdown.classList.remove("visible");
+    settingsDropdown.setAttribute("aria-hidden", "true");
+    settingsToggle?.setAttribute("aria-expanded", "false");
+  };
+
   setAriaState(isDesktopView);
 
   const closeMenu = () => {
@@ -60,6 +68,7 @@ export function initNavigation() {
     if (isOpen) {
       closeMenu();
     } else {
+      closeSettingsDropdown();
       nav.classList.add("open");
       document.body.classList.add("menu-open");
       hamburger.classList.add("active");

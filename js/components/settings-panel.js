@@ -22,6 +22,9 @@ export function initSettingsPanel({ onLanguageSelect }) {
   const settingsToggle = select(".settings-toggle");
   const settingsDropdown = select("#settings-dropdown");
   const languageToggle = select("#language-toggle");
+  const nav = select("nav");
+  const hamburger = select(".hamburger");
+  const overlay = select(".nav-overlay");
 
   if (!settingsToggle || !settingsDropdown) return;
 
@@ -37,6 +40,17 @@ export function initSettingsPanel({ onLanguageSelect }) {
   settingsToggle.addEventListener("click", (event) => {
     event.stopPropagation();
     const willOpen = !settingsDropdown.classList.contains("visible");
+    if (willOpen && nav?.classList.contains("open")) {
+      nav.classList.remove("open");
+      document.body.classList.remove("menu-open");
+      hamburger?.classList.remove("active");
+      hamburger?.setAttribute("aria-expanded", "false");
+      hamburger?.setAttribute("aria-label", "Open menu");
+      nav.setAttribute("aria-hidden", "true");
+      overlay?.classList.remove("is-visible");
+      overlay?.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
     setDropdownVisibility(willOpen);
   });
 
