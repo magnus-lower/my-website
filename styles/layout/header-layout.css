@@ -94,9 +94,10 @@ nav ul li {
   .hamburger {
     display: flex;
     order: 1;
-    position: static;
-    transform: none;
-    justify-self: start;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
     z-index: 1201;
   }
 
