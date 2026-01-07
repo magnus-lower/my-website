@@ -20,6 +20,7 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: 15px 20px;
+  position: relative;
 }
 
 .header-actions {
@@ -87,8 +88,9 @@ nav ul li {
   .hamburger {
     display: flex;
     order: 1;
-    position: fixed;
-    top: 12px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     left: 20px;
     z-index: 1201;
   }
@@ -115,7 +117,7 @@ nav ul li {
     position: fixed;
     top: 0;
     left: 0;
-    width: min(66vw, 290px);
+    width: min(62vw, 270px);
     height: 100vh;
     height: 100dvh;
     transform: translateX(-100%);
