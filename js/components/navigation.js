@@ -7,8 +7,26 @@ export function initNavigation() {
   const hamburger = select(".hamburger");
   const nav = select("nav");
   const navLinks = selectAll(".nav-list a");
+  let overlay = select(".nav-overlay");
+  let closeButton = select(".nav-close", nav);
 
   if (!hamburger || !nav) return;
+
+  if (!overlay) {
+    overlay = document.createElement("div");
+    overlay.className = "nav-overlay";
+    overlay.setAttribute("aria-hidden", "true");
+    document.body.append(overlay);
+  }
+
+  if (!closeButton) {
+    closeButton = document.createElement("button");
+    closeButton.className = "nav-close";
+    closeButton.type = "button";
+    closeButton.setAttribute("aria-label", "Close menu");
+    closeButton.textContent = "×";
+    nav.prepend(closeButton);
+  }
 
   const isDesktopView = window.matchMedia("(min-width: 769px)").matches;
 
@@ -23,6 +41,8 @@ export function initNavigation() {
     nav.classList.remove("open");
     document.body.classList.remove("menu-open");
     hamburger.classList.remove("active");
+    overlay.classList.remove("is-visible");
+    overlay.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
     setAriaState(false);
   };
@@ -35,6 +55,8 @@ export function initNavigation() {
       nav.classList.add("open");
       document.body.classList.add("menu-open");
       hamburger.classList.add("active");
+      overlay.classList.add("is-visible");
+      overlay.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
       setAriaState(true);
     }
@@ -49,6 +71,15 @@ export function initNavigation() {
   document.addEventListener("click", (event) => {
     if (!nav.classList.contains("open")) return;
     if (!nav.contains(event.target) && !hamburger.contains(event.target)) {
+      closeMenu();
+    }
+  });
+
+  overlay.addEventListener("click", closeMenu);
+  closeButton.addEventListener("click", closeMenu);
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && nav.classList.contains("open")) {
       closeMenu();
     }
   });

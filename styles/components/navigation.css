@@ -208,10 +208,55 @@ nav ul li a.active {
   transform: translateY(-6px) rotate(-45deg);
 }
 
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--color-nav-overlay);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--motion-normal),
+    visibility var(--motion-normal);
+  z-index: 999;
+}
+
+.nav-close {
+  display: none;
+}
+
+.menu-open {
+  overflow: hidden;
+  touch-action: none;
+}
+
+.nav-overlay.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-close {
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 10px;
+  align-self: flex-end;
+}
+
+.nav-close:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
 @media (max-width: 768px) {
   nav {
-    background: rgba(0, 0, 0, 0.96);
-    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
+    background: var(--color-nav-drawer);
+    box-shadow: var(--shadow-elevation-3);
+    color: var(--color-nav-drawer-text);
+    --color-nav-text: var(--color-nav-drawer-text);
   }
 
   .nav-list li a {
@@ -221,7 +266,7 @@ nav ul li a.active {
     font-weight: 500;
     transition: all 0.3s ease;
     border-radius: 8px;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--color-nav-drawer-text);
     border-left: 3px solid transparent;
   }
 
@@ -229,14 +274,22 @@ nav ul li a.active {
     background-color: rgba(52, 152, 219, 0.15);
     border-left: 3px solid var(--color-primary);
     transform: translateX(4px);
-    color: white;
+    color: var(--color-nav-drawer-text);
   }
 
   .nav-list li a.active {
     background-color: rgba(52, 152, 219, 0.2);
     border-left: 3px solid var(--color-primary);
-    color: white;
+    color: var(--color-nav-drawer-text);
     font-weight: 600;
+  }
+
+  .nav-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-nav-drawer-text);
+    margin: 6px 6px 8px auto;
   }
 }
 

@@ -109,19 +109,21 @@ nav ul li {
   nav {
     position: fixed;
     top: 0;
-    left: -100%;
-    width: 70%;
+    left: 0;
+    width: min(88vw, 360px);
     height: 100vh;
     height: 100dvh;
-    transition: left 0.3s ease;
-    padding-top: 80px;
-    padding-bottom: 20px;
-    z-index: 1001;
+    transform: translateX(-100%);
+    transition: transform var(--motion-normal);
+    padding: 20px 0 20px;
+    z-index: 1100;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
   }
 
   nav.open {
-    left: 0;
+    transform: translateX(0);
   }
 
   .nav-list {
