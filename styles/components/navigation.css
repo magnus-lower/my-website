@@ -192,7 +192,9 @@ nav ul li a.active {
   width: 22px;
   height: 2px;
   background: var(--color-nav-text);
-  transition: transform 0.22s ease-out, opacity 0.22s ease-out;
+  transition:
+    transform 0.22s ease-out,
+    opacity 0.22s ease-out;
   border-radius: 1px;
   transform-origin: center;
 }
