@@ -20,7 +20,6 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: 15px 20px;
-  position: relative;
 }
 
 .header-actions {
@@ -85,20 +84,9 @@ nav ul li {
 }
 
 @media (max-width: 768px) {
-  .header-container {
-    display: grid;
-    grid-template-columns: 56px 1fr 56px;
-    align-items: center;
-  }
-
   .hamburger {
     display: flex;
     order: 1;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 20px;
-    z-index: 1201;
   }
 
   #scroll-top {
@@ -117,7 +105,6 @@ nav ul li {
 
   .header-actions {
     order: 3;
-    justify-self: end;
   }
 
   nav {
@@ -132,8 +119,6 @@ nav ul li {
     padding: 56px 0 16px;
     z-index: 1100;
     overflow-y: auto;
-    display: flex;
-    flex-direction: column;
   }
 
   nav.open {
