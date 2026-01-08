@@ -24,7 +24,7 @@ export function initSettingsPanel({ onLanguageSelect }) {
   const languageToggle = select("#language-toggle");
   const nav = select("nav");
   const hamburger = select(".hamburger");
-  const overlay = select(".nav-overlay");
+  const overlays = document.querySelectorAll(".nav-overlay");
 
   if (!settingsToggle || !settingsDropdown) return;
 
@@ -32,10 +32,12 @@ export function initSettingsPanel({ onLanguageSelect }) {
     if (document.body.classList.contains("menu-open")) {
       document.body.classList.remove("menu-open");
     }
-    if (overlay?.classList.contains("is-visible")) {
-      overlay.classList.remove("is-visible");
+    overlays.forEach((overlay) => {
+      if (overlay.classList.contains("is-visible")) {
+        overlay.classList.remove("is-visible");
+      }
       overlay.setAttribute("aria-hidden", "true");
-    }
+    });
     if (document.body.style.overflow) {
       document.body.style.overflow = "";
     }
@@ -70,8 +72,10 @@ export function initSettingsPanel({ onLanguageSelect }) {
       hamburger?.setAttribute("aria-expanded", "false");
       hamburger?.setAttribute("aria-label", "Open menu");
       nav.setAttribute("aria-hidden", "true");
-      overlay?.classList.remove("is-visible");
-      overlay?.setAttribute("aria-hidden", "true");
+      overlays.forEach((overlay) => {
+        overlay.classList.remove("is-visible");
+        overlay.setAttribute("aria-hidden", "true");
+      });
       document.body.style.overflow = "";
     }
     setDropdownVisibility(willOpen);
