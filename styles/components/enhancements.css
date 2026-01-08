@@ -23,18 +23,6 @@ h3 {
   height: 100%;
   background: url("../../assets/dots-pattern.svg");
   opacity: 0.1;
-  z-index: 0;
-}
-.hero::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 80px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--color-surface));
-  pointer-events: none;
-  z-index: 1;
 }
 .hero-content {
   position: relative;
