@@ -37,6 +37,18 @@ export function initSettingsPanel({ onLanguageSelect }) {
     settingsToggle.setAttribute("aria-expanded", String(isVisible));
     settingsDropdown.setAttribute("aria-hidden", String(!isVisible));
     settingsToggle.classList.toggle("is-active", isVisible);
+    if (!isVisible) {
+      if (document.body.classList.contains("menu-open")) {
+        document.body.classList.remove("menu-open");
+      }
+      if (overlay?.classList.contains("is-visible")) {
+        overlay.classList.remove("is-visible");
+        overlay.setAttribute("aria-hidden", "true");
+      }
+      if (document.body.style.overflow) {
+        document.body.style.overflow = "";
+      }
+    }
   };
 
   settingsToggle.setAttribute("aria-expanded", "false");
