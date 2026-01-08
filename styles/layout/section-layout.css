@@ -1,24 +1,23 @@
 .hero {
   text-align: center;
   padding: 140px 30px;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto 60px;
+  width: min(1400px, calc(100vw - 120px));
+  margin: 0 0 60px;
   box-sizing: border-box;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 @media (max-width: 768px) {
   .hero {
-    width: calc(100% - 32px);
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
+    width: calc(100vw - 32px);
   }
 }
 
 @media (max-width: 480px) {
   .hero {
-    width: calc(100% - 24px);
+    width: calc(100vw - 24px);
   }
 }
 
