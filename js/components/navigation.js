@@ -50,13 +50,16 @@ export function initNavigation() {
     setSettingsInteractivity(isOpen);
   };
 
-  const hideOverlay = () => {
-    overlay.classList.remove("is-visible");
-    overlay.setAttribute("aria-hidden", "true");
+  const clearMobileNavOverlay = () => {
+    document.body.classList.remove("menu-open");
+    document.body.style.overflow = "";
+    document.querySelectorAll(".nav-overlay").forEach((item) => {
+      item.classList.remove("is-visible");
+      item.setAttribute("aria-hidden", "true");
+    });
   };
 
-  const canShowOverlay = () =>
-    !settingsDropdown?.classList.contains("visible");
+  window.__clearMobileNavOverlay = clearMobileNavOverlay;
 
   const closeSettingsDropdown = () => {
     if (!settingsDropdown) return;
@@ -70,10 +73,8 @@ export function initNavigation() {
 
   const closeMenu = () => {
     nav.classList.remove("open");
-    document.body.classList.remove("menu-open");
     hamburger.classList.remove("active");
-    hideOverlay();
-    document.body.style.overflow = "";
+    clearMobileNavOverlay();
     setAriaState(false);
   };
 
@@ -82,16 +83,14 @@ export function initNavigation() {
     if (isOpen) {
       closeMenu();
     } else {
+      const settingsVisible = settingsDropdown?.classList.contains("visible");
       closeSettingsDropdown();
+      if (settingsVisible) return;
       nav.classList.add("open");
       document.body.classList.add("menu-open");
       hamburger.classList.add("active");
-      if (canShowOverlay()) {
-        overlay.classList.add("is-visible");
-        overlay.setAttribute("aria-hidden", "false");
-      } else {
-        hideOverlay();
-      }
+      overlay.classList.add("is-visible");
+      overlay.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
       setAriaState(true);
     }

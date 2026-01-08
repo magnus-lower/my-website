@@ -24,23 +24,11 @@ export function initSettingsPanel({ onLanguageSelect }) {
   const languageToggle = select("#language-toggle");
   const nav = select("nav");
   const hamburger = select(".hamburger");
-  const overlays = document.querySelectorAll(".nav-overlay");
 
   if (!settingsToggle || !settingsDropdown) return;
 
   const clearMobileMenuOverlayState = () => {
-    if (document.body.classList.contains("menu-open")) {
-      document.body.classList.remove("menu-open");
-    }
-    overlays.forEach((overlay) => {
-      if (overlay.classList.contains("is-visible")) {
-        overlay.classList.remove("is-visible");
-      }
-      overlay.setAttribute("aria-hidden", "true");
-    });
-    if (document.body.style.overflow) {
-      document.body.style.overflow = "";
-    }
+    window.__clearMobileNavOverlay?.();
   };
 
   const setDropdownVisibility = (isVisible) => {
@@ -55,6 +43,8 @@ export function initSettingsPanel({ onLanguageSelect }) {
     settingsToggle.classList.toggle("is-active", isVisible);
     if (!isVisible) {
       clearMobileMenuOverlayState();
+    } else {
+      clearMobileMenuOverlayState();
     }
   };
 
@@ -67,16 +57,11 @@ export function initSettingsPanel({ onLanguageSelect }) {
     const willOpen = !settingsDropdown.classList.contains("visible");
     if (willOpen && nav?.classList.contains("open")) {
       nav.classList.remove("open");
-      document.body.classList.remove("menu-open");
       hamburger?.classList.remove("active");
       hamburger?.setAttribute("aria-expanded", "false");
       hamburger?.setAttribute("aria-label", "Open menu");
       nav.setAttribute("aria-hidden", "true");
-      overlays.forEach((overlay) => {
-        overlay.classList.remove("is-visible");
-        overlay.setAttribute("aria-hidden", "true");
-      });
-      document.body.style.overflow = "";
+      clearMobileMenuOverlayState();
     }
     setDropdownVisibility(willOpen);
   });
