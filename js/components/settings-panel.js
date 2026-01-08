@@ -31,6 +31,10 @@ export function initSettingsPanel({ onLanguageSelect }) {
   const updateDropdownPosition = () => {
     const toggleRect = settingsToggle.getBoundingClientRect();
     const dropdownRect = settingsDropdown.getBoundingClientRect();
+    if (!dropdownRect.width || !dropdownRect.height) {
+      requestAnimationFrame(updateDropdownPosition);
+      return;
+    }
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
     const horizontalPadding = 12;
@@ -61,7 +65,7 @@ export function initSettingsPanel({ onLanguageSelect }) {
     settingsToggle.setAttribute("aria-expanded", String(isVisible));
     settingsDropdown.setAttribute("aria-hidden", String(!isVisible));
     if (isVisible) {
-      requestAnimationFrame(updateDropdownPosition);
+      requestAnimationFrame(() => requestAnimationFrame(updateDropdownPosition));
     }
   };
 
