@@ -84,8 +84,9 @@ export function initNavigation() {
       closeMenu();
     } else {
       const settingsVisible = settingsDropdown?.classList.contains("visible");
-      closeSettingsDropdown();
-      if (settingsVisible) return;
+      if (settingsVisible) {
+        closeSettingsDropdown();
+      }
       nav.classList.add("open");
       document.body.classList.add("menu-open");
       hamburger.classList.add("active");
