@@ -50,22 +50,31 @@ export function initNavigation() {
     setSettingsInteractivity(isOpen);
   };
 
+  const clearMobileNavOverlay = () => {
+    document.body.classList.remove("menu-open");
+    document.body.style.overflow = "";
+    document.querySelectorAll(".nav-overlay").forEach((item) => {
+      item.classList.remove("is-visible");
+      item.setAttribute("aria-hidden", "true");
+    });
+  };
+
+  window.__clearMobileNavOverlay = clearMobileNavOverlay;
+
   const closeSettingsDropdown = () => {
     if (!settingsDropdown) return;
     settingsDropdown.classList.remove("visible");
     settingsDropdown.setAttribute("aria-hidden", "true");
     settingsToggle?.setAttribute("aria-expanded", "false");
+    settingsToggle?.classList.remove("is-active");
   };
 
   setAriaState(isDesktopView);
 
   const closeMenu = () => {
     nav.classList.remove("open");
-    document.body.classList.remove("menu-open");
     hamburger.classList.remove("active");
-    overlay.classList.remove("is-visible");
-    overlay.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
+    clearMobileNavOverlay();
     setAriaState(false);
   };
 
@@ -74,7 +83,10 @@ export function initNavigation() {
     if (isOpen) {
       closeMenu();
     } else {
-      closeSettingsDropdown();
+      const settingsVisible = settingsDropdown?.classList.contains("visible");
+      if (settingsVisible) {
+        closeSettingsDropdown();
+      }
       nav.classList.add("open");
       document.body.classList.add("menu-open");
       hamburger.classList.add("active");

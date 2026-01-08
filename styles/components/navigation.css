@@ -18,7 +18,7 @@
   justify-content: center;
 }
 
-.settings-toggle:hover {
+.settings-toggle.is-active {
   background: rgba(255, 255, 255, 0.1);
   transform: rotate(30deg);
 }
