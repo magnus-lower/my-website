@@ -311,6 +311,9 @@ body:not(.dark-mode) .hamburger.active span {
     color: var(--color-nav-drawer-text);
     margin: 0;
   }
+  .settings-toggle {
+    -webkit-tap-highlight-color: transparent;
+  }
 }
 
 .language-toggle {
