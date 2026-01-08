@@ -143,6 +143,10 @@ nav ul li {
 }
 
 @media (min-width: 1024px) {
+  .header-container {
+    padding: 15px 32px;
+  }
+
   .settings-dropdown {
     right: 10px;
     top: calc(100% + 19px);
