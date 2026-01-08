@@ -114,7 +114,11 @@
 }
 
 @media (min-width: 769px) {
-  .hero .hero-content p {
-    margin-bottom: 32px;
+  .hero .cta-button {
+    margin-top: 12px;
+  }
+
+  .about-preview {
+    margin-top: 12px;
   }
 }
