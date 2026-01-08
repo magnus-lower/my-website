@@ -4,10 +4,7 @@
     text-align: center;
   }
   .hero {
-    width: 100%;
-    margin: 10 auto;
     padding: 30px;
-    box-sizing: border-box;
   }
   main {
     padding: 10px 0;
@@ -29,6 +26,12 @@
   .project-item {
     width: 100%;
     max-width: 100%;
+  }
+  .project-title {
+    max-height: none;
+    -webkit-line-clamp: initial;
+    white-space: normal;
+    overflow-wrap: break-word;
   }
   .settings-dropdown {
     right: -10px;
@@ -110,5 +113,15 @@
 @media (min-width: 768px) {
   .projects-container {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 769px) {
+  .hero .cta-button {
+    margin-top: 12px;
+  }
+
+  .about-preview {
+    margin-top: 12px;
   }
 }
