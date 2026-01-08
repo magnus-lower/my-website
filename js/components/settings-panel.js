@@ -29,6 +29,10 @@ export function initSettingsPanel({ onLanguageSelect }) {
   if (!settingsToggle || !settingsDropdown) return;
 
   const setDropdownVisibility = (isVisible) => {
+    if (isVisible) {
+      settingsToggle.classList.remove("is-active");
+      void settingsToggle.offsetWidth;
+    }
     settingsDropdown.classList.toggle("visible", isVisible);
     settingsToggle.setAttribute("aria-expanded", String(isVisible));
     settingsDropdown.setAttribute("aria-hidden", String(!isVisible));
@@ -37,6 +41,7 @@ export function initSettingsPanel({ onLanguageSelect }) {
 
   settingsToggle.setAttribute("aria-expanded", "false");
   settingsDropdown.setAttribute("aria-hidden", "true");
+  settingsToggle.classList.remove("is-active");
 
   settingsToggle.addEventListener("click", (event) => {
     event.stopPropagation();
