@@ -50,6 +50,14 @@ export function initNavigation() {
     setSettingsInteractivity(isOpen);
   };
 
+  const hideOverlay = () => {
+    overlay.classList.remove("is-visible");
+    overlay.setAttribute("aria-hidden", "true");
+  };
+
+  const canShowOverlay = () =>
+    !settingsDropdown?.classList.contains("visible");
+
   const closeSettingsDropdown = () => {
     if (!settingsDropdown) return;
     settingsDropdown.classList.remove("visible");
@@ -64,8 +72,7 @@ export function initNavigation() {
     nav.classList.remove("open");
     document.body.classList.remove("menu-open");
     hamburger.classList.remove("active");
-    overlay.classList.remove("is-visible");
-    overlay.setAttribute("aria-hidden", "true");
+    hideOverlay();
     document.body.style.overflow = "";
     setAriaState(false);
   };
@@ -79,8 +86,12 @@ export function initNavigation() {
       nav.classList.add("open");
       document.body.classList.add("menu-open");
       hamburger.classList.add("active");
-      overlay.classList.add("is-visible");
-      overlay.setAttribute("aria-hidden", "false");
+      if (canShowOverlay()) {
+        overlay.classList.add("is-visible");
+        overlay.setAttribute("aria-hidden", "false");
+      } else {
+        hideOverlay();
+      }
       document.body.style.overflow = "hidden";
       setAriaState(true);
     }
