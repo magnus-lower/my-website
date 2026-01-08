@@ -4,10 +4,7 @@
     text-align: center;
   }
   .hero {
-    width: 100%;
-    margin: 10 auto;
     padding: 30px;
-    box-sizing: border-box;
   }
   main {
     padding: 10px 0;
