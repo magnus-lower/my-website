@@ -29,6 +29,12 @@ export function initNavigation() {
 
   const setSettingsInteractivity = (isOpen) => {
     if (!settingsToggle) return;
+    if (isDesktopView) {
+      settingsToggle.setAttribute("aria-hidden", "false");
+      settingsToggle.tabIndex = 0;
+      settingsToggle.style.pointerEvents = "";
+      return;
+    }
     settingsToggle.setAttribute("aria-hidden", String(isOpen));
     settingsToggle.tabIndex = isOpen ? -1 : 0;
     settingsToggle.style.pointerEvents = isOpen ? "none" : "";
