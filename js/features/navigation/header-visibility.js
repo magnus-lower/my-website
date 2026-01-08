@@ -36,6 +36,7 @@ export function initHeaderVisibility() {
     settingsDropdown.classList.remove("visible");
     settingsDropdown.setAttribute("aria-hidden", "true");
     settingsToggle?.setAttribute("aria-expanded", "false");
+    settingsToggle?.classList.remove("is-active");
   };
 
   const hideHeader = () => {

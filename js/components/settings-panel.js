@@ -32,6 +32,7 @@ export function initSettingsPanel({ onLanguageSelect }) {
     settingsDropdown.classList.toggle("visible", isVisible);
     settingsToggle.setAttribute("aria-expanded", String(isVisible));
     settingsDropdown.setAttribute("aria-hidden", String(!isVisible));
+    settingsToggle.classList.toggle("is-active", isVisible);
   };
 
   settingsToggle.setAttribute("aria-expanded", "false");
