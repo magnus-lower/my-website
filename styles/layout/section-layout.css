@@ -9,6 +9,12 @@
   transform: translateX(-50%);
 }
 
+@media (max-width: 480px) {
+  .hero {
+    width: min(92vw, calc(100vw - 40px));
+  }
+}
+
 .hero-content {
   max-width: 900px;
   margin: 0 auto;
