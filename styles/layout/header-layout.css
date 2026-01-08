@@ -33,9 +33,9 @@
 }
 
 .settings-dropdown {
-  position: absolute;
-  right: 0;
-  top: 100%;
+  position: fixed;
+  left: var(--settings-dropdown-left, 0);
+  top: var(--settings-dropdown-top, 0);
   width: min(280px, 92vw);
   min-width: 240px;
   padding: 15px;
