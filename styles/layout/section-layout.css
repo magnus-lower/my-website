@@ -2,7 +2,9 @@
   text-align: center;
   padding: 140px 30px;
   margin-bottom: 60px;
-  width: 100%;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   box-sizing: border-box;
 }
 
