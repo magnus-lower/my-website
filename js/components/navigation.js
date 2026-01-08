@@ -37,7 +37,7 @@ export function initNavigation() {
     }
     settingsToggle.setAttribute("aria-hidden", String(isOpen));
     settingsToggle.tabIndex = isOpen ? -1 : 0;
-    settingsToggle.style.pointerEvents = isOpen ? "none" : "";
+    settingsToggle.style.pointerEvents = "";
     if (isOpen && document.activeElement === settingsToggle) {
       hamburger.focus();
     }
