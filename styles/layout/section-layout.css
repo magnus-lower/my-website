@@ -1,10 +1,12 @@
 .hero {
   text-align: center;
   padding: 140px 30px;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto 60px;
+  width: min(1400px, calc(100vw - 120px));
+  margin-bottom: 60px;
   box-sizing: border-box;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .hero-content {
