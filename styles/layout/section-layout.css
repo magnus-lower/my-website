@@ -28,6 +28,13 @@
   padding: 40px 20px;
 }
 
+.about-preview > p,
+.projects > p {
+  max-width: 60ch;
+  margin: 0 auto 20px;
+  padding-inline: 16px;
+}
+
 .about,
 .education,
 .mission,
