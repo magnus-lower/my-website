@@ -28,10 +28,41 @@ export function initSettingsPanel({ onLanguageSelect }) {
 
   if (!settingsToggle || !settingsDropdown) return;
 
+  const updateDropdownPosition = () => {
+    const toggleRect = settingsToggle.getBoundingClientRect();
+    const dropdownRect = settingsDropdown.getBoundingClientRect();
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    const horizontalPadding = 12;
+    const verticalPadding = 12;
+    const verticalOffset = window.matchMedia("(max-width: 768px)").matches
+      ? 19
+      : 0;
+
+    let left = toggleRect.right - dropdownRect.width;
+    let top = toggleRect.bottom + verticalOffset;
+
+    if (left < horizontalPadding) {
+      left = horizontalPadding;
+    } else if (left + dropdownRect.width > viewportWidth - horizontalPadding) {
+      left = Math.max(horizontalPadding, viewportWidth - dropdownRect.width - horizontalPadding);
+    }
+
+    if (top + dropdownRect.height > viewportHeight - verticalPadding) {
+      top = Math.max(verticalPadding, viewportHeight - dropdownRect.height - verticalPadding);
+    }
+
+    settingsDropdown.style.setProperty("--settings-dropdown-left", `${Math.round(left)}px`);
+    settingsDropdown.style.setProperty("--settings-dropdown-top", `${Math.round(top)}px`);
+  };
+
   const setDropdownVisibility = (isVisible) => {
     settingsDropdown.classList.toggle("visible", isVisible);
     settingsToggle.setAttribute("aria-expanded", String(isVisible));
     settingsDropdown.setAttribute("aria-hidden", String(!isVisible));
+    if (isVisible) {
+      requestAnimationFrame(updateDropdownPosition);
+    }
   };
 
   settingsToggle.setAttribute("aria-expanded", "false");
@@ -60,6 +91,12 @@ export function initSettingsPanel({ onLanguageSelect }) {
       !settingsToggle.contains(event.target)
     ) {
       setDropdownVisibility(false);
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (settingsDropdown.classList.contains("visible")) {
+      updateDropdownPosition();
     }
   });
 
