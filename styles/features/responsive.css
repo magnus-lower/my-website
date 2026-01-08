@@ -30,6 +30,12 @@
     width: 100%;
     max-width: 100%;
   }
+  .project-title {
+    max-height: none;
+    -webkit-line-clamp: initial;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
   .settings-dropdown {
     right: -10px;
     top: calc(100% + 19px);
