@@ -39,21 +39,22 @@
       as="style"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CCR3VMW7RV"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CCR3VMW7RV");
+    </script>
   </head>
 
-  <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-CCR3VMW7RV"
-  ></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-
-    gtag("config", "G-CCR3VMW7RV");
-  </script>
   <body>
     <header class="main-header">
       <div class="header-container">
@@ -62,6 +63,7 @@
         </div>
 
         <button
+          type="button"
           class="hamburger"
           aria-label="Toggle menu"
           aria-expanded="false"
@@ -70,11 +72,7 @@
           <span></span><span></span><span></span>
         </button>
 
-        <nav
-          id="primary-navigation"
-          role="navigation"
-          aria-label="Primary navigation"
-        >
+        <nav id="primary-navigation" aria-label="Primary navigation">
           <ul class="nav-list">
             <li><a href="index.html" data-en="Home" data-no="Hjem">Home</a></li>
             <li>
@@ -85,23 +83,26 @@
             <li>
               <a href="about.html" data-en="About" data-no="Om meg">About</a>
             </li>
-            <a
-              href="assets/english_cv.pdf"
-              class="resume-btn"
-              download
-              id="resume-link"
-            >
-              <i class="fas fa-file-alt"></i>
-              <span class="resume-text" data-en="Resume" data-no="CV"
-                >Resume</span
+            <li class="nav-list__resume">
+              <a
+                href="assets/english_cv.pdf"
+                class="resume-btn"
+                download
+                id="resume-link"
               >
-            </a>
+                <i class="fas fa-file-alt"></i>
+                <span class="resume-text" data-en="Resume" data-no="CV"
+                  >Resume</span
+                >
+              </a>
+            </li>
           </ul>
         </nav>
 
         <div class="header-actions">
           <div class="settings-panel">
             <button
+              type="button"
               class="settings-toggle"
               aria-label="Toggle settings"
               aria-expanded="false"
@@ -121,27 +122,26 @@
                   role="group"
                   aria-label="Language selection"
                 >
-                  <img
-                    src="assets/uk-flag.png"
+                  <button
+                    type="button"
                     class="flag-icon"
                     id="en-flag"
                     data-lang="en"
-                    alt="English"
-                    role="button"
-                    tabindex="0"
+                    aria-label="English"
                     aria-pressed="false"
-                  />
-                  <img
-                    src="assets/norwegian-flag.png"
+                  >
+                    <img src="assets/uk-flag.png" alt="" />
+                  </button>
+                  <button
+                    type="button"
                     class="flag-icon"
                     id="no-flag"
                     data-lang="no"
-                    alt="Norwegian"
-                    style="opacity: 0.5"
-                    role="button"
-                    tabindex="0"
+                    aria-label="Norwegian"
                     aria-pressed="true"
-                  />
+                  >
+                    <img src="assets/norwegian-flag.png" alt="" />
+                  </button>
                 </div>
               </div>
               <div class="settings-item">
@@ -209,7 +209,7 @@
       </section>
     </main>
 
-    <button id="scroll-top" aria-label="Scroll to top">
+    <button type="button" id="scroll-top" aria-label="Scroll to top">
       <i class="fas fa-chevron-up"></i>
     </button>
 
@@ -220,12 +220,14 @@
           <a
             href="https://github.com/magnus-lower"
             target="_blank"
+            rel="noopener"
             aria-label="GitHub"
             ><i class="fab fa-github"></i
           ></a>
           <a
             href="https://www.linkedin.com/in/magnus-løwer"
             target="_blank"
+            rel="noopener"
             aria-label="LinkedIn"
           >
             <i class="fab fa-linkedin"></i>

@@ -95,6 +95,10 @@
   width: 100%;
 }
 
+.projects-container.projects-container--single {
+  grid-template-columns: 1fr;
+}
+
 .project-item {
   width: 100%;
   max-width: 360px;

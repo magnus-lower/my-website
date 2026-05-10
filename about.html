@@ -8,7 +8,7 @@
       content="Learn about Magnus Løwer, Computer Science student at NTNU specializing in Visual Computing. Contact information and background."
     />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <title>About Me & Contact - Magnus Løwer</title>
+    <title>About Me &amp; Contact - Magnus Løwer</title>
     <script type="module" src="/js/core/preferences-preload-runner.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,21 +29,22 @@
       as="style"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CCR3VMW7RV"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CCR3VMW7RV");
+    </script>
   </head>
 
-  <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-CCR3VMW7RV"
-  ></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-
-    gtag("config", "G-CCR3VMW7RV");
-  </script>
   <body>
     <header class="main-header">
       <div class="header-container">
@@ -52,6 +53,7 @@
         </div>
 
         <button
+          type="button"
           class="hamburger"
           aria-label="Toggle menu"
           aria-expanded="false"
@@ -60,11 +62,7 @@
           <span></span><span></span><span></span>
         </button>
 
-        <nav
-          id="primary-navigation"
-          role="navigation"
-          aria-label="Primary navigation"
-        >
+        <nav id="primary-navigation" aria-label="Primary navigation">
           <ul class="nav-list">
             <li><a href="index.html" data-en="Home" data-no="Hjem">Home</a></li>
             <li>
@@ -75,23 +73,26 @@
             <li>
               <a href="about.html" data-en="About" data-no="Om meg">About</a>
             </li>
-            <a
-              href="assets/english_cv.pdf"
-              class="resume-btn"
-              download
-              id="resume-link"
-            >
-              <i class="fas fa-file-alt"></i>
-              <span class="resume-text" data-en="Resume" data-no="CV"
-                >Resume</span
+            <li class="nav-list__resume">
+              <a
+                href="assets/english_cv.pdf"
+                class="resume-btn"
+                download
+                id="resume-link"
               >
-            </a>
+                <i class="fas fa-file-alt"></i>
+                <span class="resume-text" data-en="Resume" data-no="CV"
+                  >Resume</span
+                >
+              </a>
+            </li>
           </ul>
         </nav>
 
         <div class="header-actions">
           <div class="settings-panel">
             <button
+              type="button"
               class="settings-toggle"
               aria-label="Toggle settings"
               aria-expanded="false"
@@ -111,27 +112,26 @@
                   role="group"
                   aria-label="Language selection"
                 >
-                  <img
-                    src="assets/uk-flag.png"
+                  <button
+                    type="button"
                     class="flag-icon"
                     id="en-flag"
                     data-lang="en"
-                    alt="English"
-                    role="button"
-                    tabindex="0"
+                    aria-label="English"
                     aria-pressed="false"
-                  />
-                  <img
-                    src="assets/norwegian-flag.png"
+                  >
+                    <img src="assets/uk-flag.png" alt="" />
+                  </button>
+                  <button
+                    type="button"
                     class="flag-icon"
                     id="no-flag"
                     data-lang="no"
-                    alt="Norwegian"
-                    style="opacity: 0.5"
-                    role="button"
-                    tabindex="0"
+                    aria-label="Norwegian"
                     aria-pressed="true"
-                  />
+                  >
+                    <img src="assets/norwegian-flag.png" alt="" />
+                  </button>
                 </div>
               </div>
               <div class="settings-item">
@@ -166,7 +166,7 @@
             About Me
           </h1>
           <p
-            data-en="Get to know me, my background, and feel free to get in touch!"
+            data-en="Get to know me, my background, and feel free to reach out!"
             data-no="Bli kjent med meg, min bakgrunn, og ta gjerne kontakt!"
           ></p>
         </div>
@@ -177,7 +177,7 @@
         <div class="about-container">
           <div class="profile-picture">
             <img
-              src="assets/profile_picture.jpg"
+              src="assets/profile_picture.png"
               alt="Magnus Løwer"
               loading="lazy"
             />
@@ -204,8 +204,8 @@
             ></p>
 
             <p
-              data-en="At Cogito, I worked as part of a team on the development of a website that is planned to integrate artificial intelligence in the future. During my summer internships at Digdir, I worked together with a team of students on two different projects. The first involved developing an EU wallet with an emphasis on decentralized identity, while the second project involved supporting the Service Desk at Digdir with various tasks using artificial intelligence."
-              data-no="I Cogito har jeg, sammen med et team, jobbet med utviklingen av en nettside som på sikt skal ta i bruk kunstig intelligens. Under sommerjobbene hos Digdir jobbet jeg sammen med et team av studenter på to ulike prosjekter. Det første handlet om å utvikle en EU-wallet med fokus på desentralisert identitet, mens det andre gikk ut på å støtte Service Desk med ulike oppgaver ved hjelp av kunstig intelligens."
+              data-en="At Cogito, I worked as part of a team on the development of a website where artificial intelligence was planned for later development. We also worked together with TV2 on a project that used machine learning to analyze user and article data. During my summer internships at Digdir, I worked together with a team of students on two different projects. The first involved developing an EU wallet with an emphasis on decentralized identity, while the second project involved supporting the Service Desk at Digdir with various tasks using artificial intelligence."
+              data-no="I Cogito jobbet jeg sammen med et team med utviklingen av en nettside hvor kunstig intelligens var planlagt for senere utvikling. Vi jobbet også sammen med TV2 på et prosjekt som tok i bruk maskinlæring for å analysere bruker- og artikkeldata. Under sommerjobbene hos Digdir jobbet jeg sammen med et team av studenter på to ulike prosjekter. Det første handlet om å utvikle en EU-wallet med fokus på desentralisert identitet, mens det andre gikk ut på å støtte Service Desk med ulike oppgaver ved hjelp av kunstig intelligens."
             ></p>
           </div>
         </div>
@@ -247,6 +247,7 @@
           <button
             type="submit"
             class="cta-button"
+            aria-label="Send"
             data-en="Send"
             data-no="Send"
           ></button>
@@ -261,7 +262,7 @@
       </section>
     </main>
 
-    <button id="scroll-top" aria-label="Scroll to top">
+    <button type="button" id="scroll-top" aria-label="Scroll to top">
       <i class="fas fa-chevron-up"></i>
     </button>
 
@@ -272,6 +273,7 @@
           <a
             href="https://github.com/magnus-lower"
             target="_blank"
+            rel="noopener"
             aria-label="GitHub"
           >
             <i class="fab fa-github"></i>
@@ -279,6 +281,7 @@
           <a
             href="https://www.linkedin.com/in/magnus-løwer"
             target="_blank"
+            rel="noopener"
             aria-label="LinkedIn"
           >
             <i class="fab fa-linkedin"></i>

@@ -417,6 +417,7 @@ form button:active {
 
 #progress-overlay {
   background: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
 }
 

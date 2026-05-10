@@ -88,15 +88,6 @@ export function initSettingsPanel({ onLanguageSelect }) {
       const target = event.target.closest(".flag-icon");
       handleLanguageSelection(target);
     });
-
-    languageToggle.addEventListener("keydown", (event) => {
-      if (event.key !== "Enter" && event.key !== " ") return;
-      const target = event.target.closest(".flag-icon");
-      if (!target) return;
-
-      event.preventDefault();
-      handleLanguageSelection(target);
-    });
   }
 
   setActiveFlag(document.documentElement.lang || "en");
