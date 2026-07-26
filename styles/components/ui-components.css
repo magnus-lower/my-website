@@ -463,6 +463,33 @@ form button:active {
   line-height: 1.6;
 }
 
+.about-text .about-link {
+  color: #1769aa;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition:
+    color var(--motion-fast),
+    text-decoration-color var(--motion-fast);
+}
+
+.about-text .about-link:hover,
+.about-text .about-link:focus-visible {
+  color: #0f4f85;
+  text-decoration-color: currentcolor;
+}
+
+.dark-mode .about-text .about-link {
+  color: #63b3ed;
+}
+
+.dark-mode .about-text .about-link:hover,
+.dark-mode .about-text .about-link:focus-visible {
+  color: #90cdf4;
+}
+
 .about-text ul {
   text-align: left;
   margin-left: 30px;
