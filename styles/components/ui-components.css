@@ -333,6 +333,18 @@ form button:active {
 
 #contact-form {
   background: var(--color-card-surface);
+  border: 1px solid transparent;
+  transition:
+    transform var(--motion-normal),
+    background-color var(--motion-normal),
+    border-color var(--motion-normal),
+    box-shadow var(--motion-normal);
+}
+
+#contact-form:hover,
+#contact-form:focus-within {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
 }
 
 .confirmation-message {

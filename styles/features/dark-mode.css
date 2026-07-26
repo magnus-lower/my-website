@@ -9,15 +9,18 @@ body.dark-mode,
 .dark-mode .education,
 .dark-mode .skills,
 .dark-mode .contact,
-.dark-mode .form-group,
 .dark-mode #contact-form {
-  --color-surface: #121212;
-  --color-text-primary: white;
+  --color-surface: #0f141b;
+  --color-text-primary: #f3f6fa;
   --color-nav-surface: #222;
   --color-nav-drawer: #1b1b1f;
   --color-nav-drawer-text: #f5f5f5;
   --color-nav-overlay: rgba(0, 0, 0, 0.45);
-  --color-card-surface: #1e1e1e;
+  --color-card-surface: #1c2633;
+  --color-card-surface-hover: #243244;
+  --color-card-border: #354a61;
+  --color-field-surface: #111923;
+  --color-field-border: #52677d;
   --color-footer-surface: #222;
   background-color: var(--color-surface);
   color: var(--color-text-primary);
@@ -27,20 +30,84 @@ body.dark-mode,
 }
 .dark-mode .project-item {
   background-color: var(--color-card-surface);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--color-card-border);
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+.dark-mode .project-item::after {
+  transform: scaleX(1);
+  opacity: 0.8;
 }
 .dark-mode .project-lang {
   color: #ffffff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 .dark-mode .project-item:hover {
-  background-color: #2a2a2a;
+  background-color: var(--color-card-surface-hover);
+  border-color: #4f7598;
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(99, 179, 237, 0.08);
+}
+.dark-mode #contact-form {
+  background-color: var(--color-card-surface);
+  border: 1px solid var(--color-card-border);
+  border-top: 3px solid #3498db;
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+.dark-mode #contact-form:hover,
+.dark-mode #contact-form:focus-within {
+  background-color: var(--color-card-surface-hover);
+  border-color: #4f7598;
+  border-top-color: #63b3ed;
+  transform: translateY(-5px);
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(99, 179, 237, 0.08);
+}
+.dark-mode #contact-form label {
+  color: #f3f6fa;
 }
 .dark-mode input,
 .dark-mode textarea {
-  background-color: #2a2a2a;
-  color: white;
-  border-color: #444;
+  background-color: var(--color-field-surface);
+  color: #f3f6fa;
+  border-color: var(--color-field-border);
+  caret-color: #63b3ed;
+}
+.dark-mode input:hover,
+.dark-mode textarea:hover {
+  border-color: #6b8298;
+}
+.dark-mode input:focus,
+.dark-mode textarea:focus {
+  border-color: #63b3ed;
+  box-shadow: 0 0 0 3px rgba(99, 179, 237, 0.24);
+}
+.dark-mode .btn--primary,
+.dark-mode #contact-form button {
+  background-color: #1e70bf;
+  color: #ffffff;
+}
+.dark-mode .btn--primary:hover,
+.dark-mode #contact-form button:hover {
+  background-color: #185f9f;
+}
+.dark-mode .btn--secondary {
+  border-color: #63b3ed;
+  color: #63b3ed;
+}
+.dark-mode .btn--secondary:hover {
+  background-color: #1e70bf;
+  border-color: #1e70bf;
+  color: #ffffff;
+}
+.dark-mode .project-lang .devicon-powershell-plain {
+  color: #63b3ed;
+  filter: drop-shadow(0 1px 3px rgba(99, 179, 237, 0.3));
 }
 .dark-mode #scroll-top,
 #scroll-top.dark-mode {
