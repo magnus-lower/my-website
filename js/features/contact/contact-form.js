@@ -6,8 +6,25 @@ import { select } from "../../utils/dom.js";
 export function initContactForm() {
   const contactForm = select("#contact-form");
   const confirmationMessage = select("#confirmation");
+  const messageField = select("#message");
 
   if (!contactForm || !confirmationMessage) return;
+
+  const resizeMessageField = () => {
+    if (!messageField) return;
+
+    messageField.style.height = "auto";
+    messageField.style.height = `${messageField.scrollHeight}px`;
+  };
+
+  if (messageField) {
+    messageField.addEventListener("input", resizeMessageField);
+    window.addEventListener("resize", resizeMessageField);
+    contactForm.addEventListener("reset", () => {
+      requestAnimationFrame(resizeMessageField);
+    });
+    resizeMessageField();
+  }
 
   contactForm.addEventListener("submit", (event) => {
     event.preventDefault();

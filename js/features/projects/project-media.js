@@ -68,6 +68,7 @@ export function initProjectMedia() {
   if (!cards.length) return;
 
   let modalElements;
+  let previouslyFocusedElement;
 
   const openModal = (src, alt) => {
     if (!modalElements) {
@@ -76,21 +77,40 @@ export function initProjectMedia() {
       on(modalElements.backdrop, "click", () => closeModal());
       on(modalElements.closeButton, "click", () => closeModal());
       on(document, "keydown", (event) => {
-        if (event.key === "Escape") closeModal();
+        if (!modalElements.modal.classList.contains("is-open")) return;
+
+        if (event.key === "Escape") {
+          closeModal();
+          return;
+        }
+
+        if (event.key === "Tab") {
+          event.preventDefault();
+          modalElements.closeButton.focus();
+        }
       });
     }
 
+    previouslyFocusedElement = document.activeElement;
     modalElements.image.src = src;
     modalElements.image.alt = alt || "";
     modalElements.modal.classList.add("is-open");
     modalElements.modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("project-media-modal-open");
+    modalElements.closeButton.focus();
   };
 
   const closeModal = () => {
-    if (!modalElements) return;
+    if (!modalElements?.modal.classList.contains("is-open")) return;
+
     modalElements.modal.classList.remove("is-open");
     modalElements.modal.setAttribute("aria-hidden", "true");
     modalElements.image.src = "";
+    document.body.classList.remove("project-media-modal-open");
+
+    if (previouslyFocusedElement?.isConnected) {
+      previouslyFocusedElement.focus();
+    }
   };
 
   cards.forEach((card, index) => {
@@ -109,7 +129,7 @@ export function initProjectMedia() {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "project-media__button";
-    button.setAttribute("aria-label", "Open project media");
+    button.setAttribute("aria-label", `Enlarge project image: ${alt}`);
 
     const image = document.createElement("img");
     image.className = "project-media__image";
