@@ -348,6 +348,7 @@ form button:active {
 
 .project-card__actions {
   display: flex;
+  width: 100%;
   gap: 12px;
   flex-wrap: wrap;
   margin-top: auto;
@@ -355,8 +356,12 @@ form button:active {
 
 .project-card__btn {
   flex: 1 1 140px;
+  min-width: max-content;
+  min-height: 44px;
+  padding-inline: 12px;
   line-height: normal;
   text-align: center;
+  white-space: nowrap;
 }
 
 .project-item a:not(.project-card__btn, .project-media__button) {

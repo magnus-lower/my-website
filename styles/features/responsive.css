@@ -27,6 +27,10 @@
     width: 100%;
     max-width: 100%;
   }
+  .project-media {
+    width: 100%;
+    min-height: 0;
+  }
   .project-title {
     max-height: none;
     -webkit-line-clamp: initial;
