@@ -30,7 +30,7 @@ export function initFadeInObserver() {
         obs.unobserve(entry.target);
       });
     },
-    { threshold: 0.1 },
+    { threshold: 0 },
   );
 
   fadeInElements.forEach((element) => observer.observe(element));
