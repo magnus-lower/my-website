@@ -33,6 +33,7 @@
 }
 
 .btn {
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -145,6 +146,14 @@ form button:active {
   font-size: 1.1em;
   color: green;
   display: none;
+}
+
+#confirmation.is-error {
+  color: #b42318;
+}
+
+.dark-mode #confirmation.is-error {
+  color: #ffb4ab;
 }
 
 .skill {
@@ -346,16 +355,18 @@ form button:active {
 
 .project-card__btn {
   flex: 1 1 140px;
+  line-height: normal;
+  text-align: center;
 }
 
-.project-item a {
+.project-item a:not(.project-card__btn, .project-media__button) {
   color: var(--color-primary);
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s;
 }
 
-.project-item a:hover {
+.project-item a:not(.project-card__btn, .project-media__button):hover {
   color: #1e70bf;
   text-decoration: underline;
 }

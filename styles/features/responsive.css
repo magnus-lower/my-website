@@ -7,7 +7,7 @@
     padding: 30px;
   }
   main {
-    padding: 10px 0;
+    padding: 10px;
     width: 100%;
   }
   .projects-container {
@@ -39,18 +39,11 @@
     width: min(260px, 92vw);
     min-width: 220px;
   }
-  main {
-    padding: 10px;
-  }
   h1 {
     font-size: 2em;
   }
   p {
     font-size: 1.1em;
-  }
-  .projects-container {
-    grid-template-columns: 1fr;
-    justify-items: center;
   }
   nav .nav-list {
     display: flex;
@@ -64,6 +57,21 @@
     opacity: 1;
     transform: none;
     transition: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .fade-in {
+    opacity: 1;
+    transform: none;
   }
 }
 @media (max-width: 600px) {

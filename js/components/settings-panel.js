@@ -41,11 +41,6 @@ export function initSettingsPanel({ onLanguageSelect }) {
     settingsToggle.setAttribute("aria-expanded", String(isVisible));
     settingsDropdown.setAttribute("aria-hidden", String(!isVisible));
     settingsToggle.classList.toggle("is-active", isVisible);
-    if (!isVisible) {
-      clearMobileMenuOverlayState();
-    } else {
-      clearMobileMenuOverlayState();
-    }
   };
 
   settingsToggle.setAttribute("aria-expanded", "false");
@@ -61,6 +56,7 @@ export function initSettingsPanel({ onLanguageSelect }) {
       hamburger?.setAttribute("aria-expanded", "false");
       hamburger?.setAttribute("aria-label", "Open menu");
       nav.setAttribute("aria-hidden", "true");
+      nav.inert = true;
       clearMobileMenuOverlayState();
     }
     setDropdownVisibility(willOpen);
@@ -68,6 +64,7 @@ export function initSettingsPanel({ onLanguageSelect }) {
 
   document.addEventListener("click", (event) => {
     if (
+      settingsDropdown.classList.contains("visible") &&
       !settingsDropdown.contains(event.target) &&
       !settingsToggle.contains(event.target)
     ) {

@@ -25,11 +25,12 @@ export function initNavigation() {
     document.body.append(overlay);
   }
 
-  const isDesktopView = window.matchMedia("(min-width: 769px)").matches;
+  const desktopView = window.matchMedia("(min-width: 769px)");
 
   const setSettingsInteractivity = (isOpen) => {
     if (!settingsToggle) return;
-    if (isDesktopView) {
+    settingsToggle.inert = isOpen && !desktopView.matches;
+    if (desktopView.matches) {
       settingsToggle.setAttribute("aria-hidden", "false");
       settingsToggle.tabIndex = 0;
       settingsToggle.style.pointerEvents = "";
@@ -44,9 +45,14 @@ export function initNavigation() {
   };
 
   const setAriaState = (isOpen) => {
-    hamburger.setAttribute("aria-expanded", String(isOpen));
-    nav.setAttribute("aria-hidden", String(!isOpen));
-    hamburger.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    const isMobileOpen = isOpen && !desktopView.matches;
+    hamburger.setAttribute("aria-expanded", String(isMobileOpen));
+    nav.inert = !desktopView.matches && !isOpen;
+    nav.setAttribute("aria-hidden", String(nav.inert));
+    hamburger.setAttribute(
+      "aria-label",
+      isMobileOpen ? "Close menu" : "Open menu",
+    );
     setSettingsInteractivity(isOpen);
   };
 
@@ -69,9 +75,12 @@ export function initNavigation() {
     settingsToggle?.classList.remove("is-active");
   };
 
-  setAriaState(isDesktopView);
+  setAriaState(false);
 
   const closeMenu = () => {
+    if (!desktopView.matches && nav.contains(document.activeElement)) {
+      hamburger.focus();
+    }
     nav.classList.remove("open");
     hamburger.classList.remove("active");
     clearMobileNavOverlay();
@@ -94,6 +103,7 @@ export function initNavigation() {
       overlay.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
       setAriaState(true);
+      navLinks[0]?.focus();
     }
   };
 
@@ -113,10 +123,24 @@ export function initNavigation() {
   overlay.addEventListener("click", closeMenu);
 
   document.addEventListener("keydown", (event) => {
+    if (desktopView.matches || !nav.classList.contains("open")) return;
     if (event.key === "Escape" && nav.classList.contains("open")) {
       closeMenu();
+      hamburger.focus();
+    }
+    if (event.key === "Tab") {
+      const first = hamburger;
+      const last = navLinks[navLinks.length - 1] || hamburger;
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     }
   });
 
   navLinks.forEach((link) => link.addEventListener("click", closeMenu));
+  desktopView.addEventListener("change", closeMenu);
 }

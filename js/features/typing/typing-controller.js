@@ -21,6 +21,10 @@ function typeEffect(element, text, speed = 100) {
   if (!element || !text) return;
 
   clearTypingForElement(element);
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    element.textContent = text;
+    return;
+  }
   element.textContent = "";
 
   let index = 0;
@@ -58,10 +62,18 @@ function startTyping(language) {
  * @returns {{restart: function(string): void}}
  */
 export function initTyping(language) {
+  let currentLanguage = language;
+  window
+    .matchMedia("(prefers-reduced-motion: reduce)")
+    .addEventListener("change", () => {
+      clearAllTyping();
+      startTyping(currentLanguage);
+    });
   startTyping(language);
 
   return {
     restart: (nextLanguage) => {
+      currentLanguage = nextLanguage;
       clearAllTyping();
       typingIntervals = [];
 

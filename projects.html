@@ -26,6 +26,7 @@
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
     />
     <link rel="stylesheet" href="styles/app.css" />
+    <noscript><link rel="stylesheet" href="styles/no-script.css" /></noscript>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
     <link
@@ -70,14 +71,14 @@
 
         <nav id="primary-navigation" aria-label="Primary navigation">
           <ul class="nav-list">
-            <li><a href="index.html" data-en="Home" data-no="Hjem">Home</a></li>
+            <li><a href="index.html" data-en="Home" data-no="Hjem">Hjem</a></li>
             <li>
               <a href="projects.html" data-en="Projects" data-no="Prosjekter"
-                >Projects</a
+                >Prosjekter</a
               >
             </li>
             <li>
-              <a href="about.html" data-en="About" data-no="Om meg">About</a>
+              <a href="about.html" data-en="About" data-no="Om meg">Om meg</a>
             </li>
           </ul>
         </nav>
@@ -97,7 +98,7 @@
               <div class="settings-item">
                 <div class="settings-item-label">
                   <i class="fas fa-globe"></i>
-                  <span data-en="Language" data-no="Språk">Language</span>
+                  <span data-en="Language" data-no="Språk">Språk</span>
                 </div>
                 <div
                   class="language-toggle"
@@ -134,7 +135,7 @@
                     id="theme-mode-text"
                     data-en="Dark Mode"
                     data-no="Mørk modus"
-                    >Dark Mode</span
+                    >Mørk modus</span
                   >
                 </div>
                 <label class="theme-toggle">
@@ -159,11 +160,16 @@
             id="typing-projects"
             data-en="My Projects"
             data-no="Mine Prosjekter"
-          ></h1>
+          >
+            Mine Prosjekter
+          </h1>
           <p
             data-en="Explore the projects that I have developed through my studies, summer internships, and in my free time!"
             data-no="Utforsk prosjektene jeg har utviklet gjennom studier, sommerjobber og på fritiden!"
-          ></p>
+          >
+            Utforsk prosjektene jeg har utviklet gjennom studier, sommerjobber
+            og på fritiden!
+          </p>
         </div>
       </section>
 
@@ -176,14 +182,17 @@
       </div>
 
       <section class="projects fade-in" id="projects-section">
-        <h1 data-en="Personal Projects" data-no="Personlige prosjekter"></h1>
+        <h1 data-en="Personal Projects" data-no="Personlige prosjekter">
+          Personlige prosjekter
+        </h1>
 
         <p>
           <span
             data-en="These are projects that I have developed in my free time to learn more and explore new ways of writing code."
             data-no="Dette er prosjekter jeg har utviklet på fritiden for å lære mer og utforske nye måter å skrive kode på."
+            >Dette er prosjekter jeg har utviklet på fritiden for å lære mer og
+            utforske nye måter å skrive kode på.</span
           >
-          </span>
         </p>
 
         <br />
@@ -195,7 +204,7 @@
               data-en="E-Commerce Platform"
               data-no="E-handelsplattform"
             >
-              E-Commerce Platform
+              E-handelsplattform
             </h2>
             <div
               class="project-item"
@@ -204,6 +213,23 @@
               data-media-src="assets/ecommerce.png"
               data-media-alt="Preview of the E-Commerce Platform project"
             >
+              <div class="project-media">
+                <a
+                  class="project-media__button"
+                  href="assets/ecommerce.png"
+                  aria-label="Enlarge project image: Preview of the E-Commerce Platform project"
+                >
+                  <img
+                    class="project-media__image"
+                    src="assets/ecommerce.png"
+                    alt="Preview of the E-Commerce Platform project"
+                    loading="eager"
+                    decoding="async"
+                    width="1600"
+                    height="900"
+                  />
+                </a>
+              </div>
               <h3 class="project-lang">
                 <i class="devicon-java-plain colored" title="Java"></i>
                 <i class="devicon-spring-plain colored" title="Spring Boot"></i>
@@ -218,22 +244,29 @@
               <p
                 data-en="A full-stack e-commerce platform where users can log in, browse products, and manage a shopping cart. Deployed on Render."
                 data-no="En fullstack e-handelsplattform som inkluderer brukerinnlogging, produktkatalog og handlekurv. Distribuert på Render."
-              ></p>
+              >
+                En fullstack e-handelsplattform som inkluderer brukerinnlogging,
+                produktkatalog og handlekurv. Distribuert på Render.
+              </p>
               <div class="project-card__actions">
-                <button
-                  type="button"
+                <a
+                  href="https://github.com/magnus-lower/demo-store"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   class="btn btn--secondary project-card__btn project-card__btn--source"
                   aria-label="View source"
                 >
-                  <span data-en="View source" data-no="Se kildekode"></span>
-                </button>
-                <button
-                  type="button"
+                  <span data-en="View source" data-no="Se kildekode"
+                    >Se kildekode</span
+                  >
+                </a>
+                <a
+                  href="https://demo-store-k4g7.onrender.com/"
                   class="btn btn--primary project-card__btn project-card__btn--demo"
                   aria-label="Live demo"
                 >
-                  <span data-en="Live demo" data-no="Live demo"></span>
-                </button>
+                  <span data-en="Live demo" data-no="Live demo">Live demo</span>
+                </a>
               </div>
             </div>
           </div>
@@ -244,7 +277,7 @@
               data-en="Weather Dashboard"
               data-no="Værdashbord"
             >
-              Weather Dashboard
+              Værdashbord
             </h2>
             <div
               class="project-item"
@@ -253,6 +286,23 @@
               data-media-src="assets/weather-dashboard.png"
               data-media-alt="Preview of the Weather Dashboard project"
             >
+              <div class="project-media">
+                <a
+                  class="project-media__button"
+                  href="assets/weather-dashboard.png"
+                  aria-label="Enlarge project image: Preview of the Weather Dashboard project"
+                >
+                  <img
+                    class="project-media__image"
+                    src="assets/weather-dashboard.png"
+                    alt="Preview of the Weather Dashboard project"
+                    loading="eager"
+                    decoding="async"
+                    width="1600"
+                    height="900"
+                  />
+                </a>
+              </div>
               <h3 class="project-lang">
                 <i class="devicon-python-plain colored" title="Python"></i>
                 <i
@@ -268,22 +318,29 @@
               <p
                 data-en="A real-time weather dashboard that shows live data, and location-based weather information. Deployed on Fly.io."
                 data-no="Et værdashboard som viser sanntidsdata og stedsbasert værinformasjon. Distribuert på Fly.io."
-              ></p>
+              >
+                Et værdashboard som viser sanntidsdata og stedsbasert
+                værinformasjon. Distribuert på Fly.io.
+              </p>
               <div class="project-card__actions">
-                <button
-                  type="button"
+                <a
+                  href="https://github.com/magnus-lower/weather-dashboard"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   class="btn btn--secondary project-card__btn project-card__btn--source"
                   aria-label="View source"
                 >
-                  <span data-en="View source" data-no="Se kildekode"></span>
-                </button>
-                <button
-                  type="button"
+                  <span data-en="View source" data-no="Se kildekode"
+                    >Se kildekode</span
+                  >
+                </a>
+                <a
+                  href="https://weather-dashboard-still-leaf-2476.fly.dev/"
                   class="btn btn--primary project-card__btn project-card__btn--demo"
                   aria-label="Live demo"
                 >
-                  <span data-en="Live demo" data-no="Live demo"></span>
-                </button>
+                  <span data-en="Live demo" data-no="Live demo">Live demo</span>
+                </a>
               </div>
             </div>
           </div>
@@ -296,26 +353,32 @@
         <h1
           data-en="Summer Internship Projects"
           data-no="Prosjekter fra tidligere sommerjobber"
-        ></h1>
+        >
+          Prosjekter fra tidligere sommerjobber
+        </h1>
 
         <p>
           <span
             data-en="These projects were developed as part of previous summer internships. "
             data-no="Disse prosjektene ble utviklet som en del av tidligere sommerjobber."
+            >Disse prosjektene ble utviklet som en del av tidligere
+            sommerjobber.</span
           >
-          </span>
           <br />
           <br />
           <span
             data-en="Each project was developed together with different people, who are listed on GitHub."
             data-no="Hvert prosjekt ble utviklet sammen med ulike personer, som er referert til på GitHub."
+            >Hvert prosjekt ble utviklet sammen med ulike personer, som er
+            referert til på GitHub.</span
           >
-          </span>
         </p>
 
         <br />
 
-        <h2 data-en="Sopra Steria 2026" data-no="Sopra Steria 2026"></h2>
+        <h2 data-en="Sopra Steria 2026" data-no="Sopra Steria 2026">
+          Sopra Steria 2026
+        </h2>
         <br />
 
         <div class="projects-container projects-container--single">
@@ -324,12 +387,31 @@
               class="project-title"
               data-en="Automated Test Rig"
               data-no="Automatisert testrigg"
-            ></h2>
+            >
+              Automatisert testrigg
+            </h2>
             <div
               class="project-item"
               data-media-src="assets/sopra steria.png"
               data-media-alt="Placeholder preview of the Sopra Steria project"
             >
+              <div class="project-media">
+                <a
+                  class="project-media__button"
+                  href="assets/sopra steria.png"
+                  aria-label="Enlarge project image: Placeholder preview of the Sopra Steria project"
+                >
+                  <img
+                    class="project-media__image"
+                    src="assets/sopra steria.png"
+                    alt="Placeholder preview of the Sopra Steria project"
+                    loading="eager"
+                    decoding="async"
+                    width="1600"
+                    height="900"
+                  />
+                </a>
+              </div>
               <h3 class="project-lang">
                 <i
                   class="devicon-terraform-plain colored"
@@ -344,7 +426,13 @@
               <p
                 data-en="An automated test rig that creates and removes temporary test environments in Azure when code changes are made. We used Terraform and CI/CD for validation, deployment, and cleanup, and explored AI-assisted test selection. I cannot show the source code because the repository is not public."
                 data-no="En automatisert testrigg som oppretter og fjerner midlertidige testmiljøer i Azure ved kodeendringer. Vi brukte Terraform og CI/CD til validering, utrulling og opprydding, og utforsket KI-støttet testvalg. Jeg kan ikke vise kildekoden fordi repoet ikke er offentlig."
-              ></p>
+              >
+                En automatisert testrigg som oppretter og fjerner midlertidige
+                testmiljøer i Azure ved kodeendringer. Vi brukte Terraform og
+                CI/CD til validering, utrulling og opprydding, og utforsket
+                KI-støttet testvalg. Jeg kan ikke vise kildekoden fordi repoet
+                ikke er offentlig.
+              </p>
             </div>
           </div>
         </div>
@@ -352,7 +440,7 @@
         <br />
         <br />
 
-        <h2 data-en="Digdir 2025" data-no="Digdir 2025"></h2>
+        <h2 data-en="Digdir 2025" data-no="Digdir 2025">Digdir 2025</h2>
         <br />
 
         <div class="projects-container">
@@ -361,13 +449,32 @@
               class="project-title"
               data-en="desKI - Backend"
               data-no="desKI - Backend"
-            ></h2>
+            >
+              desKI - Backend
+            </h2>
             <div
               class="project-item"
               data-github-url="https://github.com/digdir/digdir-camp-2025-desKI"
-              data-media-src="assets/digdir.png"
+              data-media-src="assets/digdir.webp"
               data-media-alt="Preview of the backend project"
             >
+              <div class="project-media">
+                <a
+                  class="project-media__button"
+                  href="assets/digdir.webp"
+                  aria-label="Enlarge project image: Preview of the backend project"
+                >
+                  <img
+                    class="project-media__image"
+                    src="assets/digdir.webp"
+                    alt="Preview of the backend project"
+                    loading="lazy"
+                    decoding="async"
+                    width="1600"
+                    height="900"
+                  />
+                </a>
+              </div>
               <h3 class="project-lang">
                 <i class="devicon-python-plain colored" title="Python"></i>
                 <i class="devicon-docker-plain colored" title="Docker"></i>
@@ -375,15 +482,23 @@
               <p
                 data-en="A prototype AI assistant that helps customer service respond to requests based on documentation from Digdir and internal routines."
                 data-no="En prototype for en KI-assistent som hjelper kundeservice med å svare på henvendelser basert på dokumentasjon fra Digdir og interne rutiner."
-              ></p>
+              >
+                En prototype for en KI-assistent som hjelper kundeservice med å
+                svare på henvendelser basert på dokumentasjon fra Digdir og
+                interne rutiner.
+              </p>
               <div class="project-card__actions">
-                <button
-                  type="button"
+                <a
+                  href="https://github.com/digdir/digdir-camp-2025-desKI"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   class="btn btn--secondary project-card__btn project-card__btn--source"
                   aria-label="View source"
                 >
-                  <span data-en="View source" data-no="Se kildekode"></span>
-                </button>
+                  <span data-en="View source" data-no="Se kildekode"
+                    >Se kildekode</span
+                  >
+                </a>
               </div>
             </div>
           </div>
@@ -393,13 +508,32 @@
               class="project-title"
               data-en="desKI - Frontend"
               data-no="desKI - Frontend"
-            ></h2>
+            >
+              desKI - Frontend
+            </h2>
             <div
               class="project-item"
               data-github-url="https://github.com/digdir/digdir-camp-2025-desKI-frontend"
-              data-media-src="assets/digdir.png"
+              data-media-src="assets/digdir.webp"
               data-media-alt="Preview of the frontend project"
             >
+              <div class="project-media">
+                <a
+                  class="project-media__button"
+                  href="assets/digdir.webp"
+                  aria-label="Enlarge project image: Preview of the frontend project"
+                >
+                  <img
+                    class="project-media__image"
+                    src="assets/digdir.webp"
+                    alt="Preview of the frontend project"
+                    loading="lazy"
+                    decoding="async"
+                    width="1600"
+                    height="900"
+                  />
+                </a>
+              </div>
               <h3 class="project-lang">
                 <i class="devicon-css3-plain colored" title="CSS"></i>
                 <i
@@ -411,15 +545,22 @@
               <p
                 data-en="A simple user interface for desKI, which is connected to the backend solution."
                 data-no="Et enkelt brukergrensesnitt for desKI, som er koblet til backend-løsningen."
-              ></p>
+              >
+                Et enkelt brukergrensesnitt for desKI, som er koblet til
+                backend-løsningen.
+              </p>
               <div class="project-card__actions">
-                <button
-                  type="button"
+                <a
+                  href="https://github.com/digdir/digdir-camp-2025-desKI-frontend"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   class="btn btn--secondary project-card__btn project-card__btn--source"
                   aria-label="View source"
                 >
-                  <span data-en="View source" data-no="Se kildekode"></span>
-                </button>
+                  <span data-en="View source" data-no="Se kildekode"
+                    >Se kildekode</span
+                  >
+                </a>
               </div>
             </div>
           </div>
@@ -429,13 +570,32 @@
               class="project-title"
               data-en="desKI - Chrome Extension"
               data-no="desKI - Chrome-utvidelse"
-            ></h2>
+            >
+              desKI - Chrome-utvidelse
+            </h2>
             <div
               class="project-item"
               data-github-url="https://github.com/digdir/digdir-camp-2025-desKI-extension"
-              data-media-src="assets/digdir.png"
+              data-media-src="assets/digdir.webp"
               data-media-alt="Preview of the frontend project"
             >
+              <div class="project-media">
+                <a
+                  class="project-media__button"
+                  href="assets/digdir.webp"
+                  aria-label="Enlarge project image: Preview of the frontend project"
+                >
+                  <img
+                    class="project-media__image"
+                    src="assets/digdir.webp"
+                    alt="Preview of the frontend project"
+                    loading="lazy"
+                    decoding="async"
+                    width="1600"
+                    height="900"
+                  />
+                </a>
+              </div>
               <h3 class="project-lang">
                 <i class="devicon-css3-plain colored" title="CSS"></i>
                 <i
@@ -451,15 +611,22 @@
               <p
                 data-en="An internal Chrome extension for the desKI service desk chatbot, which provides quick access within the browser."
                 data-no="En intern Chrome-utvidelse for desKI chatboten, som gir rask tilgang direkte i nettleseren."
-              ></p>
+              >
+                En intern Chrome-utvidelse for desKI chatboten, som gir rask
+                tilgang direkte i nettleseren.
+              </p>
               <div class="project-card__actions">
-                <button
-                  type="button"
+                <a
+                  href="https://github.com/digdir/digdir-camp-2025-desKI-extension"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   class="btn btn--secondary project-card__btn project-card__btn--source"
                   aria-label="View source"
                 >
-                  <span data-en="View source" data-no="Se kildekode"></span>
-                </button>
+                  <span data-en="View source" data-no="Se kildekode"
+                    >Se kildekode</span
+                  >
+                </a>
               </div>
             </div>
           </div>
@@ -469,13 +636,32 @@
               class="project-title"
               data-en="desKI - React Implementation"
               data-no="desKI - React Implementasjon"
-            ></h2>
+            >
+              desKI - React Implementasjon
+            </h2>
             <div
               class="project-item"
               data-github-url="https://github.com/digdir/digdir-camp-2025-react-impl"
-              data-media-src="assets/digdir.png"
+              data-media-src="assets/digdir.webp"
               data-media-alt="Preview of the frontend project"
             >
+              <div class="project-media">
+                <a
+                  class="project-media__button"
+                  href="assets/digdir.webp"
+                  aria-label="Enlarge project image: Preview of the frontend project"
+                >
+                  <img
+                    class="project-media__image"
+                    src="assets/digdir.webp"
+                    alt="Preview of the frontend project"
+                    loading="lazy"
+                    decoding="async"
+                    width="1600"
+                    height="900"
+                  />
+                </a>
+              </div>
               <h3 class="project-lang">
                 <i
                   class="devicon-typescript-plain colored"
@@ -487,15 +673,22 @@
               <p
                 data-en="A frontend solution for Selvbetjening where Copilot is integrated to support users."
                 data-no="En frontend-løsning for Selvbetjening hvor Copilot er integrert for å gi brukerstøtte."
-              ></p>
+              >
+                En frontend-løsning for Selvbetjening hvor Copilot er integrert
+                for å gi brukerstøtte.
+              </p>
               <div class="project-card__actions">
-                <button
-                  type="button"
+                <a
+                  href="https://github.com/digdir/digdir-camp-2025-react-impl"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   class="btn btn--secondary project-card__btn project-card__btn--source"
                   aria-label="View source"
                 >
-                  <span data-en="View source" data-no="Se kildekode"></span>
-                </button>
+                  <span data-en="View source" data-no="Se kildekode"
+                    >Se kildekode</span
+                  >
+                </a>
               </div>
             </div>
           </div>
@@ -504,7 +697,7 @@
         <br />
         <br />
 
-        <h2 data-en="Digdir 2024" data-no="Digdir 2024"></h2>
+        <h2 data-en="Digdir 2024" data-no="Digdir 2024">Digdir 2024</h2>
         <br />
 
         <div class="projects-container">
@@ -513,13 +706,32 @@
               class="project-title"
               data-en="EU Wallet - Issuer (Backend)"
               data-no="EU Wallet - Utsteder (Backend)"
-            ></h2>
+            >
+              EU Wallet - Utsteder (Backend)
+            </h2>
             <div
               class="project-item"
               data-github-url="https://github.com/felleslosninger/dc24-eu-wallet"
-              data-media-src="assets/digdir.png"
+              data-media-src="assets/digdir.webp"
               data-media-alt="Preview of the backend project"
             >
+              <div class="project-media">
+                <a
+                  class="project-media__button"
+                  href="assets/digdir.webp"
+                  aria-label="Enlarge project image: Preview of the backend project"
+                >
+                  <img
+                    class="project-media__image"
+                    src="assets/digdir.webp"
+                    alt="Preview of the backend project"
+                    loading="lazy"
+                    decoding="async"
+                    width="1600"
+                    height="900"
+                  />
+                </a>
+              </div>
               <h3 class="project-lang">
                 <i class="devicon-java-plain colored" title="Java"></i>
                 <i class="devicon-css3-plain colored" title="CSS"></i>
@@ -533,15 +745,22 @@
               <p
                 data-en="A backend service that issues verifiable credentials which uses API from MATTR."
                 data-no="En backend-tjeneste som utsteder verifiserbare legitimasjoner ved bruk av API-et fra MATTR."
-              ></p>
+              >
+                En backend-tjeneste som utsteder verifiserbare legitimasjoner
+                ved bruk av API-et fra MATTR.
+              </p>
               <div class="project-card__actions">
-                <button
-                  type="button"
+                <a
+                  href="https://github.com/felleslosninger/dc24-eu-wallet"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   class="btn btn--secondary project-card__btn project-card__btn--source"
                   aria-label="View source"
                 >
-                  <span data-en="View source" data-no="Se kildekode"></span>
-                </button>
+                  <span data-en="View source" data-no="Se kildekode"
+                    >Se kildekode</span
+                  >
+                </a>
               </div>
             </div>
           </div>
@@ -551,13 +770,32 @@
               class="project-title"
               data-en="EU Wallet - Verifier (Frontend)"
               data-no="EU Wallet - Verifisering (Frontend)"
-            ></h2>
+            >
+              EU Wallet - Verifisering (Frontend)
+            </h2>
             <div
               class="project-item"
               data-github-url="https://github.com/felleslosninger/dc24-wallet-verifier"
-              data-media-src="assets/digdir.png"
+              data-media-src="assets/digdir.webp"
               data-media-alt="Preview of the frontend project"
             >
+              <div class="project-media">
+                <a
+                  class="project-media__button"
+                  href="assets/digdir.webp"
+                  aria-label="Enlarge project image: Preview of the frontend project"
+                >
+                  <img
+                    class="project-media__image"
+                    src="assets/digdir.webp"
+                    alt="Preview of the frontend project"
+                    loading="lazy"
+                    decoding="async"
+                    width="1600"
+                    height="900"
+                  />
+                </a>
+              </div>
               <h3 class="project-lang">
                 <i class="devicon-java-plain colored" title="Java"></i>
                 <i class="devicon-css3-plain colored" title="CSS"></i>
@@ -571,15 +809,23 @@
               <p
                 data-en="A frontend application that demonstrates how user credentials can be verified by using the API from MATTR."
                 data-no="En frontend-applikasjon som demonstrerer hvordan brukerlegitimasjoner kan verifiseres ved bruk av API-et fra MATTR."
-              ></p>
+              >
+                En frontend-applikasjon som demonstrerer hvordan
+                brukerlegitimasjoner kan verifiseres ved bruk av API-et fra
+                MATTR.
+              </p>
               <div class="project-card__actions">
-                <button
-                  type="button"
+                <a
+                  href="https://github.com/felleslosninger/dc24-wallet-verifier"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   class="btn btn--secondary project-card__btn project-card__btn--source"
                   aria-label="View source"
                 >
-                  <span data-en="View source" data-no="Se kildekode"></span>
-                </button>
+                  <span data-en="View source" data-no="Se kildekode"
+                    >Se kildekode</span
+                  >
+                </a>
               </div>
             </div>
           </div>
@@ -589,41 +835,61 @@
         <br />
         <br />
 
-        <h1 data-en="Cogito Projects" data-no="Prosjekter fra Cogito"></h1>
+        <h1 data-en="Cogito Projects" data-no="Prosjekter fra Cogito">
+          Prosjekter fra Cogito
+        </h1>
 
         <p>
           <span
             data-en="These are projects I developed as part of Cogito NTNU."
             data-no="Dette er prosjekter jeg utviklet som del av Cogito NTNU."
+            >Dette er prosjekter jeg utviklet som del av Cogito NTNU.</span
           >
-          </span>
           <br />
           <br />
           <span
             data-en="Where source code is available, the people I worked with are listed on GitHub."
             data-no="Der kildekoden er tilgjengelig, er personene jeg jobbet med referert til på GitHub."
+            >Der kildekoden er tilgjengelig, er personene jeg jobbet med
+            referert til på GitHub.</span
           >
-          </span>
         </p>
 
         <br />
 
-        <h2 data-en="Cogito Autumn 2026" data-no="Cogito 2026 høst"></h2>
+        <h2 data-en="Cogito Autumn 2026" data-no="Cogito 2026 høst">
+          Cogito 2026 høst
+        </h2>
         <br />
 
         <div class="projects-container projects-container--single">
           <div class="project-wrapper">
-            <h2
-              class="project-title"
-              data-en="EcoCompute"
-              data-no="EcoCompute"
-            ></h2>
+            <h2 class="project-title" data-en="EcoCompute" data-no="EcoCompute">
+              EcoCompute
+            </h2>
             <div
               class="project-item"
               data-github-url="https://github.com/CogitoNTNU/ecocompute"
               data-media-src="assets/cogito.png"
               data-media-alt="Preview of the EcoCompute project"
             >
+              <div class="project-media">
+                <a
+                  class="project-media__button"
+                  href="assets/cogito.png"
+                  aria-label="Enlarge project image: Preview of the EcoCompute project"
+                >
+                  <img
+                    class="project-media__image"
+                    src="assets/cogito.png"
+                    alt="Preview of the EcoCompute project"
+                    loading="eager"
+                    decoding="async"
+                    width="1600"
+                    height="900"
+                  />
+                </a>
+              </div>
               <h3 class="project-lang">
                 <i class="devicon-azure-plain colored" title="Azure"></i>
                 <i
@@ -641,15 +907,24 @@
               <p
                 data-en="A website where users can chat with different AI models from Microsoft Foundry. We used Azure and Terraform to set up two solutions with different scaling approaches to compare performance, resource usage, and costs."
                 data-no="En nettside hvor brukere kan skrive til ulike KI-modeller fra Microsoft Foundry. Vi brukte Azure og Terraform til å sette opp to løsninger med ulik skalering, for å sammenligne ytelse, ressursbruk og kostnader."
-              ></p>
+              >
+                En nettside hvor brukere kan skrive til ulike KI-modeller fra
+                Microsoft Foundry. Vi brukte Azure og Terraform til å sette opp
+                to løsninger med ulik skalering, for å sammenligne ytelse,
+                ressursbruk og kostnader.
+              </p>
               <div class="project-card__actions">
-                <button
-                  type="button"
+                <a
+                  href="https://github.com/CogitoNTNU/ecocompute"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   class="btn btn--secondary project-card__btn project-card__btn--source"
                   aria-label="View source"
                 >
-                  <span data-en="View source" data-no="Se kildekode"></span>
-                </button>
+                  <span data-en="View source" data-no="Se kildekode"
+                    >Se kildekode</span
+                  >
+                </a>
               </div>
             </div>
           </div>
@@ -658,28 +933,50 @@
         <br />
         <br />
 
-        <h2 data-en="Cogito Spring 2026" data-no="Cogito 2026 vår"></h2>
+        <h2 data-en="Cogito Spring 2026" data-no="Cogito 2026 vår">
+          Cogito 2026 vår
+        </h2>
         <br />
 
         <div class="projects-container projects-container--single">
           <div class="project-wrapper">
-            <h2
-              class="project-title"
-              data-en="Cogito TV2"
-              data-no="Cogito TV2"
-            ></h2>
+            <h2 class="project-title" data-en="Cogito TV2" data-no="Cogito TV2">
+              Cogito TV2
+            </h2>
             <div
               class="project-item"
               data-media-src="assets/cogito.png"
               data-media-alt="Placeholder preview of the Cogito TV2 project"
             >
+              <div class="project-media">
+                <a
+                  class="project-media__button"
+                  href="assets/cogito.png"
+                  aria-label="Enlarge project image: Placeholder preview of the Cogito TV2 project"
+                >
+                  <img
+                    class="project-media__image"
+                    src="assets/cogito.png"
+                    alt="Placeholder preview of the Cogito TV2 project"
+                    loading="eager"
+                    decoding="async"
+                    width="1600"
+                    height="900"
+                  />
+                </a>
+              </div>
               <h3 class="project-lang">
                 <i class="devicon-python-plain colored" title="Python"></i>
               </h3>
               <p
                 data-en="A project where we used machine learning. It was developed in collaboration with TV2 to analyze user and article data. Since the project contained sensitive data, I cannot show the source code."
                 data-no="Et prosjekt hvor vi tok i bruk maskinlæring. Utviklet i samarbeid med TV2 for å analysere bruker- og artikkeldata. Siden prosjektet inneholdt sensitive data, kan jeg ikke vise kildekode."
-              ></p>
+              >
+                Et prosjekt hvor vi tok i bruk maskinlæring. Utviklet i
+                samarbeid med TV2 for å analysere bruker- og artikkeldata. Siden
+                prosjektet inneholdt sensitive data, kan jeg ikke vise
+                kildekode.
+              </p>
             </div>
           </div>
         </div>
@@ -687,7 +984,9 @@
         <br />
         <br />
 
-        <h2 data-en="Cogito Autumn 2025" data-no="Cogito 2025 høst"></h2>
+        <h2 data-en="Cogito Autumn 2025" data-no="Cogito 2025 høst">
+          Cogito 2025 høst
+        </h2>
         <br />
 
         <div class="projects-container">
@@ -696,13 +995,32 @@
               class="project-title"
               data-en="Cogito Web - Backend"
               data-no="Cogito Web - Backend"
-            ></h2>
+            >
+              Cogito Web - Backend
+            </h2>
             <div
               class="project-item"
               data-github-url="https://github.com/CogitoNTNU/cogi-go"
               data-media-src="assets/cogito.png"
               data-media-alt="Preview of the Cogito backend project"
             >
+              <div class="project-media">
+                <a
+                  class="project-media__button"
+                  href="assets/cogito.png"
+                  aria-label="Enlarge project image: Preview of the Cogito backend project"
+                >
+                  <img
+                    class="project-media__image"
+                    src="assets/cogito.png"
+                    alt="Preview of the Cogito backend project"
+                    loading="eager"
+                    decoding="async"
+                    width="1600"
+                    height="900"
+                  />
+                </a>
+              </div>
               <h3 class="project-lang">
                 <i class="devicon-go-original-wordmark colored" title="Go"></i>
                 <i class="devicon-docker-plain colored" title="Docker"></i>
@@ -710,15 +1028,22 @@
               <p
                 data-en="Cogito GO (or CogiGO) was the backend solution for the new COGITO NTNU website."
                 data-no="Cogito GO (eller CogiGO) var backend-løsningen for den nye nettsiden til COGITO NTNU."
-              ></p>
+              >
+                Cogito GO (eller CogiGO) var backend-løsningen for den nye
+                nettsiden til COGITO NTNU.
+              </p>
               <div class="project-card__actions">
-                <button
-                  type="button"
+                <a
+                  href="https://github.com/CogitoNTNU/cogi-go"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   class="btn btn--secondary project-card__btn project-card__btn--source"
                   aria-label="View source"
                 >
-                  <span data-en="View source" data-no="Se kildekode"></span>
-                </button>
+                  <span data-en="View source" data-no="Se kildekode"
+                    >Se kildekode</span
+                  >
+                </a>
               </div>
             </div>
           </div>
@@ -728,13 +1053,32 @@
               class="project-title"
               data-en="Cogito Web - Frontend"
               data-no="Cogito Web - Frontend"
-            ></h2>
+            >
+              Cogito Web - Frontend
+            </h2>
             <div
               class="project-item"
               data-github-url="https://github.com/CogitoNTNU/web-frontend"
               data-media-src="assets/cogito.png"
               data-media-alt="Preview of the Cogito frontend project"
             >
+              <div class="project-media">
+                <a
+                  class="project-media__button"
+                  href="assets/cogito.png"
+                  aria-label="Enlarge project image: Preview of the Cogito frontend project"
+                >
+                  <img
+                    class="project-media__image"
+                    src="assets/cogito.png"
+                    alt="Preview of the Cogito frontend project"
+                    loading="eager"
+                    decoding="async"
+                    width="1600"
+                    height="900"
+                  />
+                </a>
+              </div>
               <h3 class="project-lang">
                 <i
                   class="devicon-typescript-plain colored"
@@ -750,15 +1094,22 @@
               <p
                 data-en="This was the official frontend for the Cogito NTNU web application."
                 data-no="Dette var den offisielle frontenden for Cogito NTNU-webapplikasjonen."
-              ></p>
+              >
+                Dette var den offisielle frontenden for Cogito
+                NTNU-webapplikasjonen.
+              </p>
               <div class="project-card__actions">
-                <button
-                  type="button"
+                <a
+                  href="https://github.com/CogitoNTNU/web-frontend"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   class="btn btn--secondary project-card__btn project-card__btn--source"
                   aria-label="View source"
                 >
-                  <span data-en="View source" data-no="Se kildekode"></span>
-                </button>
+                  <span data-en="View source" data-no="Se kildekode"
+                    >Se kildekode</span
+                  >
+                </a>
               </div>
             </div>
           </div>

@@ -10,6 +10,10 @@ export function initContactForm() {
 
   if (!contactForm || !confirmationMessage) return;
 
+  const submitButton = contactForm.querySelector('[type="submit"]');
+  const successText = { ...confirmationMessage.dataset };
+  let confirmationTimer;
+
   const resizeMessageField = () => {
     if (!messageField) return;
 
@@ -26,25 +30,41 @@ export function initContactForm() {
     resizeMessageField();
   }
 
-  contactForm.addEventListener("submit", (event) => {
+  contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
+    if (contactForm.getAttribute("aria-busy") === "true") return;
 
-    confirmationMessage.style.display = "block";
+    clearTimeout(confirmationTimer);
+    confirmationMessage.style.display = "none";
+    contactForm.setAttribute("aria-busy", "true");
+    submitButton.disabled = true;
 
-    fetch(contactForm.action, {
-      method: "POST",
-      body: new FormData(contactForm),
-      headers: { Accept: "application/json" },
-    })
-      .then(() => {
-        setTimeout(() => {
-          contactForm.reset();
-          confirmationMessage.style.display = "none";
-        }, 3000);
-      })
-      .catch(() => {
-        confirmationMessage.textContent =
-          "An error occurred. Please try again.";
+    try {
+      const response = await fetch(contactForm.action, {
+        method: "POST",
+        body: new FormData(contactForm),
+        headers: { Accept: "application/json" },
       });
+      if (!response.ok) throw new Error("Contact submission failed");
+
+      Object.assign(confirmationMessage.dataset, successText);
+      confirmationMessage.classList.remove("is-error");
+      confirmationTimer = setTimeout(() => {
+        contactForm.reset();
+        confirmationMessage.style.display = "none";
+      }, 3000);
+    } catch {
+      confirmationMessage.dataset.en = "An error occurred. Please try again.";
+      confirmationMessage.dataset.no = "Det oppstod en feil. Prøv igjen.";
+      confirmationMessage.classList.add("is-error");
+    } finally {
+      confirmationMessage.textContent =
+        confirmationMessage.dataset[
+          document.documentElement.lang === "no" ? "no" : "en"
+        ];
+      confirmationMessage.style.display = "block";
+      contactForm.removeAttribute("aria-busy");
+      submitButton.disabled = false;
+    }
   });
 }

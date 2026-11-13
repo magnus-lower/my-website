@@ -123,20 +123,10 @@ export function initProjectMedia() {
     const aspect = parseAspectRatio(aspectValue);
     const dimensions = getAspectDimensions(aspectValue);
 
-    const wrapper = document.createElement("div");
-    wrapper.className = "project-media";
-
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "project-media__button";
-    button.setAttribute("aria-label", `Enlarge project image: ${alt}`);
-
-    const image = document.createElement("img");
-    image.className = "project-media__image";
-    image.src = src;
-    image.alt = alt;
+    const wrapper = card.querySelector(".project-media");
+    const button = wrapper.querySelector(".project-media__button");
+    const image = wrapper.querySelector("img");
     image.setAttribute("data-media-type", type);
-    image.loading = "eager";
     image.decoding = "async";
     image.width = dimensions.width;
     image.height = dimensions.height;
@@ -150,12 +140,8 @@ export function initProjectMedia() {
       image.classList.add("project-media__image--cover");
     }
 
-    button.append(image);
-    wrapper.append(button);
-
-    card.prepend(wrapper);
-
     on(button, "click", (event) => {
+      event.preventDefault();
       event.stopPropagation();
       openModal(src, alt);
     });

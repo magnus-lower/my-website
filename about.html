@@ -22,6 +22,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
     <link rel="stylesheet" href="styles/app.css" />
+    <noscript><link rel="stylesheet" href="styles/no-script.css" /></noscript>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
     <link
@@ -64,14 +65,14 @@
 
         <nav id="primary-navigation" aria-label="Primary navigation">
           <ul class="nav-list">
-            <li><a href="index.html" data-en="Home" data-no="Hjem">Home</a></li>
+            <li><a href="index.html" data-en="Home" data-no="Hjem">Hjem</a></li>
             <li>
               <a href="projects.html" data-en="Projects" data-no="Prosjekter"
-                >Projects</a
+                >Prosjekter</a
               >
             </li>
             <li>
-              <a href="about.html" data-en="About" data-no="Om meg">About</a>
+              <a href="about.html" data-en="About" data-no="Om meg">Om meg</a>
             </li>
           </ul>
         </nav>
@@ -91,7 +92,7 @@
               <div class="settings-item">
                 <div class="settings-item-label">
                   <i class="fas fa-globe"></i>
-                  <span data-en="Language" data-no="Språk">Language</span>
+                  <span data-en="Language" data-no="Språk">Språk</span>
                 </div>
                 <div
                   class="language-toggle"
@@ -128,7 +129,7 @@
                     id="theme-mode-text"
                     data-en="Dark Mode"
                     data-no="Mørk modus"
-                    >Dark Mode</span
+                    >Mørk modus</span
                   >
                 </div>
                 <label class="theme-toggle">
@@ -149,18 +150,18 @@
     <main id="main-content">
       <section class="hero">
         <div class="hero-content fade-in">
-          <h1 id="typing-about" data-en="About Me" data-no="Om meg">
-            About Me
-          </h1>
+          <h1 id="typing-about" data-en="About Me" data-no="Om meg">Om meg</h1>
           <p
             data-en="Get to know me, my background, and feel free to reach out!"
             data-no="Bli kjent med meg, min bakgrunn, og ta gjerne kontakt!"
-          ></p>
+          >
+            Bli kjent med meg, min bakgrunn, og ta gjerne kontakt!
+          </p>
         </div>
       </section>
 
       <section class="about fade-in">
-        <h2 data-en="Who Am I?" data-no="Hvem er jeg?">Who Am I?</h2>
+        <h2 data-en="Who Am I?" data-no="Hvem er jeg?">Hvem er jeg?</h2>
         <div class="about-container">
           <div class="profile-picture">
             <img
@@ -174,7 +175,8 @@
               <span
                 data-en="Hi! My name is Magnus Løwer, and I have completed a bachelor's degree in Computer Engineering at "
                 data-no="Hei! Jeg heter Magnus Løwer, og jeg har fullført en bachelorgrad i dataingeniør ved "
-              ></span
+                >Hei! Jeg heter Magnus Løwer, og jeg har fullført en
+                bachelorgrad i dataingeniør ved </span
               ><a
                 class="about-link"
                 href="https://www.ntnu.no/gjovik"
@@ -182,11 +184,13 @@
                 rel="noopener noreferrer"
                 data-en="NTNU in Gjøvik"
                 data-no="NTNU i Gjøvik"
-              ></a
+                >NTNU i Gjøvik</a
               ><span
                 data-en=" (2022–2025). I am currently in my fifth and final year of the Master of Science in Computer Science at "
                 data-no=" (2022–2025). For tiden går jeg mitt femte og siste år på datateknologi ved "
-              ></span
+              >
+                (2022–2025). For tiden går jeg mitt femte og siste år på
+                datateknologi ved </span
               ><a
                 class="about-link"
                 href="https://www.ntnu.no/trondheim"
@@ -194,28 +198,41 @@
                 rel="noopener noreferrer"
                 data-en="NTNU in Trondheim"
                 data-no="NTNU i Trondheim"
-              ></a
+                >NTNU i Trondheim</a
               ><span
                 data-en=" (2025–2027), where I am specializing in Visual Computing."
                 data-no=" (2025–2027), med spesialisering i visuell databehandling."
-              ></span>
+              >
+                (2025–2027), med spesialisering i visuell databehandling.</span
+              >
             </p>
 
             <p
               data-en="I am very curious about IT, especially how the quick technological development in the recent years has changed the way we both develop and use it."
               data-no="Jeg er veldig nysgjerrig på alt innen IT, og særlig hvordan den raske utviklingen de siste årene har påvirket måten vi utvikler og bruker teknologien."
-            ></p>
+            >
+              Jeg er veldig nysgjerrig på alt innen IT, og særlig hvordan den
+              raske utviklingen de siste årene har påvirket måten vi utvikler og
+              bruker teknologien.
+            </p>
 
             <p
               data-en="My first experience with IT was in high school, where I started learning HTML, CSS, and JavaScript. This made me more interested in IT and played an important role in my choice of education."
               data-no="Min første erfaring med IT var på videregående, hvor jeg begynte å lære om HTML, CSS og JavaScript. Denne erfaringen har ført til at jeg har fått interesse for data, og fikk stor betydning for valget av utdanning."
-            ></p>
+            >
+              Min første erfaring med IT var på videregående, hvor jeg begynte å
+              lære om HTML, CSS og JavaScript. Denne erfaringen har ført til at
+              jeg har fått interesse for data, og fikk stor betydning for valget
+              av utdanning.
+            </p>
 
             <p>
               <span
                 data-en="I have primarily gained practical experience through personal projects (including the development of this website), through involvement in "
                 data-no="Jeg har hovedsakelig fått praktisk erfaring gjennom prosjekter på fritiden (blant annet utviklingen av denne nettsiden), gjennom verv i "
-              ></span
+                >Jeg har hovedsakelig fått praktisk erfaring gjennom prosjekter
+                på fritiden (blant annet utviklingen av denne nettsiden),
+                gjennom verv i </span
               ><a
                 class="about-link"
                 href="https://www.cogito-ntnu.no/"
@@ -223,11 +240,12 @@
                 rel="noopener noreferrer"
                 data-en="Cogito NTNU"
                 data-no="Cogito NTNU"
-              ></a
+                >Cogito NTNU</a
               ><span
                 data-en=", through two summer internships at the "
                 data-no=" og gjennom to sommerjobber hos "
-              ></span
+              >
+                og gjennom to sommerjobber hos </span
               ><a
                 class="about-link"
                 href="https://www.digdir.no/"
@@ -235,11 +253,11 @@
                 rel="noopener noreferrer"
                 data-en="Norwegian Digitalisation Agency (Digdir)"
                 data-no="Digitaliseringsdirektoratet (Digdir)"
-              ></a
+                >Digitaliseringsdirektoratet (Digdir)</a
               ><span
                 data-en=", and through one summer internship at "
                 data-no=", samt én sommerjobb hos "
-              ></span
+                >, samt én sommerjobb hos </span
               ><a
                 class="about-link"
                 href="https://www.soprasteria.no/"
@@ -247,15 +265,17 @@
                 rel="noopener noreferrer"
                 data-en="Sopra Steria"
                 data-no="Sopra Steria"
-              ></a
+                >Sopra Steria</a
               ><span
                 data-en=". From these experiences, I have developed broad competence across several exciting projects."
                 data-no=". Gjennom disse erfaringene har jeg fått mulighet til å utvikle bred kompetanse gjennom flere spennende prosjekter."
-              ></span>
+                >. Gjennom disse erfaringene har jeg fått mulighet til å utvikle
+                bred kompetanse gjennom flere spennende prosjekter.</span
+              >
             </p>
 
             <p>
-              <span data-en="At " data-no="I "></span
+              <span data-en="At " data-no="I ">I </span
               ><a
                 class="about-link"
                 href="https://www.cogito-ntnu.no/"
@@ -263,11 +283,14 @@
                 rel="noopener noreferrer"
                 data-en="Cogito"
                 data-no="Cogito"
-              ></a
+                >Cogito</a
               ><span
                 data-en=", I worked as part of a team in autumn 2025 on the development of a website where artificial intelligence was planned for later use. In spring 2026, we also worked together with "
                 data-no=" jobbet jeg høsten 2025 sammen med et team med utviklingen av en nettside hvor kunstig intelligens var planlagt for senere utvikling. Våren 2026 jobbet vi også sammen med "
-              ></span
+              >
+                jobbet jeg høsten 2025 sammen med et team med utviklingen av en
+                nettside hvor kunstig intelligens var planlagt for senere
+                utvikling. Våren 2026 jobbet vi også sammen med </span
               ><a
                 class="about-link"
                 href="https://www.tv2.no/"
@@ -275,18 +298,24 @@
                 rel="noopener noreferrer"
                 data-en="TV 2"
                 data-no="TV 2"
-              ></a
+                >TV 2</a
               ><span
                 data-en=" on a project that used machine learning to analyze user and article data. In autumn 2026, we also worked on EcoCompute, where we used Azure and Terraform to set up two solutions with different scaling approaches to compare performance, resource usage, and costs."
                 data-no=" på et prosjekt som tok i bruk maskinlæring for å analysere bruker- og artikkeldata. Høsten 2026 jobbet vi også med EcoCompute, hvor vi brukte Azure og Terraform til å sette opp to løsninger med ulik skalering for å sammenligne ytelse, ressursbruk og kostnader."
-              ></span>
+              >
+                på et prosjekt som tok i bruk maskinlæring for å analysere
+                bruker- og artikkeldata. Høsten 2026 jobbet vi også med
+                EcoCompute, hvor vi brukte Azure og Terraform til å sette opp to
+                løsninger med ulik skalering for å sammenligne ytelse,
+                ressursbruk og kostnader.</span
+              >
             </p>
 
             <p>
               <span
                 data-en="During my summer internships in 2024 and 2025 at "
                 data-no="Under sommerjobbene i 2024 og 2025 hos "
-              ></span
+                >Under sommerjobbene i 2024 og 2025 hos </span
               ><a
                 class="about-link"
                 href="https://www.digdir.no/"
@@ -294,15 +323,21 @@
                 rel="noopener noreferrer"
                 data-en="Digdir"
                 data-no="Digdir"
-              ></a
+                >Digdir</a
               ><span
                 data-en=", I worked together with a team of students on two different projects. The first involved developing an EU wallet with a focus on decentralized identity, while the second project involved supporting the Service Desk at Digdir with various tasks by using artificial intelligence."
                 data-no=" jobbet jeg sammen med et team av studenter på to ulike prosjekter. Det første handlet om å utvikle en EU-lommebok med fokus på desentralisert identitet, mens det andre gikk ut på å støtte Service Desk med ulike oppgaver ved hjelp av kunstig intelligens."
-              ></span>
+              >
+                jobbet jeg sammen med et team av studenter på to ulike
+                prosjekter. Det første handlet om å utvikle en EU-lommebok med
+                fokus på desentralisert identitet, mens det andre gikk ut på å
+                støtte Service Desk med ulike oppgaver ved hjelp av kunstig
+                intelligens.</span
+              >
             </p>
 
             <p>
-              <span data-en="At " data-no="I "></span
+              <span data-en="At " data-no="I ">I </span
               ><a
                 class="about-link"
                 href="https://www.soprasteria.no/"
@@ -310,22 +345,30 @@
                 rel="noopener noreferrer"
                 data-en="Sopra Steria"
                 data-no="Sopra Steria"
-              ></a
+                >Sopra Steria</a
               ><span
                 data-en=" in summer 2026, we worked on developing an automated test rig that created and removed temporary test environments in Azure in response to code changes. We used Terraform and CI/CD for validation, deployment, and cleanup, and explored how artificial intelligence could be used to select relevant tests."
                 data-no=" sommeren 2026 jobbet vi med å utvikle en automatisert test-rigg som opprettet og fjernet midlertidige testmiljøer i Azure ved kodeendringer. Vi brukte Terraform og CI/CD til validering, utrulling og opprydding, og utforsket hvordan kunstig intelligens kunne brukes til å velge relevante tester."
-              ></span>
+              >
+                sommeren 2026 jobbet vi med å utvikle en automatisert test-rigg
+                som opprettet og fjernet midlertidige testmiljøer i Azure ved
+                kodeendringer. Vi brukte Terraform og CI/CD til validering,
+                utrulling og opprydding, og utforsket hvordan kunstig
+                intelligens kunne brukes til å velge relevante tester.</span
+              >
             </p>
           </div>
         </div>
       </section>
 
       <section class="contact fade-in">
-        <h2 data-en="Contact Me" data-no="Kontakt meg">Contact Me</h2>
+        <h2 data-en="Contact Me" data-no="Kontakt meg">Kontakt meg</h2>
         <p
           data-en="Feel free to reach out to me!"
           data-no="Ta gjerne kontakt med meg!"
-        ></p>
+        >
+          Ta gjerne kontakt med meg!
+        </p>
 
         <form
           action="https://formspree.io/f/mjkgzjjp"
@@ -334,21 +377,21 @@
         >
           <div class="form-group">
             <label for="name" data-en="Your Name:" data-no="Ditt navn:"
-              >Your Name:</label
+              >Ditt navn:</label
             >
             <input type="text" id="name" name="name" required />
           </div>
 
           <div class="form-group">
             <label for="email" data-en="Your Email:" data-no="Din e-post:"
-              >Your Email:</label
+              >Din e-post:</label
             >
             <input type="email" id="email" name="_replyto" required />
           </div>
 
           <div class="form-group">
             <label for="message" data-en="Message:" data-no="Melding:"
-              >Message:</label
+              >Melding:</label
             >
             <textarea id="message" name="message" rows="4" required></textarea>
           </div>
@@ -359,15 +402,21 @@
             aria-label="Send"
             data-en="Send"
             data-no="Send"
-          ></button>
+          >
+            Send
+          </button>
         </form>
 
         <p
           id="confirmation"
+          role="status"
+          aria-live="polite"
           class="confirmation-message"
           data-en="Your message has been sent!"
           data-no="Meldingen din er sendt!"
-        ></p>
+        >
+          Meldingen din er sendt!
+        </p>
       </section>
     </main>
 

@@ -1,0 +1,26 @@
+.fade-in {
+  opacity: 1;
+  transform: none;
+}
+
+.hamburger,
+.header-actions,
+#scroll-top {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-wrap: wrap;
+  }
+
+  nav {
+    position: static;
+    order: 3;
+    flex-basis: 100%;
+    width: auto;
+    height: auto;
+    padding: 16px 0 0;
+    transform: none;
+  }
+}
