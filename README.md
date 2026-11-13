@@ -17,7 +17,7 @@ A bilingual, theme-aware portfolio that showcases programming projects, educatio
 [preferences preload] -> [core controllers] -> [components] -> [features]
           |                    |                  |              |
           |                    |                  |              +-- typing, contact, scroll, navigation extras
-          |                    |                  +-- header/nav, settings, resume link
+          |                    |                  +-- header/nav, settings
           |                    +-- language/theme/state managers
           +-- ensures DOM has language & theme before render
 ```
@@ -31,15 +31,12 @@ A bilingual, theme-aware portfolio that showcases programming projects, educatio
 ├── projects.html
 ├── assets/
 │   ├── dots-pattern.svg
-│   ├── english_cv.pdf
-│   ├── norwegian_cv.pdf
 │   ├── norwegian-flag.png
 │   ├── profile_picture.jpg
 │   └── uk-flag.png
 ├── js/
 │   ├── components/
 │   │   ├── navigation.js
-│   │   ├── resume-link.js
 │   │   └── settings-panel.js
 │   ├── core/
 │   │   ├── app.js

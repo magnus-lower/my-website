@@ -165,21 +165,6 @@ form button:active {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.cv-download .download-cv {
-  display: inline-block;
-  background: var(--color-primary);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.cv-download .download-cv:hover {
-  background: #1e70bf;
-}
-
 .project-item {
   background: var(--color-card-surface);
   padding: 20px;

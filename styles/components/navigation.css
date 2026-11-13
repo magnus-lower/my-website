@@ -27,7 +27,6 @@
 .hamburger:focus-visible,
 .settings-toggle:focus-visible,
 .nav-list a:focus-visible,
-.resume-btn:focus-visible,
 .language-toggle .flag-icon:focus-visible,
 #scroll-top:focus-visible {
   outline: 2px solid var(--color-primary);
@@ -384,69 +383,4 @@ body:not(.dark-mode) .hamburger.active span {
 
 .nav-list li:last-child {
   padding-left: 15px;
-}
-
-.nav-list__resume .resume-btn {
-  margin-left: 0;
-}
-
-.resume-btn {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  background: transparent;
-  color: var(--color-primary) !important;
-  padding: 8px 15px;
-  border-radius: 4px;
-  margin-left: 15px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border: 1px solid var(--color-primary);
-}
-
-.resume-btn:hover {
-  background-color: rgba(52, 152, 219, 0.1);
-  transform: translateY(-2px);
-}
-
-.resume-btn:active {
-  transform: translateY(0);
-}
-
-.resume-btn i {
-  font-size: 1em;
-  margin-right: 5px;
-}
-
-.resume-btn span {
-  font-size: 0.95em;
-}
-
-@media (max-width: 768px) {
-  .resume-btn {
-    margin: 8px auto 0;
-    padding: 8px 12px;
-    font-size: 0.95em;
-  }
-
-  .nav-list .nav-list__resume {
-    padding-left: 0;
-  }
-
-  .nav-list .nav-list__resume .resume-btn {
-    display: inline-flex;
-    width: auto;
-    justify-content: center;
-    border-left: 1px solid var(--color-primary);
-    transform: none;
-  }
-
-  .nav-list .nav-list__resume .resume-btn::after {
-    display: none;
-  }
-
-  .nav-list .nav-list__resume .resume-btn:hover {
-    transform: translateY(-2px);
-  }
 }

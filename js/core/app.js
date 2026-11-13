@@ -3,7 +3,6 @@ import { createLanguageController } from "./language.js";
 import { createThemeController } from "./theme.js";
 import { initNavigation } from "../components/navigation.js";
 import { initSettingsPanel } from "../components/settings-panel.js";
-import { initResumeLink } from "../components/resume-link.js";
 import { highlightActiveNavLink } from "../features/navigation/nav-highlight.js";
 import { initHeaderVisibility } from "../features/navigation/header-visibility.js";
 import { initFadeInObserver } from "../features/scroll/fade-in-observer.js";
@@ -26,12 +25,10 @@ export function startApp() {
     themeController.init();
 
     const typingController = initTyping(initialLanguage);
-    const resumeController = initResumeLink(initialLanguage);
 
     languageController.onChange((language) => {
       themeController.refreshLabel();
       typingController.restart(language);
-      resumeController.refresh(language);
     });
 
     initSettingsPanel({
