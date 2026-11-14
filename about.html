@@ -376,13 +376,6 @@
           id="contact-form"
         >
           <div class="form-group">
-            <label for="name" data-en="Your Name:" data-no="Ditt navn:"
-              >Ditt navn:</label
-            >
-            <input type="text" id="name" name="name" required />
-          </div>
-
-          <div class="form-group">
             <label for="email" data-en="Your Email:" data-no="Din e-post:"
               >Din e-post:</label
             >
@@ -393,7 +386,22 @@
             <label for="message" data-en="Message:" data-no="Melding:"
               >Melding:</label
             >
-            <textarea id="message" name="message" rows="4" required></textarea>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              aria-describedby="message-privacy-notice"
+              required
+            ></textarea>
+            <small
+              id="message-privacy-notice"
+              class="form-privacy-notice"
+              data-en="Please do not share your password, national identity number, or other sensitive information."
+              data-no="Vennligst ikke del passord, fødselsnummer eller andre sensitive opplysninger."
+            >
+              Vennligst ikke del passord, fødselsnummer eller andre sensitive
+              opplysninger.
+            </small>
           </div>
 
           <button

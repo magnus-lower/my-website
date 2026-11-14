@@ -109,6 +109,11 @@ form textarea {
   resize: none;
 }
 
+.form-privacy-notice {
+  margin-top: var(--space-xs);
+  font-size: var(--font-size-sm);
+}
+
 form input:focus,
 form textarea:focus {
   outline: none;
